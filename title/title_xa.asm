@@ -1,0 +1,995 @@
+;STONEMASON $26-12-2001
+
+;THIS NOW WORKS, ALTHOUGH I STILL NEED A ROUTINE (BLEND_BW_COLOUR) TO BLEND
+;FINISHED B/W LOGO WITH SPLIT-LINE COLOUR LOGO LIKE IN C64-GAME.
+
+
+#define CHISEL_FRAME	$05
+#define HAND_X	          $00
+#define HAND_Y	          $12
+#define NEW_HANDX          $47
+#define NEW_HANDY          $54
+#define OPTION   $00
+#define SEQ_ENTITY         $00
+#define SEQ_PERIOD_LO      $01
+#define SEQ_PERIOD_HI      $96
+
+
+
+
+*=$600
+DRIVER
+;	jsr $ec33
+	SEI
+	LDX #$10
+DRV_01
+	LDA ZPAGE_CODE,X
+	STA $20,X
+	DEX
+	BPL DRV_01
+	INX
+	STX $32	;DELAY
+	LDA #26
+	STA $B2C0
+	LDA #31
+	STA $BFDF
+
+	jsr erase_top ; jede
+
+	jsr display_title
+
+	JSR DITHER_IN_OPTIONS ;
+
+
+
+	JSR SCROLL_IN_CANVAS
+
+
+	JSR STONE_MASON
+
+	JSR MONO_2_COLOUR
+	cli
+	rts
+; 	JMP POSITION_HAND
+SM_05
+	RTS
+
+
+
+ADD_BB
+	clc
+	adc $bb
+	sta $bb
+	lda $bc
+	adc #$00
+	sta $bc
+	rts
+
+
+
+
+
+
+STONE_MASON
+SM_02
+	LDA #$00
+	STA $01
+SM_03
+	LDA datas_cutsmem+$17a;  $167A;SLOC_Y1,X
+	BMI SM_05
+	ASL  	;MULT_8 (YRANGE IS 0-119 SO FIRST ASL IS 8BIT)
+	ASL
+	ASL
+	STA $02
+	ASL
+	ROL $01
+	STA $04
+	LDX $01
+	STX $05
+	ASL
+	ROL $01
+	ASL
+	ROL $01
+	ASL
+	ROL $01
+	ASL
+	ROL $01
+	ADC $02
+	BCC j4
+	INC $01
+	CLC
+j4
+	ADC $04
+	STA $00
+	LDA $01
+	ADC $05
+	STA $01
+SM_04
+	LDA datas_cutsmem ;Was $1500 SLOC_X1,X
+	ADC #$02
+	ADC $00
+	BCC j5
+	INC $01
+	CLC
+j5
+	STA $00
+	STA $02 /*FIXME SHould fale !!! datas_cutsmen is not aligned to offset low 00*/
+	LDA $01	;AND
+	PHA
+	ADC #$A0
+	STA $01
+	PLA   	;AND BASE FOR LETTERS
+	ADC #$18
+	STA $03
+	LDX #06
+SM_01
+	LDY SM_OFFSET,X
+	LDA ($02),Y
+	STA ($00),Y
+	JSR PLOT_CHISEL
+	DEX
+	BPL SM_01
+	INC SM_03+1
+	BNE j1
+	INC SM_03+2
+j1
+	INC SM_04+1
+	BNE j2
+	INC SM_04+2
+j2
+	JMP SM_02
+	RTS
+
+
+display_title
+.(
+	ldx #0
+	;lda #64
+loop
+	lda datas_toltitle,x
+	sta $b500,x
+	lda datas_toltitle+256,x
+	sta $b500+256,x
+	lda datas_toltitle+2*256,x
+	sta $b500+2*256,x
+	lda datas_toltitle+3*256,x
+	sta $b500+3*256,x
+	lda datas_toltitle+4*256,x
+	sta $b500+4*256,x
+	lda datas_toltitle+5*256,x
+	sta $b500+5*256,x
+	lda datas_toltitle+6*256,x
+	sta $b500+6*256,x
+	lda datas_toltitle+7*256,x
+	sta $b500+7*256,x
+	lda datas_toltitle+8*256,x
+	sta $b500+8*256,x
+	lda datas_toltitle+9*256,x
+	sta $b500+9*256,x
+	inx
+	bne loop
+loop2
+	lda datas_toltitle+10*256,x
+	sta $b500+10*256,x
+	inx
+	cpx #200+20+3
+	bne loop2
+	rts
+.)
+
+
+
+
+erase_top
+.(
+	ldx #0
+	lda #64
+loop
+	sta $a000,x
+	sta $a000+256,x
+	sta $a000+2*256,x
+	sta $a000+3*256,x
+	sta $a000+4*256,x
+	sta $a000+5*256,x
+	sta $a000+6*256,x
+	sta $a000+7*256,x
+	sta $a000+8*256,x
+	sta $a000+9*256,x
+	sta $a000+10*256,x
+	sta $a000+11*256,x
+	sta $a000+12*256,x
+	sta $a000+13*256,x
+	sta $a000+14*256,x
+	sta $a000+15*256,x
+	sta $a000+16*256,x
+	sta $a000+17*256,x
+	dex
+	bne loop
+loop2
+	sta $a000+18*256,x
+	inx
+	cpx #40+40*3+32
+	bne loop2
+	rts
+.)
+
+/*PLOT CHISEL*/
+
+PLOT_CHISEL
+
+	STX TEMP_X
+	DEC CHISEL_FRAME
+	BNE PCH_99
+	LDA #$05
+	STA CHISEL_FRAME
+PCH_99
+	LDA #$00
+	STA $09
+	LDX CHISEL_FRAME
+	LDA BITMAP_FRAME_LO,X ; Get low byte for chisel (With X==id of the frame)
+	STA PCH_02+1
+	LDA BITMAP_FRAME_HI,X ; Get high byte for chisel (With X==id of the frame)
+	STA PCH_02+2
+	LDA MASK_FRAME_LO,X ; get mask low
+	STA PCH_03+1
+	LDA MASK_FRAME_HI,X ; get high
+	STA PCH_03+2
+	TYA	;GET SCREEN LOCATION BY ADDING Y TO BASE
+	LDY $01
+	ADC $00
+	BCC j7
+	INY
+j7
+	SEC	;NOW OFFSET CHISEL ON SCREEN
+	SBC #$AA
+	STA $04	;FOR
+	STA $06	;FOR
+	STA $08	;FOR
+	TYA
+	SBC #$02
+	STA $05
+	STA $07
+	STA $09
+	CLC
+;PRESERVE SCREEN IN BG-BUFFER
+	LDX #67
+PCH_05
+	LDY #03
+PCH_04
+	LDA ($04),Y
+	STA BG_BUFFER,X
+	DEX
+	BMI PCH_08
+	DEY
+	BPL PCH_04
+	LDA $04
+	ADC #40
+	STA $04
+	LDA $05
+	ADC #$00
+	STA $05
+	JMP PCH_05
+;COMBINE AND PLOT CHISEL
+PCH_08
+	LDX #67
+PCH_06
+	LDY #$03
+PCH_03
+	LDA $1500,X;MASK
+
+	AND BG_BUFFER,X	;BG-BUFFER
+PCH_02
+	ORA $1500,X;BITMAP
+	STA ($06),Y	;SCREEN
+	DEX
+	BMI PCH_07
+	DEY
+	BPL PCH_03
+	LDA $06
+
+	CLC
+	ADC #40
+	STA $06
+
+	LDA $07
+
+	ADC #$00
+	STA $07
+
+	JMP PCH_06
+
+DELAY_CHISEL
+PCH_07
+	LDY #$00;DELAY IT
+DLY_02
+	LDA #$09
+DLY_01
+	SBC #$01
+	BCS DLY_01
+	DEY
+	BNE DLY_02
+DELETE_CHISEL
+	LDX #67
+PCH_10
+	LDY #03
+PCH_11
+	LDA BG_BUFFER,X
+	STA ($08),Y
+	DEX
+	BMI PCH_12
+	DEY
+	BPL PCH_11
+	LDA $08
+	ADC #40
+	STA $08
+	LDA $09
+	ADC #$00
+	STA $09
+	JMP PCH_10
+PCH_12
+	LDX TEMP_X
+	RTS
+
+PLOT_PAPER
+	;A=PAPER
+	LDX #120
+	LDY #$A0
+	STY $BC
+
+	LDY #$00
+	STY $BB
+
+PLP_01
+	STA ($BB),Y
+	PHA
+	LDA #$28
+	JSR ADD_BB /*FIXME ERROR*/
+	PLA
+	DEX
+	BNE PLP_01
+CSEQ_01
+	RTS
+
+CONTROL_SEQUENCE
+	DEC SEQ_PERIOD_LO
+	BNE CSEQ_01
+	DEC SEQ_PERIOD_HI
+	BNE CSEQ_01
+	LDX SEQ_ENTITY
+	INX
+	CPX #$05
+	BCC j9
+	LDX #$00
+j9
+	STX SEQ_ENTITY
+	LDA SEQ_PERREF_LO,X
+	STA SEQ_PERIOD_LO
+	LDA SEQ_PERREF_HI,X
+	STA SEQ_PERIOD_HI
+	JMP FLASH_FRAME
+
+FLASH_FRAME
+	;X=FLASH SCREEN
+	LDA #$00
+	STA $21
+	STA $24
+	LDA #$B2
+	STA $25
+	LDA FLASH_HI,X
+	STA $22
+	LDY #$00
+	LDA ($21),Y
+	STA ($24),Y
+	LDX #$13
+	LDY #$BF
+	JMP $0020
+POSITION_HAND
+	JSR STORE_SLOCS
+	JSR DEPOSIT_BEE4
+	JSR FIND_SLOC
+	LDA $A0
+	STA $A8
+	LDA $A1
+	STA $A9
+POSH_01
+	JSR FIND_SLOC
+	JSR CLEAR_HBUFFERS
+	JSR CHECK_NEEDTOMOVE
+	BCC POSH_02
+POSH_03
+	JSR STORE_SLOCS
+	JSR STOR_NEW_HAND
+	JSR DELETE_OLD_HAND
+	JSR DEPOSIT_BEE4
+	LDA $A0
+	STA $A8
+	LDA $A1
+	STA $A9
+	JSR ZOOM_HBUFFERS
+	JSR PLOT_HAND
+	JSR KEY_CONTROL
+	JMP POSH_01
+
+POSH_02
+	JSR STOR_NEW_HAND
+	JSR ZOOM_HBUFFERS
+	JSR KEY_CONTROL
+	JMP POSH_01
+
+KEY_CONTROL
+	CLI
+	JSR $EB78
+
+	SEI
+	CMP #11
+	BNE KC_03
+	LDX OPTION	;HAND NAVIGATE UP
+	BEQ KC_02
+	DEX
+KC_01
+	STX OPTION
+	LDA HAND_POSITIONS_X,X
+	STA NEW_HANDX
+	LDA HAND_POSITIONS_Y,X
+	STA NEW_HANDY
+	JMP KC_02
+KC_03
+	CMP #10
+	BNE KC_02
+	LDX OPTION	;HAND NAVIGATE DOWN
+	CPX #02
+	BCS KC_02
+	INX
+	JMP KC_01
+KC_02
+	JSR CONTROL_SEQUENCE
+	LDY #$00
+	LDA HAND_X	;NAVIGATE_HAND
+	CMP NEW_HANDX
+	BEQ KC_08
+	BCS KC_05
+	INC HAND_X
+	JMP KC_04
+KC_05
+	DEC HAND_X
+KC_04
+	LDA HAND_Y
+	CMP NEW_HANDY
+	BEQ KC_06
+	BCS KC_07
+	INC HAND_Y
+	RTS
+KC_07
+	DEC HAND_Y
+	RTS
+KC_06
+	CPY #$01
+	BEQ KEY_CONTROL
+	RTS
+KC_08
+	INY
+	JMP KC_04
+
+PLOT_HAND
+
+	LDX #19
+	CLC
+	LDA #98
+DOH_01_jede
+	LDY H_OFFSET,X
+	STA ($A0),Y	;BC24,X
+	ADC #$01
+	DEX
+	BPL DOH_01_jede
+	RTS
+
+ZOOM_HBUFFERS
+	LDX #$A0
+ZHB_01
+	LDA $BB2F,X
+	AND $B360,X
+	ORA $B2C0,X
+	STA $B70F,X
+	DEX
+	BNE ZHB_01
+	RTS
+
+DELETE_OLD_HAND
+
+	LDX #19
+DOH_01
+	LDA $B4D4,X
+	LDY H_OFFSET,X
+	STA ($A8),Y
+	DEX
+	BPL DOH_01
+	RTS
+CHECK_NEEDTOMOVE
+	LDA $A0
+	CMP $A8
+	BNE CNTM_01
+	LDA $A1
+	CMP $A9
+	BNE CNTM_01
+	CLC
+	RTS
+CNTM_01
+	SEC
+	RTS
+
+STOR_NEW_HAND
+	LDX HAND_X                   ;CALCULATE HAND BIT-POS FRAME LOCS
+	LDY HAND_FRAME,X	;0-5
+	LDA HAND_OFFSET_L,Y
+	CLC
+	ADC #$76                ;BMP BASE
+	STA $A2
+	LDA HAND_OFFSET_H,Y
+	ADC #$12
+	STA $A3
+
+	LDA HAND_OFFSET_L,Y   ;MSK BASE
+	STA $A4
+
+	LDA HAND_OFFSET_H,Y
+	ADC #$10
+	STA $A5
+
+	LDY #104                     ;THEN COPY INTO FIXED AREA
+SNH_01
+	LDA ($A2),Y
+	STA $B401,Y
+
+	LDA ($A4),Y
+	STA $B46A,Y
+
+	DEY
+	BPL SNH_01
+	LDA HAND_Y                   ;THEN COPY FIXED AREA INTO H-BUFS+Y
+	AND #$07
+	TAX
+	LDY #00
+SNH_02
+	LDA $B401,Y;BMP
+	STA $B2C1,X
+	LDA $B416,Y
+	STA $B2E1,X
+	LDA $B42B,Y
+	STA $B301,X
+	LDA $B440,Y
+	STA $B321,X
+	LDA $B455,Y
+	STA $B341,X
+	LDA $B46A,Y	;MSK
+	STA $B361,X
+	LDA $B47F,Y
+	STA $B381,X
+	LDA $B494,Y
+	STA $B3A1,X
+	LDA $B4A9,Y
+	STA $B3C1,X
+	LDA $B4BE,Y
+	STA $B3E1,X
+	INX
+	INY
+	CPY #21
+	BCC SNH_02
+	RTS
+
+CLEAR_HBUFFERS
+
+	LDX #$A0
+CHB_01
+	LDA #$00
+	STA $B2C0,X
+
+	LDA #$FF
+	STA $B360,X
+
+	DEX
+	BNE CHB_01
+	RTS
+
+STORE_SLOCS
+	;AND STORE BG-BUFFER
+	JSR FIND_REFSLOCS
+	LDX #19
+SSL_01
+	LDY H_OFFSET,X
+	LDA ($AA),Y
+	JSR STORE_BGBUFFER
+	DEX
+	BPL SSL_01
+	RTS
+
+DEPOSIT_BEE4
+
+	JSR FIND_REFSLOCS
+	LDX #19
+DEP_01
+	LDY H_OFFSET,X
+	LDA ($AA),Y
+	BNE j10
+	LDA #$08
+j10
+	STA $B4D4,X
+	DEX
+	BPL DEP_01
+	RTS
+
+STORE_BGBUFFER
+	STY $A4
+	PHA
+	STX $A3
+	LDA #19
+	SEC
+	SBC $A3
+	PHA
+	LDA #$00
+	STA $A3
+	PLA
+	ASL
+	ASL
+	ASL
+	ADC #$30
+	STA SBGB_01+1
+	TAY
+	PLA
+	CMP #$20
+	BCC BG_FILL
+	ASL           ;32-97
+	ASL
+	ROL $A3
+	ASL
+	ROL $A3
+	STA $A2
+	LDA $A3
+	ADC #$B4
+	STA $A3
+	LDY #$07
+SBGB_02
+	LDA ($A2),Y
+SBGB_01
+	STA $BB30,Y
+	DEY
+	BPL SBGB_02
+	LDY $A4
+	RTS
+BG_FILL
+	STY SBGB_03+1
+	LDY #$07
+	LDA #$00
+SBGB_03
+	STA $BB30,Y
+	DEY
+	BPL SBGB_03
+	LDY $A4
+	RTS
+
+FIND_REFSLOCS
+	JSR FIND_OFFSET
+	ADC #$58
+	STA $AA
+	LDA $AE
+	ADC #$BB
+	STA $AB
+	RTS
+
+FIND_SLOC
+
+	JSR FIND_OFFSET
+	ADC #$38
+	STA $A0
+	LDA $AE
+	ADC #$BD
+	STA $A1
+	RTS
+
+FIND_OFFSET
+
+	LDA HAND_Y	;GET TEXT Y POSITION *8
+	AND #%11111000
+	STA $AD
+	ASL		;NOW TIMES ANOTHER 4 TO GET *32 (BUT 16 BIT)
+	LDY #$00
+	STY $AE
+	ROL $AE
+	ASL
+	ROL $AE
+	ADC $AD
+	BCC j12
+	INC $AE
+	CLC		;NOW GOT YLOCL(A) AND YLOCH(A1), ADD XLOC
+j12
+	LDX HAND_X
+	ADC XLOC,X	;72 TABLE (0-71 RES)
+	BCC j11
+	INC $AE
+	CLC
+j11
+	RTS
+/*********************/
+
+SCROLL_IN_CANVAS
+; 8A00
+	CLC
+	LDA #$78 ; Set something
+	STA $B7
+	LDA #$01
+	STA $B6
+	;LDA #$98
+	LDA #<data_canvas+4800-40
+	STA $B4
+
+	;LDA #$9C
+	lda #>data_canvas+4800-40
+	STA $B5
+SIC_03
+	LDA $B4
+	STA $B2
+
+	LDA $B5
+	STA $B3
+
+	LDX $B6
+/*We are setting where the scroll is displayed*/
+	LDA #$00
+	STA $B0
+	LDA #$A0
+	STA $B1
+SIC_02
+	LDY #$26
+SIC_01
+	LDA ($B2),Y
+	STA ($B0),Y
+	DEY
+	BNE SIC_01
+	LDA $B0
+	ADC #$28
+	STA $B0
+	BCC j13
+	INC $B1
+	CLC
+j13
+	LDA $B2
+	ADC #$28
+	STA $B2
+	BCC j14
+	INC $B3
+	CLC
+j14
+SIC_04
+	DEX
+	BNE SIC_02
+	LDA $B4
+	SEC
+	SBC #$28
+	STA $B4
+	LDA $B5
+	SBC #$00
+	STA $B5
+
+	CLC
+	INC $B6
+
+	DEC $B7
+	BNE SIC_03
+	RTS
+
+
+
+
+
+DITHER_IN_OPTIONS
+	LDY #$07
+	CLC
+	LDA #<datas_ditherfrm
+	STA $B0
+	LDA #>datas_ditherfrm
+	STA $B1
+DIO_03
+	LDX #$00
+DIO_02
+	LDA datas_titlechs,X  ;$9D00
+	;datas_toltitle
+	AND ($B0),Y
+	STA $B500,X
+	LDA datas_titlechs+256,X ;$9E00
+	AND ($B0),Y
+	STA $B600,X
+	LDA datas_titlechs+512,X ;$9F00
+	AND ($B0),Y
+	STA $B700,X
+	DEY
+	BPL DIO_01
+	LDY #$07
+DIO_01
+	INX
+	BNE DIO_02
+
+	JSR DELAY_01
+	LDY #$07
+	LDA $B0
+	ADC #$08
+	STA $B0
+	LDA $B1
+	ADC #$00
+	STA $B1
+	CMP #>datas_ditherfrm+256
+	BCC DIO_03
+DIO_04
+	LDA datas_titlechs,X
+	STA $B500,X
+	LDA datas_titlechs+256,X
+	STA $B600,X
+	LDA datas_titlechs+512,X
+	STA $B700,X
+	INX
+	BNE DIO_04
+	RTS
+
+
+
+DELAY_01
+	LDX #$00
+DLY_04
+	LDY #$10 ; was 10 FIXME
+DLY_03_jede
+	NOP
+	DEY
+	BPL DLY_03_jede
+	INX
+	BNE DLY_04
+	RTS
+
+
+DELAY_02
+	PHA
+	TYA
+	PHA
+	TXA
+	PHA
+	LDY #$00
+DLY_03
+	NOP
+	INY
+	BNE DLY_03
+	PLA
+	TAX
+	PLA
+	TAY
+	PLA
+	RTS
+
+MONO_2_COLOUR
+	LDA #<datas_tol992 ; FIXME was 0
+	STA $B0
+	LDA #>datas_tol992 ; FIXME Was $2B
+	STA $B1
+
+	lda #$0
+	STA $B2
+	LDA #$A0
+	STA $B3
+	LDX #120 /*Changed JEDE*/
+MTC_03
+	LDY #39
+MTC_01
+	LDA ($B0),Y
+	STA ($B2),Y
+	LDA $32 /*32*/
+	BNE j15
+	JSR DELAY_02
+j15
+	DEY
+	BPL MTC_01
+	LDA $B0
+	CLC
+	ADC #$28
+	STA $B0
+
+	BCC MTC_02
+	INC $B1
+MTC_02
+	lda $b2
+	clc
+	adc #$28
+	BCC j16
+	INC $B3
+j16
+	STA $B2
+	DEX
+	BNE MTC_03
+	RTS
+
+
+;~END
+
+BITMAP_FRAME_LO
+.byt <datas_chisel,<datas_chisel+$44,<datas_chisel+$88,<datas_chisel+$CC,<datas_chisel+$100+$10,<datas_chisel+$100+$54
+BITMAP_FRAME_HI
+.byt >datas_chisel,>datas_chisel+$44,>datas_chisel+$88,>datas_chisel+$CC,>datas_chisel+$100+$10,>datas_chisel+$100+$54
+
+
+/*
+BITMAP_FRAME_LO
+.byt $00,$44,$88,$CC,$10,$54
+BITMAP_FRAME_HI
+.byt $B8,$B8,$B8,$B8,$B9,$B9
+*/
+
+MASK_FRAME_LO
+.byt <datas_chisel+$100+$98,<datas_chisel+$100+$DC,<datas_chisel+$200+$20,<datas_chisel+$200+$64,<datas_chisel+$200+$A8,<datas_chisel+$200+$EC
+MASK_FRAME_HI
+.byt >datas_chisel+$100+$98,>datas_chisel+$100+$DC,>datas_chisel+$200+$20,>datas_chisel+$200+$64,>datas_chisel+$200+$A8,>datas_chisel+$200+$EC
+
+/*
+MASK_FRAME_LO
+.byt $98,$DC,$20,$64,$A8,$EC
+MASK_FRAME_HI
+.byt $B9,$B9,$BA,$BA,$BA,$BA
+*/
+BG_BUFFER
+	.dsb 69,0
+SM_OFFSET
+.byt 240,200,160,120,80,40,00
+H_OFFSET
+.byt $7C,$54,$2C,$04,$7B,$53,$2B,$03,$7A,$52,$2A,$02,$79,$51,$29,$01,$78,$50,$28,$00
+;[0028507801295179022A527A032B537B042C547C]
+XLOC
+.byt $00,$00,$00,$00,$00,$00,$01,$01,$01,$01,$01,$01,$02,$02,$02,$02,$02,$02,$03,$03,$03,$03,$03,$03,$04,$04,$04,$04,$04,$04
+.byt $05,$05,$05,$05,$05,$05,$06,$06,$06,$06,$06,$06,$07,$07,$07,$07,$07,$07,$08,$08,$08,$08,$08,$08,$09,$09,$09,$09,$09,$09
+.byt $0A,$0A,$0A,$0A,$0A,$0A,$0B,$0B,$0B,$0B,$0B,$0B
+HAND_FRAME
+.byt $00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05
+.byt $00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05
+.byt $00,$01,$02,$03,$04,$05,$00,$01,$02,$03,$04,$05
+HAND_OFFSET_L
+.byt $00,$69,$D2,$3B,$A4,$0D
+HAND_OFFSET_H
+.byt $00,$00,$00,$01,$01,$02
+FLASH_HI
+.byt $3D,$50,$63,$76,$89
+HAND_POSITIONS_X
+.byt $2F,$0B,$3C
+HAND_POSITIONS_Y
+.byt $36,$4E,$66
+SEQ_PERREF_LO 
+.byt $01,$20,$20,$20,$20
+SEQ_PERREF_HI
+.byt $E0,$20,$20,$20,$80
+ZPAGE_CODE
+.byt $B9,$00,$BF,$99,$00,$BF,$88,$D0,$F7,$C6,$22,$C6,$25,$CA,$D0,$F0,$60
+;FLS_01	LDA $BF00,Y	;20
+;	STA $BF00,Y	;23
+;	DEY                 ;26
+;	BNE FLS_01         ;27
+;	DEC $22
+;	DEC $25
+;	DEX                 ;2D
+;	BNE FLS_01         ;2E
+;CSEQ_01	RTS                 ;30
+TEMP_X
+	.byt 0
+/*$A000*/
+data_canvas
+
+#include "canvas.h"
+
+datas_tol992
+
+#include "t992.h"
+;datas_titlechs
+;#include "titlechs.h"
+datas_ditherfrm
+#include "ditherfrm.h"
+datas_titlechs
+datas_toltitle
+#include "toltitle.h"
+datas_cutsmem
+#include "cutsmem.h"
+datas_chisel
+#include "chiselmem.h"
+
+
+
