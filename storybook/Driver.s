@@ -21,17 +21,22 @@
 ;  Valkyrie 22x176 @15,8
 ;  Knight 20x184 @17,8
 ; Music containing tunes 1-8
-#define	GAME_CONTROLLER		$BFE0
-#define	GAME_AUDIO		$BFE1
-#define	GAME_DIFFICULTY		$BFE2
-#define	GAME_CHARACTER		$BFE3
+#define	GAME_CONTROLLER		$900
+#define	GAME_AUDIO			GAME_CONTROLLER+1
+#define	GAME_DIFFICULTY		GAME_CONTROLLER+2
+#define	GAME_CHARACTER		GAME_CONTROLLER+3
 
 #define	HIRES			$EC33
 #define	CR24			128+24
 #define	CR25			128+25
 #define	CR3			128+3
 #define	VIA_PORTB			$0300
+#define	VIA_DDRB			$0302
+#define	VIA_DDRA			$0303
 #define	VIA_T1CL			$0304
+#define VIA_T1LL   			$306
+#define VIA_T1LH   			$307
+
 #define	VIA_T2LL			$0308
 #define	VIA_T2CH			$0309
 #define	VIA_SR			$030A
@@ -41,12 +46,30 @@
 #define	VIA_IER			$030E
 #define	VIA_PORTA			$030F
 
+
+
+
+#ifdef TARGET_TELEMON24
+#define	SYS_IRQLO			$2fb
+#define	SYS_IRQHI			$2fc
+
+
+#define SWITCH_HIRES\
+	.byt $00,$1a ;
+
+#else
+
+#define SWITCH_HIRES\
+	jsr $ec33;
 #define	SYS_IRQLO			$245
 #define	SYS_IRQHI			$246
 
+	
+#endif
 
+	
  .zero
-*=$00
+*=$D0
 
 StoryID		.dsb 1
 source		.dsb 2
@@ -84,32 +107,58 @@ IRQDelay            .dsb 1
 ControllerRegister	.dsb 1
 
  .text
-*=$500
+*=$1000
 
-Driver	jsr HIRES
+Driver	
+#ifdef TARGET_TELEMON24
+	lda #$f7
+	sta VIA_DDRB
+	lda #$ff
+	sta VIA_DDRA
+	lda #$10
+	sta VIA_T1LL
+		
+	lda #$27
+	sta VIA_T1LH
+	
+	lda #$c0
+	sta VIA_IER
+	lda #$f7
+	sta $030f
+	lda #$00
+	sta $30d
+	
+#endif
+	SWITCH_HIRES
+
 	lda #00
 	sta GAME_CHARACTER
 	;Clear text rows
 	ldx #119
+	
 	lda #8
 .(
-loop1	sta $BFE0-120,x
+loop1	sta GAME_CONTROLLER-120,x
 	dex
 	bpl loop1
 .)
-	jsr SetupMusicIRQ
 
+
+	
+	 jsr SetupMusicIRQ
+
+	
 ;	jmp Test999
 
 	ldx #00
 	stx StoryID
 .(
 loop1	;Display Black ink template
-	jsr DrawTemplate
+	jsr DrawTemplate 
 
 	;Eye open it
-	jsr EyeOpen
-
+ 	jsr EyeOpen 
+ 
 	;Commence playing of Story tune
 
 	;Display Inlay Picture
@@ -123,11 +172,10 @@ loop1	;Display Black ink template
 	jsr DisplayText
 
 	;Wait on Key
-	jsr WaitOnInput
+	jsr WaitOnInput ; FIXME
 
 	;Eye close
-	jsr EyeClose
-
+	jsr EyeClose 
 	;Proceed story
 	inc StoryID
 	lda StoryID
@@ -331,14 +379,22 @@ IRQRoutine
 	sta IRQA
 	stx IRQX
 	sty IRQY
+	
+	dec IRQDelay
+	
 
 	lda VIA_T1CL
+#ifdef TARGET_TELEMON24	
+	lda $308
+#endif
 .(
 	lda IRQDelay
 	beq skip1
 	dec IRQDelay
-skip1	jsr ReadControllers
+skip1
+	jsr ReadControllers ; 
 .)
+
 	lda IRQA
 	ldx IRQX
 	ldy IRQY
@@ -348,7 +404,7 @@ skip1	jsr ReadControllers
 ReadControllers
 	ldx GAME_CONTROLLER
 	cpx #2
-	bcs SenseJoystick
+	;bcs SenseJoystick
 	lda KeyRowTableLo,x
 .(
 	sta vector1+1
