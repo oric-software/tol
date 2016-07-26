@@ -1,0 +1,21 @@
+ Volume in drive C has no label.
+ Volume Serial Number is D8D7-87FB
+
+ Directory of C:\OSDK\Projects\TimesOfLore\tol\Storybook2
+
+16/03/2010  00:38    <DIR>          .
+16/03/2010  00:38    <DIR>          ..
+16/03/2010  00:25               496 Driver.s
+16/03/2010  00:36             8,080 pacKnight.s
+16/03/2010  00:35             9,678 pacSelect9.s
+16/03/2010  00:35             5,437 pacStory1.s
+16/03/2010  00:35             6,171 pacStory2.s
+16/03/2010  00:35             4,515 pacStory32.s
+16/03/2010  00:35             5,705 pacStory4.s
+16/03/2010  00:35             4,246 pacStory5.s
+16/03/2010  00:35             6,392 pacStory6.s
+16/03/2010  00:35             5,386 pacStory7.s
+16/03/2010  00:36            11,147 pacValkyrie.s
+16/03/2010  00:36             9,852 pacWarrior.s
+              12 File(s)         77,105 bytes
+               2 Dir(s)   9,176,481,792 bytes free

@@ -1,0 +1,4 @@
+xa picture7.h
+mv a.o65 picture7_un.raw
+filepack -p picture7_un.raw picture7_cru.raw
+bin2txt  -s1 -f2 picture7_cru.raw picture7cru.h picture7cru

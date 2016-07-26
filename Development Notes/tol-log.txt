@@ -1,0 +1,400 @@
+TOL Bug Logs
+
+Fixed...
+050219.1407.1F) When creature dies, appears to come alive again after RIP
+The Creature delay routine returned the wrong condition
+050219.1410.1F) When hero tries to enter locked door, he still moves forward
+Hero will face south, and move away one place
+050219.1417.1F) When Hero tries to enter locked door, he cannot retreat
+Hero will face south, and move away one place
+050219.1427.1F) Unable to pick up objects
+Now Hero can pick up Gold, and potentially Artifacts, Food and Potions
+050219.1430.1F) Hero background detection inaccurate
+Hero collision based on 3*3 character square not offset correctly
+050219.1452.1F) Random Number generator not random enough
+Placed in read key routine and modified randomising to increase range
+050219.1453.1F) Hero speed still at max, so magical boots won't make diff'
+Hero speed halved so a little faster than Serf, other creatures also updated
+050219.2059.1F) new creatures always appear at fixed entry points
+Creatures now appear at random position depending on direction of hero.
+If hero stands still, creatures will appear from all directions.
+050219.2059.2F) Guard never stands to Attention like in original Game
+Guard now stands to attention when collision north with wall.
+050219.2102.1F) frequency of Creature posessions being dropped is too low
+The 'creature posession drop' routine was not working at all
+050219.1427.2F) Inventory only showing gold
+Inventory now shows Rations. For details of other posessions, use
+Examine(Eye) or Holding(Held)
+050219.1434.1F) Hero is able to run straight through Creature
+Hero haults whenever he tries to run into creature.
+050219.1435.1F) Creature-Hero collision is unreliable
+Improved creature-hero collision. If Foe, Hero flashes white.
+050220.1934.1F) Talking to creatures outside causes option list corruption
+Can now talk to outside creatures
+050220.1936.1F) Creatures cannot be killed
+Creatures can now be killed, hero or creature turns white when hit
+050220.2026.2F) Portions/Food Parcel/Provisions are the same thing
+All Food is now known as Rations
+050219.1425.2F) Hand icon crashes game
+Now Player can put anything the hero posseses in his hand(except food)
+050222.2335.1F) Option list displays repeating posessed items
+Option list now displays only unique posessed items
+050222.2336.1F) No Projectiles for weapons
+Currently, default weapon is arrow to demonstrate projectiles
+050222.2337.1F) Examine does not do anything
+Examine now displays list of unique posessions. On selection of posession
+the text window displays a description of the posession
+050222.2340.1F) Arrow width should be 1 pixel, not two
+both H and V Arrows now one pixel width
+050222.2342.1F) Projectile stops at rightmost column on screen
+Projectiles for both H and V finish at correct screen bounds
+050219.1411.1F) building adjacent to Eralan Inn is another Inn
+Building adjacent to Eralan Inn is a normal house
+050219.1422.1F) Half Bridge allows hero to walk on water
+Half Bridges removed
+050219.1423.1F) Dissapearing Mountain
+Mountain does not disappear now
+050219.1425.1F) Mountain causes screen wide corruption
+Mountains now pushed back to avoid building/mountain mix
+050219.2309.1F) Enemies don't retreat when they attack
+Enemies now retreat (Regress) for 10 steps before attacking again
+050219.2309.2F) Enemies don't die when no exit
+Enemies now die if no exit, they will also die if the get tangled up with
+the hero!
+050224.2248.1F) Rogues and Skeletons Don't Fire
+They now fire when 'inline' with hero
+050223.0019.1F) Character corruption on buildings after visiting Mountains
+This was not due to some code problem but a problem with the data. Their are
+two main character sets that must reside at page boundaries 600 and 800, but
+because of 050219.1427.1F the address was 10 bytes out, causing corruption
+when the second set was called upon and then when the first set was restored.
+050225.2154.1F) X and Y test display coordinates would be cool (Dbug)
+Press RETURN during gameplay to display the heroes current X/Y position.
+This will prove invaluable when finding mistakes in the map.
+050221.0032.1F) Plot and game-path not written or set
+Plot rewritten in order to accomodate 8 separate sub-quests
+050222.2339.1F) Projectiles hit a creature but a diff' creature gets damaged
+Projectile hit creature always gets 'hit'
+050225.1937.1F) Shooting a dying animation Prevents the death sequence (Dbug)
+Once a creature dies, the projectile will not effect the creature
+050306.0102.1F) No in-game SFX
+SFX infraStructure added, currently just simple footsteps of hero
+050220.1938.1F) Candle not changing height depending on Hero life.
+Candle flame height control code added, but no change in life yet
+050221.0031.1F) Time of Day not implemented
+Time of day now implemented. A day lasts 8 minutes, and each time of day is
+indicated by a change in the lighting (Colours change). A message also
+displays the time of day.
+050227.0939.1F) Sometimes Gold&food remains on screen and hero can accumulate
+objects were being stacked, causing objects to never dissapear
+050219.1421.1F) Red tiles on top of castle wall cause screen corruption.
+050220.0120.1F) Dot-Map not accurate enough
+Dot-Map updated (Map on screen). Rhyder, Lankwell, Eralan validated.
+050220.0121.1F) Names of Villages, Towns and Cities not declared
+Region names now displayed as hero traverses land
+050220.1934.1F) Internal Code: collision detection duplicated in places
+050220.2032.1F) Search square for creature-hero attack too high in sb-buffer
+               This means when hero goes to attack creature(esp. facing north)
+               the creature must be at least 4 characters away to be hit,
+               any closer and hitting has no effect
+This is because the offset was one character position out. Placing two
+SEC in the is_collision seems to have sorted this out.
+050221.0033.2F) Gate&Door locations need to be updated
+Gate&Door locs updated
+050225.1849.1F) Creatures keep being generated in bushes and 'walls'
+Block code at fault, although still a little unreliable, alot better than
+before.
+050310.2156.1F) Projectiles should be relative to ground (Not hero)
+The problem was that the projectiles are mapped on the screen so when
+the hero moved, they kept at their position. 4 special routines added to force
+projectiles relative to the ground.
+050314.1128.1F) BG road corners not defined enough, causing mass confusion
+Roads and paths redefined, adding penalty of extra memory needed, but
+have common road/path styles making more distinct routes.
+050318.1253.1F) Bottom two options corrupt candle sconce
+Sconce colour was being set in bottom-right option box, so reset colour
+to White seems to correct the problem
+050312.1713.1F) BG Animations are corrupt and too short(6>>8)
+Memory limits almost reached so number of frames not increased, however
+animations now corrected and river, firepit and sea validated
+050220.2026.1F) Creatures(Foe) don't attack Opposite creatures (Friends)
+Foes now attack friends, Friends attack Foes, Foes attack Foes but Friends do
+not attack friends.
+050225.1934.1F) Return and D causes corruption (DBUG)
+Return displays current x/y position on big-map, whilst D is unassigned
+050328.0923.1F) Prior does not initiate quest one when spoken to!
+He does now!
+Also Mogrod is also sorted.
+050329.2044.1F) Prior keeps mentioning "Boarding" when chitchat to (Lothlin)
+I think this one is fixed
+050222.2345.1F) When examining Gold, nothing is displayed except an empty line
+Now a description is given
+050402.1950.1F) Orcs should carry Gold
+Orcs now carry gold.
+050402.2042.1F) When buying, price is never actually shown for objects
+When the hero fails to afford an item, the value required is now given.
+050402.2045.1F) Hero Cannot Buy items from Mogrod the head orc
+I thought i already had that code, but it wasn't done at all. Now it works
+050402.2047.1F) No 'words' when examining the Stones
+Words are now uttered depending on posessions
+050403.1734.1F) Equinox Gate issues "Welcome to the " then jumps to menu
+May now descend into the underworld!
+050403.2008.1F) Underworld Switches don't work
+Underworld Switch code now added
+050403.2008.2F) Underworld Gates don't work
+Underworld gates now coded! and work (Use floor switches to toggle)
+050404.2045.1F) Running over floor switches toggles twice.
+The floor switch is now deleted from the background buffer, so the hero just
+has to move out of view of it to re-enter and see it again.
+050404.2239.1F) Buying item does not delete item from Creatures posessions
+The index for where to reset the posession from the creatures list was
+actually taken from the option list. Had to add some code to locate the
+correct offset.
+050219.1419.1F) Wrong mask on particular hero frame
+New plot routines have appeared to clear this one.
+050219.1419.3F) Map Corruption (Bad river bank) and Castle Wall in Eralan
+Castle Wall Removed but still corruption on Sand(Dessert)/Grass
+The problem is with Tiles in TSMAP not matching tiles in CBMTEXT TOL05.CBT
+Latest maps seem to have sorted this issue
+050221.0033.1F) Special dropped items not plotted
+Note near Midrath's Lodge proves these are working
+050219.1419.2F) Black line in Sea, Black line generated at top of bush
+I believe both have now been fixed
+050219.1423.2F) Hero can climb mountain at top edge
+Hero cannot traverse Mountains anymore.
+050225.1934.2F) Vertical moving hero is less smooth than horizontal (Jede)
+Fixed
+050219.1456.1F) 'drop item' and 'next page' keys redundant
+               Should be changed to Use Scroll, Use Potion
+No, changed to last/next object. This has also over-ridden the test key RET
+But as consequence has freed up some memory!
+050402.2043.1F) Enemies appear too often
+Creature generation code was being run every 16th game cycle. Reduced to
+64th game cycle.
+050224.2249.1F) Rogues and Skeletons don't Fire enough
+Rogues and Skeletons do now.
+050405.1835.2F) Vertical Firing enemies crash Candle
+Enemies like Rogue and Skeleton fire, but less often, so candle not bombarded
+with decrements. However Candle not quite right, so another issue raised.
+050406.2332.1F) Disc Routines not coded
+Disc routines coded, since waiting for jede is like waiting for God sometimes!
+050408.2252.1F) Original Candle Stem offset by one pixel to updated stem
+Actually shifting animated candle right proved easier
+050409.1701.1F) Change "Hand" Icon to "Use" Icon
+This will allow objects to be directly used and weapons to be upgraded
+050408.1815.1F) Selected Hero graphics&tables not handled in disc code
+Game preferences moved to top-memory and expanded to $310
+050408.1821.1F) Life not restored after sleepover
+Sleepover now restores energy
+050408.2100.1F) Extra Space used before highlighted keywords
+Space now removed.
+050408.2124.1F) On confirming next page, hero fires weapon
+Now flushing keyboard
+050408.2124.2F) Text not using maximum width of text window
+Text now extends to full width (Ommitting attributes either side)
+050408.2125.1F) Highlighted text window can also highlight adjacent options
+Plotted black ink in rightmost text window column now.
+050322.1944.4F) Sub-Game quest4 not exersized
+Rumours will reveal and boots can be bought which speedup hero when used
+050329.2120.1F) Gap in northern mountains allows exit to neverland (Lothlin)
+Gap not found anymore
+050402.2206.1F) Corruption of text in places
+This is a gradual process, due to missing line terminators, currently none
+found
+050405.1835.1F) Vertical Firing enemies sometimes plot arrows in wrong places
+Doesn't seem to occur anymore
+050405.1835.3F) Candle Corruption when life changes
+Candle will remain at top, but sconce will move up to meet eol
+050407.1920.1F) ChitChat questions like "any news around the kingdom?" should
+               expect a response like "Barton in Treela.." but chitchat like
+               "nice weather we've been having" should get a response like
+               "Yes, has been quite nice".
+To conserve memory, only one question is posed by hero, "Any rumouts?"
+050407.1926.2F) Move Page 2 into top of memory to free space in lower
+Page 2 now resides where it was, but space is filled with exclusion_table
+050407.1926.3X) Sort Character defs for objects held better
+Objects not held anymore, just used
+050407.1922.1F) Direct contact with Enemy inverses hero,but doesn't change life
+Does now!
+050410.1714.1F) Sort out all objects(Including Weapons) in game
+Written extra code to handle using of objects
+050412.2349.1F) Heroes never loses dagger, but when it lands, he can fire it
+               again without picking it up!
+050322.1944.8F) Sub-Game quest7 not exersized
+Can buy Wand and build bridge and Black asps appear on isle
+050322.1944.2F) Sub-Game quest1 not exersized
+Can buy Key, Can access Angor gate both ways, Can collect Object
+050407.1927.1F) Fire should also use item held (If appropriate)
+Fire now uses weapon chosen
+050322.1944.5F) Sub-Game quest3 not exersized
+Can buy Tin Clasp off Calibor, and can only see Cloak when in posession
+Can get cloak, and use it. Disguise is based on creatures on screen.
+Enemies will ignore hero.
+050322.1944.6F) Sub-Game quest5 not exersized
+Dagger can now be picked up and used.
+050322.1944.7F) Sub-Game quest6 not exersized
+Holy Water may be bought. Once posessed, Skeletons will ignore hero
+050412.1935.1F) After buying from calibor, returning to inn a second time and
+               buying something else is causing a corruption in his
+               introduction text
+Replaced keyword with letters, because it is envisaged that
+chitchat_interaction can only take place once the hero meets Calibor.
+050407.1933.1F) Fill Top of Memory spare slots with lower memory tables to
+                free space
+With only a couple of places now, i have managed to draw 1K from main mem.
+050412.1933.1F) Flushing keys for next page causes annoying delay
+This was a previous fix, I have removed the fix now
+050414.2303.1F) Corruption of B26E - (Approx)B507 when hero jumps to Angor
+The fault is still unknown but has been fixed. Temp_04 appears to be dodgy as
+in that it is modified by something unknown during the background_refresh.
+So i have used a txa/pha instead and this corrects the problem.
+050415.1929.1F) Rumours are getting corrupted. "We don't hear from      P     "
+When a keyword is known, a space was inserted instead of a colour, however
+this made the actual keyword become 32!
+050422.1145.1F) Corruption of creature names
+It took a weekend and two days to figure out that a branch went to the
+wrong place!
+050310.2027.1F) A Graphic for time of day instead of text (Stormlord) (Dbug)
+The candle has been moved up, and the option area expanded to accomodate a
+sun/moon scrolly graphic.
+050408.1820.1F) life not added through using potions or scrolls
+Life now added using Green Vial, which is the only method of health
+replenishment.
+050413.0005.1F) Life increments should inverse candle momentarily
+Life increments now make candle flame white momentarily.
+050409.2126.1F) Candle flame needs to move down by 16 lines
+Candle flame remains, but bottom is now used for sun/moon tod
+050413.2027.1F) Keyword "Help me" should either be expanded or removed!
+Removed!
+050221.0037.1F) Scrolls for weapons not coded
+Now 4 Magic weapons are available
+White Vial, Parchment, Old Scroll and Skull.
+050329.2045.1F) Serfs should confine and stay on path (Lothlin)
+This would be nye on impossible to achieve without major architectural
+changes!
+050331.2021.1F) "Further Option highlighting" not working
+Further highlighting Removed!
+050407.1921.1F) Rations not affecting gameplay
+Rations and health now affect Hero. When rations are available, hero will eat.
+When rations are not available, Stomach will complain and life will reduce.
+050408.2133.1F) No way to Quit back to title (Apart from dying!)
+Hard Cheddar!
+050411.1434.1F) Since removed Held object, change last/next to hand-weapon
+Key E for Replenish Energy with Green Vial (If posessed)
+Other Key erased
+050413.1905.1F) Friends do not change to foe if killed
+On killing as friend, the following settings change...
+1) friends met outside will attack hero
+2) Doors to taverns will be locked (So no save game!)
+3) Friends will not talk with Hero (Outside)
+To restore friendship, hero must become in posession and use the Medallion
+050413.2006.1F) Sort Silderons in tol_text, counted 3 so far but only 1
+               should be present. The chosen 1 should be in location_list too.
+Every keyword may be enquired about in the Questions option (whilst speaking
+to a creature). The particular response may be dependant on the creature being
+asked, so a creature field is provided and duplicate keywords are permitted
+050413.2026.1F) Ganestor is not covered in any of the quests!
+Hard cheddar!, It is covered when discovering whereabouts of Agrechant
+050417.1156.1F) Jumping does not update Map pixel location
+It does update map display, but the problem is that the pixel map is in places
+limited by inverse bytes, and where this occurs (such as Angor) the map pixel
+will not change until map pixel CAN be relocated!
+If another method can be suggested, then please put them forward.
+Note: Map pixel should dissapear when in Phnang or on islands!
+050427.0002.1F) Sun/moon and Lighting control are not synchronised
+tod_quarter code removed from irq handler and now lighting is completely
+handled by sunNmoon code.
+050429.0001.1F) 8th Spare key should be USE shortcut
+8th now Use (U)
+note: 7th is E(Replenish Energy)
+050429.0002.1F) Special effects for Magical weapons are acting on screenbuffer
+               but should be acting on actual screen.
+Now act correctly, however have avoided plotting creatures after.
+050224.2244.1F) Dropped objects sometimes appear from nowhere or at different
+               loc to where creature died
+When a hero is plotted, the current screen x/y are stored to tables so that
+the drop items routine instantly knows where the hero died on screen.
+However, if the hero dies offscreen and was never seen onscreen, the last
+creatures screen x/y was being used.
+050225.1936.1X) Shooting a dying animation is blocking the animation (Dbug)
+               Preventing the hero to turn an kill in other direction
+I am going to keep this as is. The gameplay has vastly improved anyway since.
+050227.0201.1X) Foe doesn't seek way around bg obstacle
+Again, i am going to leave this as is. Foe does is some situations and doesn't
+in others.
+050310.2004.1X) Menu options should have key options (Idea only) (Dbug)
+Menu items don't have key options, however, to ease gameplay the two spare
+keys have now been assigned to replenish Life-Force (If a green vial is -
+posessed) and Use something.
+050318.1340.1X) Creature Friends should be able to enter buildings (Any)
+This is more difficult than it sounds, because i would then need to include
+the creatures in the contents of an inn.
+050427.2001.1X) Changing the map display has upset Templemead location.
+Not a problem since not coded yet!!
+050428.2200.1F) Hero should not posess keywords or posessions at start
+               Hero should also start with 500 Gold coins and 2 rations
+050310.2211.1X) Heroes hit foe contact is not relative to heroes direction
+This will not be fixed because it assists in addressing 050225.1936.1X)
+050429.2003.1F) Sunmoon starts at midnight, should start midday.
+Though original screen shows moon, the counters start at midday.
+050407.1926.1F) Move Page 0 into top of memory to free space in lower
+Page 0 setup code (driver.s) now in AB40-AC3F
+050430.1545.1F) Questions coming up blank
+Code change
+050430.2211.1F) I had 82 gold coins but lodgings(50) not enough
+The values for rations and lodging are not taken from tol_text, and
+where not put into the posession_price fields, so the lodging price
+displayed was incorrect. Lodging is 200 whilst rations is 100.
+050501.1406.1F) Need to review special dropped object code.
+Seems to be ok now due to repositioning of note
+050502.0028.1F) Toxic mist should turn everything to red col-mix for the period
+It does now
+
+
+Outstanding (16 Issues)...
+050310.2003.1) No joystick support (Dbug)
+The correct joystick driver will be loaded in when autodetected in the title.
+050322.1944.1) Main Game quest not exersized
+Main Quest exersized, and tested up to step 4 (of 10).
+050322.1944.3) Sub-Game quest2 not exersized
+050322.1944.9) Sub-Game quest8 not exersized
+050322.1945.1) Sub-Game quest9 not exersized
+050322.2016.1) Alot of Sound Effects still missing
+050404.2044.1) When max objects, may still pick up object, although not stored
+050407.1931.1) Move Initialise Game into Top of Memory to free space in lower
+050407.2016.1) Handle Hero's Death
+When Life has gone, message displayed.
+Hero does not die yet (No RIP)
+050410.1826.1) Creature Volume not currently handled
+050411.2310.1) Boots also accelerate firing rate!
+050413.1948.1) Sort the region creatures, because have not seen ghosts or
+               asps in Phnang, and some creatures wrong in places.
+               Also, guards should only reside near castles.
+050427.2200.1) When flame regresses, it leaves trail
+050429.2202.1) Update HIRES:-
+Update Wick
+Update SunMoon to Sun
+Update Map where appropriate
+Forest opening down one pixel
+Sort narrow line mid-options, highlight causing shine thru
+050430.1036.1) Update cbmtext maps
+Remove all Square tiles in sand
+Approach to Taverns pathless
+050430.1646.1) Update TSMap
+Approach to Camp Lodge Pathless
+050430.1647.1) Forest Tavern is locked
+050501.1404.1) Quest1: get to midraths lodge but:-
+Isolated incidence of not being able to pick up note
+Skeleton drops "deep pun" which crashes game if used!
+050501.1413.1) Able to walk into left side of building, and thinks it's
+               a locked door, also impossible to extracate hero!
+050501.1743.1) Need to hold more items or need to hold and display
+               number of posessions (Multiple potions, scrolls)
+050501.1745.1) Need to deactivate toxic mist when map book used
+050501.1746.1) No msg for When trader has no items to sell
+050501.1747.1) wickerman text gets corrupted
+050501.1748.1F) Lodging should reset TOD to morning
+060416.1352.1F) Hero steps after Hitting
+For some reason this had not been logged buit has existed for some time.
+Now branches anim code if fire held.
+060416.1509.1) Map Cursor flash slows when moving

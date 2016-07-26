@@ -1,0 +1,63 @@
+'TOL IRQ HANDLER (MAY RESIDE FROM 0228, DEPENDING ON SIZE)
+
+
+'READ KEYBOARD	CURSORS, SPACE AND CTRL (Delayed)
+'READ JOYSTICK	IJK IF SET
+'PLAY SOUND EFFECT OR REDIRECT TO MUSIC IRQ WHEN REQUIRED
+
+
+&TOL_IRQ	PHA
+	TXA
+	PHA
+	TYA
+	PHA
+
+	DEC 0206
+	BNE &TIRQ_04
+	LDA #10
+	STA 0206
+	LDY 030C
+	LDA #0E
+	STA 030F
+	LDA #FF
+	STA 030C
+	STY 030C
+	LDX 0207
+	LDA :KEY_COL,X
+	STA 030F
+	LDA #FD
+	STA 030C
+	STY 030C
+	LDA :KEY_ROW,X
+	STA 0300
+	DELAY
+	LDA 0300
+	AND #08
+	BNE &TIRQ_01
+	LDA 0208
+	AND :KEY_MASK,X
+	BNE &TIRQ_02
+&TIRQ_01	LDA 0208
+	AND :KEY_MASK,X
+	ORA :KEY_BIT,X
+&TIRQ_02	STA 0208
+	DEX
+	BPL &TIRQ_03
+	LDA #04
+	STA 0208
+&TIRQ_03	LDA 0209	'READ JOYSTICK
+	BEQ	'KEYBOARD ONLY
+		'READ IJK JOYSTICK
+
+
+
+
+
+	bit 7: Eprom select (active low)
+bit 65: drive select (0 to 3)
+bit 4: side select
+bit 3: double density enable (0: double density, 1: single density)
+bit 2: connected to pin #8 of a 9216 (data separator logic ?)
+bit 1: ROMDIS (active low). When 0, internal Basic rom is disabled.
+bit 0: enable FDC INTRQ to raise IRQ
+

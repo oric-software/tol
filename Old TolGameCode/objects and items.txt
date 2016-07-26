@@ -1,0 +1,69 @@
+;Objects and Items described...
+;General Objects
+;
+; 00 Scroll
+; 01 Tablet of Truth
+; 02 Potion
+; 03 Magical Axe
+; 04 Dagger
+; 05 Bag of Gold
+; 06 Magical Shoes
+; 07 Ring of Power
+; 08 Chime
+; 09 Medallion
+; 10 Key
+; 11 Food
+; 12 Urn
+; 13 Note
+; 14 Arrows
+; 15 Pile/ChainMail
+
+;Important Items        Object Purpose
+;These items already exist somewhere in the map or are held by certain
+;creatures (When required).
+;However, some places can only be reached by passing doors and secret
+;passages.
+; 00 ?
+; 01 Tablet of Truth    01     Found ?, when dropped ?, will reveal loc
+; 02 Dagger             04     Found behind Woodmans hut, weapon
+; 03 Ring of Power      07     Found ?, when dropped ?, will reveal loc
+; 04 Chime              08     Found ?, when used, will open Grey Door
+; 05 Medallion          09     Found ?, when given to ?, will end game?
+; 06 Yellow Key         10     Found ?, when used, will open ? door
+; 07 Brown Key          10     Found ?, when used, will open ? door
+; 08 Black Key          10     Found ?, when used, will open ? door
+; 09 Pink Key           10     Found ?, when used, will open ? door
+; 10 Orange Key         10     Found ?, when used, will open ? door
+; 11 Magenta Key        10     Found ?, when used, will open ? door
+; 12 Note               13     Found ?, when examined will ?
+; 13 Confession         13     Found ?, when examined will ?
+
+;Bought Items
+;These items may be bought either from creatures mentioned during chitchat
+;to Serfs or peasants (whereby the price shown is divided by 2) or from any
+;Inn (Whereby the price shown is used).
+;                                                                        $$
+; 14 ?                  --
+; 15 Magical Axe        03     Bought from Serf in Treela, Weapon        500
+; 16 Magical Shoes      06     Bought from ? in ?, Teleport to elsewhere 800
+; 17 Magical Arrows     14     Bought from ? in ?, Weapon                1000
+; 18 Pile/ChainMail     15     Bought from ? in ?, Armour                1200
+; 19 Urn & holy water   12     Bought from ?, dispells skeletons         1500
+
+;Dropped Items
+;Items that are held by Creatures and dropped when they are killed.
+;Which items are dropped depend on a random factor. When the random
+;factor is met, a "1 in N" rule is applied, where N is shown below.
+;                                                                        N
+; 20 Red Scroll         00     Magical Weapon #1 (Kills Slime only)      10
+; 21 Green Scroll       00     Magical Weapon #2 (Kills all Foes nearby) 15
+; 22 Blue Scroll        00     Magical Weapon #3 (Walk on Water or Sea?) 17
+; 23 White Scroll       00     Magical Weapon #4 (Opens all nearby doors)25
+; 24 Amber Potion       02     Full Health to Hero                       18
+; 25 Turquoise Potion   02     Faster Hero for 10 minutes?               8
+; 26 Spherical Potion   02     Armor to hero to 10 minutes?              5
+; 27 Ivory Potion       02     Invisibility to hero for 10 minutes?      20
+; 28 Bag of Gold        05     10 Gold Coins                             3
+; 29 Food               11     1 Food Provision                          3
+; 30 ?
+; 31 ?

@@ -1,0 +1,251 @@
+*** PLOT ***
+
+Go into Eralan Inn and speak to the Prior.
+ "I am Oricius, and i request someones aid to fetch the Foretelling STONES.
+ "I will reward you greatly. Would you accept such a Quest?"
+ Ask about STONES...
+ "As far as i know, the HEAD ORC posesses them."
+ Ask about HEAD ORC...
+ "The HEAD ORC resides at a CAMP in the Dark Forest north of here"
+ Ask about CAMP...
+ "Their is a path that leads to it north of the forest Spring."
+ Locate and buy them (he resides in the Hut and knows not of their value apart
+ from their nice shape!)
+ He will also be selling the TABLET of truth. Buy that too
+Return them to prior
+ The Prior will take them and give you 500 gold coins
+Use them
+ "Search for MIDRATH, the Assasin"
+ Ask about MIDRATH...
+ "Midrath lives near the Southern Mountains, in a lodge near Lankwell."
+ Find his lodge, and a note will lye nearby
+ Examine note to reveal...
+ "I, Midrath murdered Valwyn high king of Alboreth"
+ "Not wanting to face the vengeance of his Son, i have taken my own life"
+ "The Medallion was sold to MADREGATH for the sum of 1000 gold coins."
+ Ask about MADREGATH...
+ "Madregath is the leader of the Skeleton warriors and resides in the Ruins"
+ "of Agrechant."
+ Use Foretelling stones again..
+ "CALIBOR and SILDERON hold the next step in your journey"
+ Ask about SILDERON...
+ "Silderon's mouth is a fabled entrance to the underwurlde and is situated
+ on the isle of Tempus"
+ Ask about CALIBOR...
+ "Calibor is a wealthy merchant and keeper of the Keys who lives on CRANNOTH
+ "isle"
+ Ask about CRANNOTH...
+ "An old Alboreth Rythme tells of a Underground passage to it called
+ The Mouth of EQUINOX that is only accessable with a Wooden Key"
+ Ask about EQUINOX...
+ "The Mouth of Equinox lyes deep in the far north-west of the Dark Forest"
+ Locate Equinox and travel to Crannoth.
+ Calibor will offer to sell the following items...
+  1) Hat - 10,000 Gold Coins - But ability to transfer to any known place
+  2) Quartz Key - 2,500 Gold Coins - Access passage to Tempus
+  4) Book - 5000 Gold Coins - Select a destination, arrow will show direction
+  5) Tin Clasp - 1000 Gold Coins - Used with cloak found near phnang Temple
+  Buy Magicians Hat from Calibor. (He will also offer all keys but hero can
+ only afford one item)
+ Use Magicians hat to get to Tempus.
+ Lodge at Inn
+ ask Innkeeper about SILDERON...
+ "CRODOR claimed the other day he had found a way in"
+ Ask about Crodor...
+ "CRODOR Lives in a lodge just east of Silderons Mouth"
+ Locate Crodor
+ Ask about SILDERON...
+ "I can get you in for 500 gold coins if you want?"
+ Reply yes...
+ "Thankyou, now follow me..."
+ will initiate the creature to travel to Silderons mouth and open the gate.
+ However you must follow Crodor and protect him from the attacking creatures.
+ Only his knowledge will gain access so getting him killed will prevent you
+ getting into underwurlde. Once you reach Silderon and gain entrance, he will
+ say...
+ "Good Luck..."
+ Using STONES...
+ "The underworld is vast, you must find the Ring to Last"
+ Once hero has Ring, the underwurlde creatures will not attack.
+ Use STONES...
+ "Locate the Eastern Dessert Ruins of Agrechant"
+ You must then locate the eastern exit. and next to the exit (Still in the
+ underwurlde), the Glass Key.
+ Exit the Underwurlde then use the Magicians Hat to get to Agrechant.
+ Gain entrance to second underwurlde, and get the Medallion.
+ Use STONES...
+ "Find the light to be shown the Light"
+ On Exiting it, you will complete the game.
+
+
+***
+
+
+
+All other places are visited through sub-quests.
+Esp. useful is the aquisition of artifacts to help you along the way.
+
+
+Hallowed Gate
+
+
+High king was murdered (whilst travelling through the wald) by Midrath, the
+assassin. His Medallion was lost to a band of Skelets from the Dessert and
+is thought to still reside in their posession (Ruins of Agrechant).
+Midraths Note mentions being too afraid of wrath from the high kings Son(Or
+Daughter, depending on chosen hero).
+The
+
+The ruins of Agrechant - Glass Key from ?
+
+
+
+;
+;
+;Plot Breakdown (Posessions throughout game)
+;                Pose                                                    Get
+;Prior@EralanInn -                                                       Know
+;Woodsman@Forest -                                                       Knife
+;Head Orc@Encamp Knife                                                   Tab
+;Prior@EralanInn Knf,Tab                                                 Indium
+;Crodor@Lankwell Knf,Tab,Ind                                             Note
+;Croders Hut     Knf,Tab,Ind,Nte                                         Chime
+;Hermits Lodge   Knf,Tab,Ind,Nte,Chm                                     StoneK
+;Prior@EralanInn Knf,Tab,Ind,Nte,Chm,StK                                 Cloak
+;Castle of Angor Knf,Tab,Ind,Nte,Chm,StK,Clk                             WoodK
+;Woodsman@Forest Knf,Tab,Ind,Nte,Chm,StK,WdK                             Know
+;Forest Castle   Knf,Tab,Ind,Nte,Chm,StK,WdK                             Cross
+;Mouth o Equinox Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs                         -
+;Serb'@Crannoth  Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs                         QurtzK
+;Calibor@Tempus  Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK                     SilvK
+;Silerons Mouth  Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK                 -
+;Underwurlde#1   Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK                 Medal
+;Underwurlde#1   Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Med             Casket
+;Crator          Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Med,Csk         -
+;Migram@Ganestor Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Med,Csk         GlassK
+;Ruins Agrechant Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK         -
+;UnderWurlde#2   Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK         Ring
+;Bom@GanestorInn Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK,Rng Hat
+;Phnang Escarp   Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK,Rng,Hat
+;Temple o Phnang Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK,Rng,Hat Book
+;High King       Knf,Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK,Rng,Hat,Book!!
+;
+;Plot Breakdown (Posessions Required throughout game to get objects or knwledge)
+;                Pose                                                    Get
+;Prior@EralanInn -                                                       Know
+;Woodsman@Forest -                                                       Knife
+;Head Orc@Encamp -                                                       Tab
+;Prior@EralanInn Tab                                                     Indium
+;Crodor@Lankwell -                                                       Note
+;Croders Hut     -                                                       Chime
+;Hermits Lodge   Ind                                                     StoneK
+;Prior@EralanInn Tab,Ind,Nte,Chm                                         Cloak
+;Castle of Angor Chm                                                     WoodK
+;Woodsman@Forest WdK                                                     Know
+;Forest Castle   Chm                                                     Cross
+;Mouth o Equinox WdK                                                     Access
+;Serb'@Crannoth  Crs                                                     QurtzK
+;Calibor@Tempus  -                                                       SilvK
+;Silderon Mouth  StK                                                     Access
+;Underwurlde#1   Crs                                                     Medal
+;Underwurlde#1   Crs                                                     Casket
+;Crator          SvK                                                     Access
+;Mygrem@Ganestor Med                                                     GlassK
+;Ruins Agrechant GlK                                                     Access
+;UnderWurlde#2   Crs                                                     Ring
+;Bom@GanestorInn Money                                                   Hat
+;Phnang Escarp   Hat                                                     Access
+;Temple o Phnang Rng                                                     Book
+;High King       Tab,Ind,Nte,Chm,StK,WdK,Crs,QrK,SvK,Csk,GlK,Rng,Hat,Book!!
+;
+;Plot split into Quests
+;(Quest division will dictate how the truth tablet responds)
+;
+;Quest 1 (
+;The initial aim is to locate the Indium Stone of Integrity.
+;Locate Prior at Eralan Inn. He will point you to the tablet of truth.
+;fetch tablet and examine it, it will reveal the name(Croder) of the bounty
+;hunter.
+;Asking about Croder will reveal that he lives south-east of Lankwell.
+;Return with tablet to the Prior and he will give you the Indium Stone.
+;
+;Quest 2
+;Locate the bounty hunter and kill him.
+;He will drop a Paper Note whilst a Chime may be found inside
+;his hut.
+;The Note will reveal the stone keys location (Hermits house) and the Temple
+;of Angor.
+;
+;Quest 3
+;The Note may be read (Questioning people about keywords will reveal loc)
+;and will guide you to the Black Asps Old Castle of Angor. However, returning
+;to the Prior and giving him the note will prompt him to give you his cloak
+;(for that is all that he now posesses).
+;beforehand, Enquire about Hermit, then get Stone Key from his lodge (You'll
+;need the indium stone to enter).
+;The Cloak will change the heroes appearance to that of any enemy faced.
+;However, Friends will now change to foes until it is discarded (Dropped).
+;When it is dropped, it will dissolve instantly (Taking ground form) so cannot
+;be picked up again.
+;
+;Quest 4?
+;Travel east to the castle beyond the great lakes (The cloak will change the
+;appearance of the hero to whomever he or she meets and will fool the Black
+;asps into believing you are one of them). Gain access to the castle using the
+;Chime and pick up the Wooden key.
+;
+;Quest 5
+;On returning to the Forest, Drop the Cloak
+;Ask the woodsman about the wooden key, he will tell you that it is for the
+;Mouth of Equinox, an entrance to the underwurlde in the far north west of the
+;Dark Forest. by Passing through the forest , you should reach a Forest castle.
+;Use the Chime to gain access and collect the White Cross. This may be used to
+;defend against the ghosts in the underwurlde. Open the mouth of equinox with
+;the wooden key and travel to Crannoth Island. Locate the Inn and talk to
+;Serberon about The Cross.
+;
+;Quest 6
+;He will give you the Quartz key and reveal the
+;existance of the Medallion of Trust but will only mention it lyes within the
+;underwurlde whose only entrance is Silderons Mouth on Tempus.
+;Use the Quartz key to gain access to the southern entrance and travel to
+;Tempus and it's only Inn. (Take lodgings here). Ask about Silderon
+;to discover Calibor who has studied the mouth for many years.
+;
+;Quest 7
+;Find Calibor (Lodge on north shore) and chat about White Cross.
+;He will let it slip that he owns a Silver key. He cannot sell the key and
+;must be killed to get it. Kill him (Which will turn all friends to foes).
+;and Collect key, then locate Silderons Mouth. Open with Stone Key and gain
+;access to underwurlde. Locate Medallion of Trust. The underwurlde also holds
+;the Casket of Holy water. This will deter the skeletons.
+;On retrieving the medallion, you will regain the trust of friends.
+;Now continue through the underwurlde to the eastern exit, using the Silver key
+;to open the door appearing at Crator.
+;
+;Quest 8
+;Examining the Tablet of Truth again will reveal the journey is almost complete
+;but you need to travel to Ganestor to find Migram the Wise.
+;Locate Migram and Give him the Medallion of Trust. He will give you the Glass
+;Key and mention the ruins of Agrechant.
+;
+;Quest 9
+;Enquire about Agrechant and people will reveal it's location.
+;Note: that the only hint here that the key is for the Sand Ruins of Agrechant
+;      is that the key is Glass!
+;Locate Ruins and gain access. However, all your posessions will be left
+;behind in the sand. Find the Ring of Power which will reveal the final
+;destination which is the Temple of Phnarg.
+;Return to the Ruins and all posessions will be returned to you.
+;
+;Quest 10
+;The only way to access the Temple of Phnarg is using the Teleport (Magicians -
+;hat).
+;The Temple Creatures (Orcs and Black Asps) are extremely agile and cannot
+;easily be killed, but must be avoided. Gain access to the Temple with the Ring
+;of Power and collect the Book of providense.
+;
+;Quest 11
+;Examination of the book will reveal the final location, that being the castle
+;south east of Rhyder across the bridge just north of the Enchanted Forest.
+;Travel their to finally face the High King and restore order to Alboreth.

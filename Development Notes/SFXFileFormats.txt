@@ -1,0 +1,276 @@
+SFX File Formats
+
+The all new file formats for SFX1 were primarily designed for Times of Lore.
+Their are 3 channels in the AY8912, and each has as much capability as the
+next.
+To this end, SFX1 supports a maximum of 3 simultaneous Effects.
+
+Each channel also has an associated Maximum volume which may allow dynamic
+distance effects to adjust the volume depending on how far a sound source is.
+
+However, certain aspects of the Ay8912 are shared, such as Noise and the
+Envelope Generator. These are fully supported for any channel in SFX1.
+
+
+Each effect consists of a sequence of entries.
+Each Entry may be 1, 2 or 3 bytes long.
+The first byte of every entry is split into two nibbles.
+The first nibble is the extraction of bits 0 to 2 (0-7) and contains the
+Action to perform.
+The second nibble is the extraction of the remaining bits 3 to 7 (0-31) and
+is used as the first data entity (Which is also referred to as Data X or X).
+
+Their are many Actions that may use just the Action byte to perform the
+operation.
+
+Action                  xBytes  Data definition
+B0-2
+0 Set Pitch             1       lo(8),hi(X)
+1 Set Noise             0       Noise Width(X)
+2 Set Attributes        0       tone(1X),noise(1X),env(1X),cyc(2X)
+3 Set Volume            0       volume(X)
+4 Set Env-Period        2       Cycle(X4),Flag(X1),per-lo(8),per-hi(8)
+5 Initiate Bend         2       element(X),dir(X),step(8),rate(8)
+6 Conditional Loop      1       Count(5X),Steps Back(8)
+7 Change                0       Silence(1X),End Type(3X),Period(8)
+B3-7 (5)
+ Data (X)
+
+0 Set Pitch             1       lo(8),hi(X)
+Sets the 12 bit pitch on the current channel.
+The next subsequent pitchbends will begin from this pitch.
+the lower 4 bits of Data Nibble X hold the high byte of the pitch.
+The next byte holds the low byte
+
+1 Set Noise             0       Noise Width(X)
+Sets the Noise associated to the channel. Set Noise also sets the AY Noise
+Pulse width.
+The next subsequent noisebend will begin from this.
+
+2 Set Attributes        0       tone(1X),noise(1X),env(1X),cyc(2X)
+Bits in the Data Nibble X define attributes of this channel
+B0 - Tone
+ 0 Disconnect Square wave generator from Channel
+ 1 Connect Square wave generator to Channel
+B1 - Noise
+ 0 Disconnect the noise generator from Channel
+ 1 Connect the Noise Generator to Channel
+B2 - Envelope
+ 0 Disconnect the Envelope Generator from Channel
+ 1 Connect the Envelope generator to Channel
+B3-4 (0-3) Envelope Cycle Register
+ 0 Do not change Cycle *1
+ 1 Triangle Wave *2
+ 2 SawTooth Wave *2
+ 3 Fade from 15 to 0 *3
+*1 Is included to allow changing of status bits without Cycle Change.
+*2 These are repeating waveforms
+*3 Initiates a Fade from Max everytime used.
+
+3 Set Volume            0       volume(X)
+Sets the Volume (4 bits (0-15)) for the channel.
+The next volumebend will start from this volume.
+
+4 Set Env-Period        2       Cycle(X4),Flag(X1),per-lo(8),per-hi(8)
+Sets the Envelope Period and Extended Cycle values if required.
+Bits in Data Nibble X Define the Cycle.
+B0-3
+ 0-15 Envelope Cycle
+B4
+ 0 Do Not set Extended Cycle
+ 1 Set Extended Cycle
+Data Byte 1
+ 0-255 Low byte of Envelope Period
+Data Byte 2
+ 0-255 High byte of Envelope Period
+
+5 Initiate Bend         2       element(2X),dir(1X),term(2X)step(8),rate(8)
+Begin bending a audio aspect.
+Bits in Data Nibble X define the type of bend to be started.
+B0-1 - Bend Aspect
+ 0 Pitch
+ 1 Volume
+ 2 Noise
+ 3 Env-Period
+B2 - Direction
+ 0 Bend Up Scale/Value
+ 1 Bend Down Scale/Value
+B3-4 - SFX Termination Style
+ 0 Continuous
+ 1 Terminate at Zero (Volume)
+ 2 Terminate on Overflow (Pitch)
+ 3 Random Termination
+
+Data Byte 1
+ 0-255 Step size
+Data Byte 2
+ 0-255 Rate (Fraction of 256)
+
+6 Conditional Loop      1       Count(5X),Steps Back(8)
+Repeat a number of previous entries for a specified number of times.
+The Data Nibble X defines the Number of repeats
+Data Byte 2 defines the number of bytes back to loop to.
+
+Once the number of repeats have been fulfilled, the routine will
+advance to the next entry.
+
+;7 Change               1       silence(1X),Action(3X),period(8)
+The Data Nibble X defines the mode and attributes of the Change.
+The first bit may silence the channel before an action is taken.
+Silencing will not effect the bend effects or status bits, Silencing
+will simply Reset the Volume to Zero.
+
+B0
+ 0 Silence           -
+ 1 Normal
+
+The remaining 4 bits of Data Nibble X defines the change or action to
+facilitate.
+B1-4                 Data Byte/s
+ 0 End               (0)None
+ 1 End All Bends     (0)None
+ 2 End Pitch Bend    (0)None
+ 3 End Noise Bend    (0)None
+ 4 End Volume Bend   (0)None
+ 5 End EnvPer Bend   (0)None
+ 6 Extended Loop     (2)Count,Steps Back
+ 7 Proceed           (1)Period
+ 8 Random Loop       (2)Steps Back *1
+ 9 Random Pitch      (1)Mask Bitmap(Lower 8 only) *1
+10 Random Volume     (0)None *1
+11 Random Noise      (0)None *1
+12 Random Env-Period (1)Mask Bitmap(Lower 8 only) *1
+13 Random PitchBend  (1)Rate *1
+14 Random NoiseBend  (1)Rate *1
+15 Random VolumeBend (1)Rate *1
+*1 The random element is taken from the TOL Engine RN-Generator.
+
+ 0 End               (0)None
+This Change is one byte long and terminates the Effect.
+ 1 End All Bends     (0)None
+Terminate all currently active Bends.
+ 2 End Pitch Bend    (0)None
+Terminate the pitchbend if currently active on the channel.
+ 3 End Noise Bend    (0)None
+Terminate the NoiseBend if currently active on the channel.
+ 4 End Volume Bend   (0)None
+Terminate the NoiseBend if currently active on the channel.
+ 5 End EnvPer Bend   (0)None
+Terminate the EnvelopePeriodBend if currently active on the channel.
+ 6 Extended Loop     (2)Count,Steps Back
+Extended Loop is an extension to the base conditional loop in order to
+support long effects and large loopbacks. The syntax is the same as
+for the base conditional loop.
+ 7 Proceed           (1)Period
+Proceed allows the current bends to progress for the specified Period.
+The Period sets the number of IRQ interrupts before the next entry is
+perfomed.
+ 8 Random Loop       (2)Chance(8),Steps Back(8)
+Random Loop will loop only if the sampled 8 bit random number is less than
+the chance value given.
+ 9 Random Pitch      (1)Mask Bitmap(Lower 8 only)
+Generates a Random pitch. The Random Pitch is based on the lower 8 bits
+of the Tone Pitch registers. However the Mask Bitmap defines the number
+of bits that the random factor will affect.
+10 Random Volume     (0)None
+Generates a random volume which will be stored to the volume register and
+used as the starting point to any subsequent volume bend.
+11 Random Noise      (0)None
+Generates a random Noise pulsewidth which will be stored in the Noise
+Register and used as the basis for any subsequent noise bend.
+12 Random Env-Period (1)Mask Bitmap(Lower 8 only)
+Generates a Random Period. The Random Period is based on the lower 8 bits
+of the Envelope Period registers. However the Mask Bitmap defines the number
+of bits that the random factor will affect.
+13 Random PitchBend  (1)Rate
+Sets up a random Pitchbend. The Step and direction will be randomised whilst
+the rate will be specified.
+14 Random NoiseBend  (1)Rate
+Sets up a random Noisebend. The Step and direction will be randomised whilst
+the rate will be specified.
+15 Random VolumeBend (1)Rate
+Sets up a random Volumebend. The Step and direction will be randomised whilst
+the rate will be specified.
+
+
+Examples...
+// The following are two examples of what i need to achieve for each effect.
+// Various schemes were investiged, because i need to fulfill all of the
+// following...
+// 1) Memory efficient both in code footprint and data files
+// 2) Flexibility
+// 3) Fast
+// 4) Wide range of Tailor made sfx
+
+// Bird Song
+// 0) Initialise with pitch set to [100], [no noise], [Tone On], Volume at [10]
+// 1) bend Pitch [down] in steps of [1] at rate [10(256)]
+// 2) Proceed for [100] cycles...
+//
+// 3) bend pitch [up] in steps of [2] at rate [20(256)]
+// 4) Proceed for [30] cycles...
+//
+// 5) Turn [off tone]
+// 6) Proceed for [5] cycles...
+//
+// 7) Turn [on tone]
+// 8) Proceed for [5] cycles...
+//
+// 9) repeat from index [5] for [4] more times.
+//
+// 10) Proceed for [30] cycles...
+//
+// 11) [Silence] and End
+//
+// Left Footstep (Gravel)
+// 0) Initialise with pitch set to [10], Noise set to [31]
+//    [Noise on], [Tone on], Volume at [10]
+// 1) bend noise [down] in steps of [1] at rate [128(256)]
+// 2) bend volume [down] in steps of [1] at rate [128]
+// 3) Proceed for [31] cycles...
+//
+// 4) [silence] and end
+
+// Sound Effects
+// Sound Channels are split thus...
+// Channel A - Hero Walk and Weapon sfx (Also Icon or Menu SFX)
+// Channel B - Environment Sounds
+// Channel C - Sprite Creatures Walk and weapon sfx
+
+// It is currently unknown if we can adopt different volumes to the distance
+// of a creatures sfx or the locality of environment sounds.
+
+// Supports the following effects
+// Channel A (Hero Effects)
+// 0) Left Footstep (Gravel) (Crunch)
+// 1) Right Footstep (Gravel)
+// 2) Left Footstep (Grass) (Thud)
+// 3) Right Footstep (Grass)
+// 4) Left Footstep (Stone) (Tap)
+// 5) Right Footstep (Stone)
+// 6) Left Footstep (Water) (Splat)
+// 7) Right Footstep (Water)
+// 8) Collision (Drum)
+// 9) Keyword Found (Window) (Chord or single fading note)
+// 10) Death (weird falling note)
+// 11) Talk?
+
+// Channel B (Environment Sounds)
+// 12) Dessert (Dessert Wind)
+// 13) Forest  (Bird Song)
+// 14) Underwurlde (Rustle of chains)
+// 15) Sea (Waves)
+
+// Channel C (Creature Sounds)
+// 16) Creature Left Footstep
+// 17) Creature Right Footstep
+// 18) Orc attack (Hiss)
+// 19) Death Cry
+
+// SFX triggers are immediate, overiding previous sfx on a channel
+
+// B7 is set to indicate effect is being processed
+// b6 is set when effect finishes.
+sfx_hero_trigger		.byt 0
+sfx_creature_trigger	.byt 0
+sfx_env_trigger		.byt 0

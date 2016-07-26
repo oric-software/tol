@@ -1,0 +1,1 @@
+copy *.tap c:\emulate\oric\system2 /y

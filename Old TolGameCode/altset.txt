@@ -1,0 +1,97 @@
+alt_charset
+ .byt $3f,$3f,$3f,$3f,$3f,$3f,$3f,$3f	; 032     Inverted Space
+ .byt $39,$39,$33,$33,$37,$3f,$2f,$3f   ; 033 !   Punctuation
+ .byt $2b,$2b,$17,$3f,$3f,$3f,$3f,$3f   ; 034 "   Punctuation
+ .byt $00,$02,$10,$05,$0a,$25,$0b,$17   ; 035 #   TL Border Corner
+ .byt $00,$20,$04,$10,$28,$15,$28,$34   ; 036 $   TR Border Corner
+ .byt $17,$0b,$25,$0a,$05,$10,$02,$00   ; 037 %   BL Border Corner
+ .byt $2a,$14,$29,$14,$20,$08,$00,$00   ; 038 &   BR Border Corner
+ .byt $20,$04,$20,$11,$2a,$15,$2f,$3d   ; 039 '   Top Border
+ .byt $2f,$3b,$15,$2a,$14,$08,$01,$08   ; 040 (   Bottom Border
+ .byt $05,$2f,$05,$13,$05,$2b,$05,$13   ; 041 )   Left Border
+ .byt $28,$3d,$28,$32,$28,$35,$28,$32   ; 042 *   Right Border
+ .byt $25,$0a,$05,$0b,$37,$3f,$3f,$3f   ; 043 +   Inside Border BR
+ .byt $3f,$3f,$3f,$3f,$3f,$33,$33,$27   ; 044 ,   Punctuation
+ .byt $1e,$3f,$30,$21,$21,$30,$1e,$12   ; 045 -   Candle Sconce0 (Handle)
+ .byt $3f,$3f,$3f,$3f,$3f,$33,$33,$3f   ; 046 .   Punctuation
+ .byt $00,$3f,$00,$3f,$3f,$3f,$00,$00   ; 047 /   Candle Sconce1
+ .byt $23,$0d,$1d,$1d,$1d,$19,$23,$3f   ; 048 0   Numbers
+ .byt $37,$27,$37,$37,$37,$37,$37,$3f   ; 049 1   Numbers
+ .byt $33,$2d,$3d,$3b,$37,$2b,$25,$3f   ; 050 2   Numbers
+ .byt $27,$1b,$3b,$27,$3b,$1b,$27,$3f   ; 051 3   Numbers
+ .byt $3b,$33,$2b,$1b,$01,$3b,$33,$3f   ; 052 4   Numbers
+ .byt $03,$1f,$03,$3b,$3b,$1b,$27,$3f   ; 053 5   Numbers
+ .byt $27,$1b,$1f,$07,$1b,$1b,$27,$3f   ; 054 6   Numbers
+ .byt $03,$3b,$3b,$37,$37,$2f,$2f,$3f   ; 055 7   Numbers
+ .byt $27,$1b,$1d,$23,$1d,$2d,$33,$3f   ; 056 8   Numbers
+ .byt $33,$2d,$2d,$31,$3d,$2d,$33,$3f   ; 057 9   Numbers
+ .byt $3f,$3f,$33,$3f,$3f,$27,$3f,$3f   ; 058 :   Punctuation
+ .byt $00,$3f,$00,$34,$28,$11,$00,$00   ; 059 ;   Candle Sconce2
+ .byt $00,$3c,$00,$08,$10,$00,$00,$00   ; 060 <   Candle Sconce3
+ .byt $3f,$3f,$00,$1d,$1b,$14,$0f,$18   ; 061 =   Page Fold
+ .byt $05,$20,$02,$00,$05,$20,$02,$00   ; 062 >   Candle Stem0
+ .byt $33,$2d,$3d,$3b,$37,$3f,$2f,$3f   ; 063 ?   Punctuation
+ .byt $3e,$2f,$1e,$2e,$1f,$2e,$1f,$2e   ; 064 @   Candle Stem1
+ .byt $23,$09,$1d,$01,$1d,$1d,$19,$3f   ; 065 A   Letters
+ .byt $03,$29,$2d,$23,$2d,$29,$03,$3f   ; 066 B   Letters
+ .byt $23,$0d,$1f,$17,$1f,$0d,$23,$3f   ; 067 C   Letters
+ .byt $03,$29,$2d,$2d,$2d,$29,$03,$3f   ; 068 D   Letters
+ .byt $01,$2d,$2f,$03,$2f,$2d,$01,$3f   ; 069 E   Letters
+ .byt $01,$2d,$2f,$03,$2f,$2f,$2f,$3f   ; 070 F   Letters
+ .byt $21,$0f,$1f,$11,$19,$0d,$21,$3f   ; 071 G   Letters
+ .byt $19,$1d,$1d,$01,$1d,$1d,$0d,$3f   ; 072 H   Letters
+ .byt $23,$33,$37,$37,$37,$27,$23,$3f   ; 073 I   Letters
+ .byt $01,$3b,$3b,$3b,$3b,$0b,$27,$3f   ; 074 J   Letters
+ .byt $19,$13,$17,$0f,$17,$13,$19,$3f   ; 075 K   Letters
+ .byt $1f,$1f,$1f,$1f,$1f,$13,$05,$3f   ; 076 L   Letters
+ .byt $1d,$09,$15,$15,$1d,$1d,$19,$3f   ; 077 M   Letters
+ .byt $0d,$0d,$0d,$15,$19,$19,$19,$3f   ; 078 N   Letters
+ .byt $23,$09,$1d,$1d,$1d,$09,$23,$3f   ; 079 O   Letters
+ .byt $03,$29,$2d,$29,$23,$2f,$0f,$3f   ; 080 P   Letters
+ .byt $23,$09,$1d,$1d,$1d,$15,$2a,$39   ; 081 Q   Letters
+ .byt $03,$29,$2d,$29,$23,$29,$0d,$3f   ; 082 R   Letters
+ .byt $21,$0f,$1f,$23,$3d,$19,$23,$3f   ; 083 S   Letters
+ .byt $01,$15,$37,$37,$37,$37,$23,$3f   ; 084 T   Letters
+ .byt $1b,$1d,$1d,$1d,$1d,$09,$23,$3f   ; 085 U   Letters
+ .byt $19,$1d,$09,$2b,$2b,$23,$37,$3f   ; 086 V   Letters
+ .byt $1b,$19,$1d,$15,$15,$09,$1d,$3f   ; 087 W   Letters
+ .byt $1d,$09,$2b,$37,$2b,$09,$1d,$3f   ; 088 X   Letters
+ .byt $1d,$09,$2b,$23,$37,$37,$23,$3f   ; 089 Y   Letters
+ .byt $11,$2b,$33,$37,$2f,$0b,$05,$3f   ; 090 Z   Letters
+ .byt $00,$00,$00,$01,$03,$07,$0b,$1c   ; 091 [   Candle Flame Left
+ .byt $18,$1c,$3c,$3c,$3e,$3e,$0e,$06   ; 092 \   Candle Wick Left
+ .byt $18,$18,$0c,$00,$00,$23,$38,$1f   ; 093 ]   Candle Stem Left
+ .byt $06,$26,$08,$00,$1e,$03,$01,$07   ; 094 ^   Candle Flame Right
+ .byt $05,$20,$02,$00,$05,$20,$02,$00   ; 095 _   Candle Wick Right
+ .byt $3e,$2f,$1e,$2e,$1f,$2e,$1f,$2e   ; 096 `   Candle Stem Right
+ .byt $3f,$3f,$33,$2d,$1d,$19,$24,$3f   ; 097 a	 Letters
+ .byt $27,$0f,$17,$0b,$1d,$0d,$13,$3f   ; 098 b   Letters
+ .byt $3f,$3f,$27,$1b,$1f,$1d,$23,$3f   ; 099 c   Letters
+ .byt $3e,$3d,$35,$29,$1d,$19,$24,$3f   ; 100 d   Letters
+ .byt $3f,$3f,$33,$2d,$03,$2e,$31,$3f   ; 101 e   Letters
+ .byt $39,$37,$37,$21,$17,$37,$37,$2f   ; 102 f   Letters
+ .byt $3f,$3f,$25,$19,$19,$25,$3b,$07   ; 103 g   Letters
+ .byt $2f,$0f,$1b,$15,$0d,$1b,$19,$3f   ; 104 h   Letters
+ .byt $3f,$37,$3f,$27,$17,$35,$33,$3f   ; 105 i   Letters
+ .byt $3f,$3b,$3f,$33,$3b,$3b,$37,$0f   ; 106 j   Letters
+ .byt $2f,$1f,$17,$03,$17,$02,$19,$3f   ; 107 k   Letters
+ .byt $3b,$37,$37,$2f,$2f,$2f,$37,$3f   ; 108 l   Letters
+ .byt $3f,$3f,$2b,$15,$15,$1d,$1b,$3f   ; 109 m   Letters
+ .byt $3f,$3f,$13,$0d,$1d,$1b,$19,$3f   ; 110 n   Letters
+ .byt $3f,$3f,$23,$0d,$1d,$19,$23,$3f   ; 111 o   Letters
+ .byt $1f,$3f,$33,$0d,$2d,$23,$2f,$07   ; 112 p   Letters     31
+ .byt $3f,$3f,$27,$1b,$1b,$23,$3a,$39   ; 113 q   Letters
+ .byt $3f,$3f,$13,$0d,$2f,$2f,$2f,$3f   ; 114 r   Letters
+ .byt $3f,$3f,$31,$2f,$33,$1d,$03,$3f   ; 115 s   Letters
+ .byt $3f,$2f,$23,$0f,$2f,$2d,$33,$3f   ; 116 t   Letters
+ .byt $3f,$3f,$3f,$2d,$1d,$19,$24,$3f   ; 117 u   Letters
+ .byt $3f,$3f,$3f,$1d,$2b,$2b,$37,$3f   ; 118 v   Letters
+ .byt $3f,$3f,$3b,$1d,$15,$15,$2b,$3f   ; 119 w   Letters
+ .byt $3f,$3f,$3f,$1d,$1b,$27,$19,$3f   ; 120 x   Letters
+ .byt $3f,$3f,$2d,$1d,$19,$25,$3b,$07   ; 121 y   Letters
+ .byt $3f,$3f,$3f,$03,$37,$2f,$01,$3f   ; 122 z   Letters
+ .byt $37,$3b,$3f,$2d,$1d,$19,$24,$3f   ; 123 {   French Letters
+ .byt $2f,$37,$33,$2d,$03,$2e,$31,$3f   ; 124 |   French Letters
+ .byt $31,$2e,$33,$2d,$03,$2e,$31,$3f   ; 125 }   French Letters
+ .byt $2b,$37,$23,$0d,$1d,$19,$23,$3f   ; 126 ~   French Letters
+

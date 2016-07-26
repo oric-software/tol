@@ -1,0 +1,450 @@
+@MULTI-EDIT FOR WINDOWS VERSION 8.0    SESS_BY_NAME=F:\SESS_HOME_DIR=F:\
+/MISC=1/I=1/SC=3/CC=0/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-1/WP_MXY=-1/WP_LT=426/WP_TP=4/WP_RT=1220/WP_BT=930
+/W=5/WNM=A/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Development Notes\MapBG.txt/OA=0/C=1/L=727/R=1/IL=3/WS=1/IS=2/D=0/LS=0/BI=15/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=691/WP_BT=505
+/MARKS=1/L1=593/P1=26/R1=16/O1=0/B1=/L2=727/P2=1/R2=1/O2=0/B2=
+/W=6/WNM=B/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\map.s/OA=1/C=1/L=210/R=15/IL=4/WS=0/IS=1/D=1/LS=0/BI=18/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=713/WP_BT=534
+/MARKS=5/L1=193/P1=59/R1=17/O1=0/B1=/L2=108/P2=15/R2=34/O2=0/B2=/L3=131/P3=11/R3=29/O3=0/B3=/L4=165/P4=11/R4=36/O4=0/B4=/L5=146/P5=16/R5=26/O5=0/B5=/L6=210/P6=1/R6=15/O6=0/B6=/L7=135/P7=18/R7=18/O7=0/B7=
+/W=8/WNM=C/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\screen_management.s/OA=1/C=1/L=670/R=15/IL=11/WS=0/IS=1/D=1/LS=0/BI=22/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=735/WP_BT=563
+/MARKS=8/L1=309/P1=11/R1=13/O1=0/B1=/L2=493/P2=1/R2=18/O2=0/B2=/L3=486/P3=15/R3=11/O3=0/B3=/L4=127/P4=15/R4=7/O4=0/B4=/L5=142/P5=29/R5=14/O5=0/B5=/L6=141/P6=15/R6=19/O6=0/B6=/L7=142/P7=29/R7=4/O7=0/B7=/L8=437/P8=18/R8=25/O8=0/B8=/L9=670/P9=1/R9=15/O9=0/B9=/L10=670/P10=2/R10=18/O10=0/B10=
+/W=9/WNM=D/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Driver.s/OA=1/C=26/L=164/R=22/IL=11/WS=0/IS=1/D=1/LS=0/BI=24/RM=128/FLL=0/SN=3/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=391/WP_BT=599
+/MARKS=1/L1=28/P1=15/R1=9/O1=0/B1=/L2=164/P2=26/R2=22/O2=0/B2=/L3=218/P3=11/R3=17/O3=0/B3=
+/W=10/WNM=E/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Data.s/OA=1/C=25/L=536/R=9/IL=1/WS=0/IS=1/D=1/LS=0/BI=26/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=722/WP_BT=563
+/MARKS=8/L1=351/P1=2/R1=15/O1=0/B1=/L2=356/P2=11/R2=20/O2=0/B2=/L3=94/P3=5/R3=10/O3=0/B3=/L4=176/P4=1/R4=2/O4=0/B4=/L5=262/P5=10/R5=22/O5=0/B5=/L6=180/P6=1/R6=23/O6=0/B6=/L7=366/P7=22/R7=26/O7=0/B7=/L8=176/P8=10/R8=23/O8=0/B8=/L9=536/P9=25/R9=9/O9=0/B9=/L10=357/P10=9/R10=18/O10=0/B10=
+/W=11/WNM=F/A=1/WA=1024/FN=C:\Temp\temp.s/OA=1/C=1/L=651/R=19/IL=1/WS=0/IS=1/D=1/LS=0/BI=28/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=14/WP_TP=16/WP_RT=642/WP_BT=492
+/MARKS=8/L1=110/P1=15/R1=35/O1=0/B1=/L2=110/P2=14/R2=20/O2=0/B2=/L3=110/P3=15/R3=24/O3=0/B3=/L4=110/P4=14/R4=17/O4=0/B4=/L5=110/P5=1/R5=12/O5=0/B5=/L6=110/P6=1/R6=19/O6=0/B6=/L7=110/P7=8/R7=7/O7=0/B7=/L8=110/P8=11/R8=31/O8=0/B8=/L9=610/P9=24/R9=8/O9=0/B9=/L10=110/P10=29/R10=17/O10=0/B10=
+/W=12/WNM=G/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Development Notes\memory.txt/OA=0/C=1/L=24/R=15/IL=1/WS=1/IS=2/D=0/LS=0/BI=30/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=176/WP_TP=232/WP_RT=782/WP_BT=708
+/MARKS=0/L1=24/P1=5/R1=24/O1=0/B1=
+/W=13/WNM=H/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\mapbinaries\tol04blk.txt/OA=0/C=1/L=187/R=15/IL=1/WS=1/IS=2/D=0/LS=0/BI=32/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=678/WP_BT=505
+/MARKS=0/L1=256/P1=1/R1=25/O1=0/B1=
+/W=14/WNM=I/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\mapbinaries\tol04col.txt/OA=0/C=76/L=225/R=15/IL=1/WS=1/IS=2/D=0/LS=0/BI=34/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=744/WP_BT=592
+/MARKS=1/L1=146/P1=15/R1=27/O1=0/B1=/L2=8/P2=9/R2=15/O2=0/B2=/L3=8/P3=11/R3=8/O3=0/B3=
+/W=15/WNM=J/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\mapbinaries\tol04til.txt/OA=0/C=1/L=2/R=2/IL=1/WS=1/IS=2/D=0/LS=0/BI=36/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=766/WP_BT=621
+/MARKS=0/L1=514/P1=1/R1=8/O1=0/B1=
+/W=16/WNM=K/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\sprite_patterns.s/OA=1/C=1/L=135/R=14/IL=2/WS=0/IS=1/D=1/LS=0/BI=38/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=766/WP_BT=621
+/MARKS=2/L1=1/P1=55/R1=19/O1=0/B1=/L2=1/P2=1/R2=6/O2=0/B2=/L3=135/P3=1/R3=14/O3=0/B3=/L4=15/P4=11/R4=11/O4=0/B4=
+/W=17/WNM=L/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Region.s/OA=1/C=15/L=64/R=15/IL=1/WS=0/IS=1/D=1/LS=0/BI=40/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=749/WP_BT=592
+/MARKS=2/L1=7/P1=15/R1=8/O1=0/B1=/L2=50/P2=11/R2=19/O2=0/B2=/L3=64/P3=15/R3=15/O3=0/B3=/L4=58/P4=8/R4=32/O4=0/B4=
+/W=18/WNM=M/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\tolsprites.txt/OA=0/C=1/L=1/R=1/IL=1/WS=1/IS=2/D=0/LS=0/BI=42/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=749/WP_BT=592
+/MARKS=0/L1=2/P1=29/R1=2/O1=0/B1=
+/W=19/WNM=N/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\hero_code.s/OA=1/C=15/L=547/R=5/IL=1/WS=0/IS=1/D=1/LS=0/BI=44/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=771/WP_BT=621
+/MARKS=7/L1=434/P1=19/R1=10/O1=0/B1=/L2=166/P2=36/R2=21/O2=0/B2=/L3=166/P3=1/R3=15/O3=0/B3=/L4=357/P4=17/R4=15/O4=0/B4=/L5=535/P5=11/R5=12/O5=0/B5=/L6=370/P6=11/R6=12/O6=0/B6=/L7=471/P7=11/R7=6/O7=0/B7=/L8=170/P8=42/R8=3/O8=0/B8=/L9=206/P9=16/R9=12/O9=0/B9=/L10=426/P10=16/R10=12/O10=0/B10=
+/W=20/WNM=O/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\irq_handler.s/OA=1/C=29/L=152/R=5/IL=11/WS=0/IS=1/D=1/LS=0/BI=46/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=749/WP_BT=592
+/MARKS=2/L1=135/P1=2/R1=16/O1=0/B1=/L2=80/P2=32/R2=8/O2=0/B2=/L3=152/P3=29/R3=5/O3=0/B3=/L4=95/P4=23/R4=8/O4=0/B4=
+/W=21/WNM=P/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\map_display.s/OA=1/C=31/L=7/R=7/IL=11/WS=0/IS=1/D=1/LS=0/BI=48/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=771/WP_BT=621
+/MARKS=0/L1=7/P1=31/R1=7/O1=0/B1=/L2=93/P2=29/R2=12/O2=0/B2=
+/W=22/WNM=Q/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\TopOfMemory.s/OA=1/C=1/L=194/R=8/IL=2/WS=0/IS=1/D=1/LS=0/BI=50/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=705/WP_BT=534
+/MARKS=1/L1=192/P1=1/R1=15/O1=0/B1=/L2=194/P2=9/R2=8/O2=0/B2=/L3=268/P3=2/R3=16/O3=0/B3=/L4=519/P4=8/R4=12/O4=0/B4=
+/W=23/WNM=R/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\animations.s/OA=1/C=42/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=52/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=749/WP_BT=592
+/MARKS=2/L1=193/P1=1/R1=23/O1=0/B1=/L2=258/P2=1/R2=37/O2=0/B2=/L3=1/P3=42/R3=1/O3=0/B3=/L4=5/P4=12/R4=5/O4=0/B4=
+/W=24/WNM=S/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Development Notes\plot.txt/OA=0/C=1/L=47/R=15/IL=3/WS=1/IS=2/D=0/LS=0/BI=54/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=771/WP_BT=621
+/MARKS=3/L1=103/P1=29/R1=14/O1=0/B1=/L2=30/P2=23/R2=19/O2=0/B2=/L3=53/P3=3/R3=32/O3=0/B3=/L4=47/P4=1/R4=17/O4=0/B4=/L5=76/P5=6/R5=19/O5=0/B5=/L6=76/P6=6/R6=19/O6=0/B6=
+/W=25/WNM=T/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Old TolGameCode\objects and items.txt/OA=0/C=11/L=43/R=1/IL=1/WS=1/IS=2/D=0/LS=0/BI=56/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=727/WP_BT=590
+/MARKS=0/L1=1/P1=11/R1=1/O1=0/B1=
+/W=26/WNM=U/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\hand_icon_selected.s/OA=1/C=1/L=76/R=6/IL=1/WS=0/IS=1/D=1/LS=0/BI=58/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=154/WP_TP=203/WP_RT=782/WP_BT=630
+/MARKS=6/L1=10/P1=12/R1=10/O1=0/B1=/L2=437/P2=16/R2=25/O2=0/B2=/L3=443/P3=16/R3=26/O3=0/B3=/L4=277/P4=7/R4=16/O4=0/B4=/L5=214/P5=22/R5=17/O5=0/B5=/L6=53/P6=41/R6=11/O6=0/B6=/L7=76/P7=1/R7=6/O7=0/B7=/L8=48/P8=12/R8=5/O8=0/B8=
+/W=27/WNM=V/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Images\tolwinchs.s/OA=1/C=36/L=13/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=60/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=642/WP_BT=437
+/MARKS=0/L1=13/P1=36/R1=1/O1=0/B1=
+/W=28/WNM=W/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\options_window_handler.s/OA=1/C=18/L=139/R=13/IL=11/WS=0/IS=1/D=1/LS=0/BI=62/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=664/WP_BT=466
+/MARKS=5/L1=244/P1=44/R1=23/O1=0/B1=/L2=267/P2=26/R2=17/O2=0/B2=/L3=274/P3=34/R3=10/O3=0/B3=/L4=267/P4=14/R4=15/O4=0/B4=/L5=164/P5=36/R5=18/O5=0/B5=/L6=139/P6=18/R6=13/O6=0/B6=/L7=222/P7=16/R7=12/O7=0/B7=
+/W=29/WNM=X/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\text_window_handler.s/OA=1/C=1/L=547/R=13/IL=1/WS=0/IS=1/D=1/LS=0/BI=64/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=686/WP_BT=495
+/MARKS=7/L1=65/P1=35/R1=23/O1=0/B1=/L2=87/P2=35/R2=17/O2=0/B2=/L3=212/P3=19/R3=22/O3=0/B3=/L4=342/P4=26/R4=35/O4=0/B4=/L5=367/P5=1/R5=34/O5=0/B5=/L6=392/P6=27/R6=15/O6=0/B6=/L7=452/P7=21/R7=31/O7=0/B7=/L8=547/P8=1/R8=13/O8=0/B8=/L9=530/P9=2/R9=18/O9=0/B9=/L10=528/P10=16/R10=18/O10=0/B10=
+/W=30/WNM=Y/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Icon_Handler.s/OA=1/C=32/L=62/R=8/IL=1/WS=0/IS=1/D=1/LS=0/BI=66/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=686/WP_BT=495
+/MARKS=0/L1=62/P1=32/R1=8/O1=0/B1=/L2=46/P2=2/R2=14/O2=0/B2=
+/W=31/WNM=Z/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\tol_text.s/OA=1/C=2/L=718/R=13/IL=2/WS=0/IS=1/D=1/LS=0/BI=68/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=686/WP_BT=495
+/MARKS=7/L1=697/P1=2/R1=21/O1=0/B1=/L2=297/P2=3/R2=13/O2=0/B2=/L3=483/P3=40/R3=30/O3=0/B3=/L4=455/P4=1/R4=3/O4=0/B4=/L5=16/P5=5/R5=13/O5=0/B5=/L6=456/P6=7/R6=16/O6=0/B6=/L7=678/P7=7/R7=23/O7=0/B7=/L8=718/P8=2/R8=13/O8=0/B8=/L9=714/P9=9/R9=18/O9=0/B9=/L10=749/P10=12/R10=19/O10=0/B10=
+/W=32/WNM=1A/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\ZP_Reference.s/OA=1/C=1/L=75/R=12/IL=1/WS=0/IS=1/D=1/LS=0/BI=70/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=312/WP_TP=95/WP_RT=954/WP_BT=532
+/MARKS=1/L1=100/P1=1/R1=13/O1=0/B1=/L2=75/P2=1/R2=12/O2=0/B2=/L3=21/P3=6/R3=21/O3=0/B3=
+/W=33/WNM=1B/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\plot_sprite.s/OA=1/C=1/L=226/R=13/IL=11/WS=0/IS=1/D=1/LS=0/BI=72/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=524
+/MARKS=4/L1=72/P1=14/R1=18/O1=0/B1=/L2=73/P2=19/R2=8/O2=0/B2=/L3=73/P3=1/R3=8/O3=0/B3=/L4=14/P4=15/R4=19/O4=0/B4=/L5=226/P5=1/R5=13/O5=0/B5=/L6=43/P6=52/R6=12/O6=0/B6=
+/W=34/WNM=1C/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\sprite_code.s/OA=1/C=1/L=1089/R=13/IL=1/WS=0/IS=1/D=1/LS=0/BI=74/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=524
+/MARKS=8/L1=881/P1=29/R1=21/O1=0/B1=/L2=974/P2=15/R2=28/O2=0/B2=/L3=951/P3=31/R3=2/O3=0/B3=/L4=728/P4=37/R4=18/O4=0/B4=/L5=333/P5=19/R5=13/O5=0/B5=/L6=94/P6=11/R6=5/O6=0/B6=/L7=945/P7=11/R7=29/O7=0/B7=/L8=1033/P8=12/R8=32/O8=0/B8=/L9=1089/P9=1/R9=13/O9=0/B9=/L10=1033/P10=2/R10=18/O10=0/B10=
+/W=35/WNM=1D/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\candle_handler.s/OA=1/C=16/L=18/R=13/IL=11/WS=0/IS=1/D=1/LS=0/BI=76/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=730/WP_BT=553
+/MARKS=1/L1=169/P1=18/R1=8/O1=0/B1=/L2=18/P2=16/R2=13/O2=0/B2=/L3=170/P3=16/R3=12/O3=0/B3=/L4=147/P4=16/R4=36/O4=0/B4=/L5=162/P5=14/R5=27/O5=0/B5=/L6=179/P6=1/R6=28/O6=0/B6=/L7=185/P7=15/R7=25/O7=0/B7=/L8=192/P8=11/R8=18/O8=0/B8=/L9=207/P9=19/R9=12/O9=0/B9=/L10=207/P10=20/R10=12/O10=0/B10=
+/W=36/WNM=1E/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Dropped_item_handler.s/OA=1/C=38/L=211/R=12/IL=1/WS=0/IS=1/D=1/LS=0/BI=78/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=132/WP_TP=174/WP_RT=774/WP_BT=601
+/MARKS=2/L1=171/P1=15/R1=13/O1=0/B1=/L2=135/P2=28/R2=7/O2=0/B2=/L3=211/P3=38/R3=12/O3=0/B3=/L4=91/P4=16/R4=5/O4=0/B4=
+/W=37/WNM=1F/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\speak_icon_selected.s/OA=1/C=1/L=472/R=14/IL=11/WS=0/IS=1/D=1/LS=0/BI=80/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=752/WP_BT=589
+/MARKS=7/L1=248/P1=25/R1=27/O1=0/B1=/L2=301/P2=11/R2=14/O2=0/B2=/L3=264/P3=1/R3=15/O3=0/B3=/L4=272/P4=19/R4=37/O4=0/B4=/L5=234/P5=21/R5=16/O5=0/B5=/L6=19/P6=11/R6=17/O6=0/B6=/L7=46/P7=28/R7=23/O7=0/B7=/L8=472/P8=1/R8=14/O8=0/B8=/L9=1/P9=1/R9=1/O9=0/B9=/L10=373/P10=16/R10=19/O10=0/B10=
+/W=38/WNM=1G/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\examine_icon_selected.s/OA=1/C=1/L=46/R=13/IL=1/WS=0/IS=1/D=1/LS=0/BI=82/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=132/WP_TP=174/WP_RT=774/WP_BT=601
+/MARKS=0/L1=46/P1=1/R1=13/O1=0/B1=/L2=29/P2=16/R2=5/O2=0/B2=
+/W=39/WNM=1H/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\inventory_icon_selected.s/OA=1/C=12/L=1/R=1/IL=11/WS=0/IS=1/D=1/LS=0/BI=84/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=575
+/MARKS=0/L1=1/P1=12/R1=1/O1=0/B1=
+/W=40/WNM=1I/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\text_handler.s/OA=1/C=15/L=72/R=5/IL=1/WS=0/IS=1/D=1/LS=0/BI=86/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=752/WP_BT=599
+/MARKS=0/L1=72/P1=15/R1=5/O1=0/B1=/L2=57/P2=10/R2=5/O2=0/B2=
+/W=41/WNM=1J/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\mapbinaries\tol04chb.txt/OA=0/C=1/L=2/R=2/IL=1/WS=1/IS=2/D=0/LS=0/BI=88/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=582
+/MARKS=0/L1=2/P1=1/R1=2/O1=0/B1=
+/W=42/WNM=1K/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Development Notes\TolNotes.txt/OA=0/C=1/L=418/R=10/IL=1/WS=1/IS=2/D=0/LS=0/BI=90/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=730/WP_BT=599
+/MARKS=1/L1=243/P1=1/R1=22/O1=0/B1=/L2=418/P2=25/R2=10/O2=0/B2=/L3=323/P3=1/R3=31/O3=0/B3=/L4=323/P4=10/R4=31/O4=0/B4=
+/W=43/WNM=1L/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\TOLUtilities\sfx_tables.s/OA=1/C=23/L=5/R=5/IL=2/WS=0/IS=1/D=1/LS=0/BI=92/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=538
+/MARKS=0/L1=5/P1=23/R1=5/O1=0/B1=
+/W=44/WNM=1M/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\TOLUtilities\sfx_notes.s/OA=1/C=1/L=388/R=14/IL=1/WS=0/IS=1/D=1/LS=0/BI=94/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=730/WP_BT=567
+/MARKS=2/L1=495/P1=14/R1=34/O1=0/B1=/L2=681/P2=2/R2=36/O2=0/B2=/L3=388/P3=1/R3=14/O3=0/B3=/L4=436/P4=1/R4=3/O4=0/B4=
+/W=45/WNM=1N/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\TOLUtilities\sfx_driver.s/OA=1/C=1/L=4/R=1/IL=11/WS=0/IS=1/D=1/LS=0/BI=96/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=132/WP_TP=174/WP_RT=774/WP_BT=601
+/MARKS=1/L1=35/P1=22/R1=32/O1=0/B1=/L2=4/P2=1/R2=1/O2=0/B2=/L3=1/P3=2/R3=1/O3=0/B3=
+/W=46/WNM=1O/A=0/WA=1536/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Development Notes\tol-log.txt/OA=0/C=1/L=397/R=21/IL=1/WS=1/IS=2/D=0/LS=0/BI=98/RM=79/FLL=0/SN=0/FTO=255/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=730/WP_BT=567
+/MARKS=1/L1=345/P1=11/R1=30/O1=0/B1=/L2=347/P2=60/R2=10/O2=0/B2=/L3=296/P3=56/R3=15/O3=0/B3=
+/W=47/WNM=1P/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\projectile_code.s/OA=1/C=1/L=344/R=4/IL=11/WS=0/IS=1/D=1/LS=0/BI=100/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=664/WP_BT=529
+/MARKS=8/L1=184/P1=40/R1=9/O1=0/B1=/L2=286/P2=11/R2=28/O2=0/B2=/L3=286/P3=15/R3=34/O3=0/B3=/L4=308/P4=1/R4=24/O4=0/B4=/L5=308/P5=15/R5=19/O5=0/B5=/L6=204/P6=1/R6=18/O6=0/B6=/L7=121/P7=11/R7=17/O7=0/B7=/L8=77/P8=44/R8=20/O8=0/B8=/L9=344/P9=1/R9=4/O9=0/B9=/L10=371/P10=14/R10=24/O10=0/B10=
+/W=48/WNM=1Q/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Tile Studio\TolMapOnly.s/OA=1/C=5/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=102/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=752/WP_BT=596
+/MARKS=0/L1=1/P1=5/R1=1/O1=0/B1=
+/W=49/WNM=1R/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\test_display.s/OA=1/C=1/L=78/R=5/IL=11/WS=0/IS=1/D=1/LS=0/BI=104/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=708/WP_BT=587
+/MARKS=0/L1=78/P1=1/R1=5/O1=0/B1=
+/W=50/WNM=1S/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\TOLUtilities\sfx_data.s/OA=1/C=1/L=200/R=13/IL=1/WS=0/IS=1/D=1/LS=0/BI=106/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=642/WP_BT=430
+/MARKS=4/L1=27/P1=11/R1=15/O1=0/B1=/L2=73/P2=19/R2=23/O2=0/B2=/L3=312/P3=30/R3=27/O3=0/B3=/L4=220/P4=2/R4=24/O4=0/B4=/L5=200/P5=1/R5=13/O5=0/B5=
+/W=51/WNM=1T/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\regional_sfx.s/OA=1/C=43/L=19/R=5/IL=11/WS=0/IS=1/D=1/LS=0/BI=108/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=664/WP_BT=508
+/MARKS=0/L1=19/P1=43/R1=5/O1=0/B1=
+/W=52/WNM=1U/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\lighting_control.s/OA=1/C=31/L=18/R=6/IL=11/WS=0/IS=1/D=1/LS=0/BI=110/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=686/WP_BT=488
+/MARKS=2/L1=86/P1=11/R1=3/O1=0/B1=/L2=13/P2=15/R2=12/O2=0/B2=/L3=18/P3=31/R3=6/O3=0/B3=/L4=137/P4=16/R4=18/O4=0/B4=
+/W=53/WNM=1V/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\weapon_special_effects.s/OA=1/C=11/L=19/R=13/IL=11/WS=0/IS=1/D=1/LS=0/BI=112/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=738/WP_BT=552
+/MARKS=0/L1=19/P1=11/R1=13/O1=0/B1=
+/W=54/WNM=1W/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\DM\test.s/OA=1/C=12/L=62/R=11/IL=1/WS=0/IS=1/D=1/LS=0/BI=114/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=716/WP_BT=523
+/MARKS=0/L1=62/P1=12/R1=11/O1=0/B1=/L2=2/P2=11/R2=2/O2=0/B2=/L3=2/P3=22/R3=2/O3=0/B3=
+/W=55/WNM=1X/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\game_preferences.s/OA=1/C=1/L=12/R=10/IL=1/WS=0/IS=1/D=1/LS=0/BI=116/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=716/WP_BT=572
+/MARKS=0/L1=12/P1=1/R1=10/O1=0/B1=
+/W=56/WNM=1Y/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\underworld_switches.s/OA=1/C=1/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=118/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=738/WP_BT=599
+/MARKS=0/L1=1/P1=1/R1=1/O1=0/B1=/L2=43/P2=3/R2=1/O2=0/B2=
+/W=57/WNM=1Z/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\disc_code.s/OA=1/C=2/L=189/R=13/IL=1/WS=0/IS=1/D=1/LS=0/BI=120/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=110/WP_TP=145/WP_RT=760/WP_BT=581
+/MARKS=2/L1=78/P1=1/R1=18/O1=0/B1=/L2=111/P2=15/R2=24/O2=0/B2=/L3=189/P3=2/R3=13/O3=0/B3=/L4=104/P4=16/R4=12/O4=0/B4=
+/W=58/WNM=2A/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\create_exclusion_data.s/OA=1/C=54/L=1/R=1/IL=11/WS=0/IS=1/D=1/LS=0/BI=122/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=154/WP_TP=203/WP_RT=782/WP_BT=599
+/MARKS=0/L1=1/P1=54/R1=1/O1=0/B1=/L2=3/P2=55/R2=3/O2=0/B2=
+/W=59/WNM=2B/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\key_fire.s/OA=1/C=1/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=124/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=672/WP_BT=521
+/MARKS=0/L1=1/P1=1/R1=1/O1=0/B1=
+/W=60/WNM=2C/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\knight_gfx.s/OA=1/C=1/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=126/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=694/WP_BT=501
+/MARKS=0/L1=1/P1=1/R1=1/O1=0/B1=
+/W=61/WNM=2D/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Barbarian_GFX.s/OA=1/C=1/L=3/R=3/IL=1/WS=0/IS=1/D=1/LS=0/BI=128/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=716/WP_BT=530
+/MARKS=0/L1=3/P1=1/R1=3/O1=0/B1=
+/W=62/WNM=2E/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\Valkyrie_GFX.s/OA=1/C=1/L=14/R=14/IL=1/WS=0/IS=1/D=1/LS=0/BI=130/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=738/WP_BT=559
+/MARKS=0/L1=14/P1=1/R1=14/O1=0/B1=
+/W=63/WNM=2F/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\use_mead_chime.s/OA=1/C=27/L=5/R=5/IL=11/WS=0/IS=1/D=1/LS=0/BI=132/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=738/WP_BT=599
+/MARKS=0/L1=5/P1=27/R1=5/O1=0/B1=
+/W=64/WNM=2G/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\Old TolGameCode\candle_power.s/OA=1/C=2/L=14/R=5/IL=1/WS=0/IS=1/D=1/LS=0/BI=134/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=88/WP_TP=116/WP_RT=738/WP_BT=599
+/MARKS=0/L1=14/P1=2/R1=5/O1=0/B1=/L2=14/P2=3/R2=5/O2=0/B2=
+/W=65/WNM=2H/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\sunNmoon.s/OA=1/C=2/L=14/R=2/IL=1/WS=0/IS=1/D=1/LS=0/BI=136/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=650/WP_BT=492
+/MARKS=0/L1=14/P1=2/R1=2/O1=0/B1=
+/W=66/WNM=2I/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\life_control.s/OA=1/C=1/L=7/R=6/IL=11/WS=0/IS=1/D=1/LS=0/BI=138/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=650/WP_BT=492
+/MARKS=0/L1=7/P1=1/R1=6/O1=0/B1=
+/W=67/WNM=2J/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\controller.s/OA=1/C=21/L=5/R=5/IL=1/WS=0/IS=1/D=1/LS=0/BI=140/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=1/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=694/WP_BT=550
+/MARKS=0/L1=5/P1=21/R1=5/O1=0/B1=/L2=39/P2=33/R2=19/O2=0/B2=
+/W=68/WNM=2K/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\page0.s/OA=1/C=1/L=5/R=5/IL=1/WS=0/IS=1/D=1/LS=1/BI=142/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=132/WP_TP=174/WP_RT=782/WP_BT=599
+/MARKS=0/L1=215/P1=5/R1=15/O1=0/B1=/L2=128/P2=43/R2=13/O2=0/B2=
+/W=69/WNM=2L/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\page0.s/OA=1/C=8/L=1/R=1/IL=2/WS=0/IS=1/D=1/LS=1/BI=142/RM=128/FLL=0/SN=3/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-1/WP_MXY=-1/WP_LT=391/WP_TP=0/WP_RT=782/WP_BT=599
+/MARKS=0/L1=215/P1=5/R1=15/O1=0/B1=/L2=128/P2=43/R2=13/O2=0/B2=
+/W=70/WNM=2M/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source\tol_text_french.s/OA=1/C=1/L=324/R=7/IL=1/WS=0/IS=1/D=1/LS=0/BI=146/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-1/WP_MXY=-1/WP_LT=22/WP_TP=29/WP_RT=672/WP_BT=476
+/MARKS=0/L1=324/P1=1/R1=7/O1=0/B1=
+/G_STR=FPATH_HISTORY20
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source
+/G_STR=FPATH_HISTORY19
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\
+/G_STR=FPATH_HISTORY18
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol
+/G_STR=FPATH_HISTORY15
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\ExampleCode\\General\\
+/G_INT=SESSION_NAMES_NUMBER
+74
+/G_INT=SM_ACTIVE_WIN_ID
+983040
+/G_STR=RWSTATUSSTR
+/I1=1/R1=FS //N=1//NS=1/I2=2/R2=SEARCH_LIST //NS=1
+/G_INT=RWSTATUSCOUNT
+2
+/G_STR=SEARCH_HISTORY10
+old_life
+/G_STR=SEARCH_HISTORY11
+flame_col
+/G_STR=SEARCH_HISTORY17
+hero_maploclo
+/G_STR=FILE_HISTORY17
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\controller.s
+/G_STR=FILE_HISTORY14
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\Sonix\\340\\source\\Editor.s
+/G_STR=FILE_HISTORY9
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\stole\\stole.s
+/G_STR=FILE_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\1k\\2004\\source.s
+/G_STR=REPLACE_HISTORY20
+032
+/G_STR=REPLACE_HISTORY18
+via1
+/G_STR=REPLACE_HISTORY14
+zero_02
+/G_STR=REPLACE_HISTORY19
+via2
+/G_STR=REPLACE_HISTORY15
+24
+/G_STR=REPLACE_HISTORY11
+/
+/G_STR=REPLACE_HISTORY1
+110
+/G_STR=REPLACE_HISTORY16
+//
+/G_STR=REPLACE_HISTORY12
+0
+/G_STR=REPLACE_HISTORY8
+>
+/G_STR=REPLACE_HISTORY6
+092
+/G_STR=REPLACE_HISTORY2
+101
+/G_STR=REPLACE_STR
+032
+/G_STR=REPLACE_HISTORY17
+//
+/G_STR=REPLACE_HISTORY13
+1
+/G_STR=REPLACE_HISTORY3
+91
+/G_STR=REPLACE_HISTORY10
+192
+/G_STR=REPLACE_HISTORY4
+091
+/G_STR=FILE_HISTORY18
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\page0.s
+/G_STR=FILE_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\stole\\others.s
+/G_STR=FSPATH_HISTORY5
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\
+/G_STR=REPLACE_HISTORY7
+107
+/G_STR=FSPATH_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\
+/G_STR=FPATH_HISTORY16
+C:\\Emulate\\oric\\sourcesafe\\Software Projects
+/G_STR=FPATH_HISTORY12
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\DM\\
+/G_STR=FPATH_HISTORY1
+C:\\Projects\\tol\\
+/G_STR=ASC_CHRT_FONTS
+/ANAME=Fixedsys/ONAME=Terminal
+/G_STR=FSWITCHES
+XIS
+/G_STR=FPATH_HISTORY
+/#=20/HL=
+/G_STR=FSPATH_HISTORY1
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Development Notes\\
+/G_STR=DB#WCMDMAP^WCMDMAP
+/S=33/OR=1
+/G_INT=2IINT_36
+1
+/G_STR=DB#WCMDMAP^BOXLIST
+/S=1/OR=1
+/G_STR=DB#WCMDMAP^MENULIST
+/S=1/OR=1
+/G_STR=MENUITEMS
+MENUID=WLContextMENUSTYLE=4
+/G_INT=MENUCOUNT
+4
+/G_STR=ACTIVE_MDI
+MDI
+/G_STR=ACTIVE_CONTEXT
+Context
+/G_STR=ACTIVE_MAIN
+Main
+/G_STR=DB#MECONFIG^S SH
+/S=1/OR=1
+/G_INT=PGMIINT_30
+1
+/G_STR=EXT
+EXT=S SHDOC=1IND=2UF=0TS=10RM=128FORMAT=Edit format lineTX=-1LS=6502TEMPLATE=6502FONT=/NAME=Fixedsys/SIZE=-12/WT=400/SET=0OEM=1FT=2HLP=CMACWIN.HLPDIR=<ME_PATH>SRC
+/G_STR=TMPEDITDLGPOS
+/XPOS=562/YPOS=136
+/G_STR=DB#MECONFIG^LANGUAGE
+/S=1/OR=1
+/G_INT=LANGIINT_41
+1
+/G_STR=SEARCH_HISTORY
+/#=20/HL=
+/G_STR=DB#MECONFIG^EXT
+/S=20/OR=1
+/G_INT=EXTIINT_40
+1
+/G_INT=RWCURRENTTAB
+1
+/G_INT=TESTGLOB
+8
+/G_INT=G_RWHEIGHT
+196
+/G_STR=SEARCHTABDLGPOS
+/XPOS=53/YPOS=267
+/G_STR=BFLDLGPOS
+/XPOS=644/YPOS=244
+/G_STR=CVDLGPOS
+/XPOS=615/YPOS=251
+/G_STR=FILE_HISTORY
+/#=20/HL=
+/G_STR=REPLACE_HISTORY
+/#=20/HL=
+/G_STR=DB#MECONFIG^CMDMAPLI
+/S=1/OR=1
+/G_INT=FPLASTFOCUS
+2623450
+/G_STR=FFILESPEC
+*.s
+/G_STR=FILESPEC_HISTORY
+/#=2/HL=
+/G_STR=FSPATH_HISTORY
+/#=7/HL=
+/G_STR=FISETTINGS
+/WARN1=0/WARN2=0/REMLT=1/ADDLT=1/HEX=1/BRL1=16/BRL2=0
+/G_STR=EXTENSIONS
+.S.MEW..TXT.DAT.ZLV.BAT
+/G_STR=FSPATH_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\
+/G_STR=FSPATH_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\
+/G_STR=FSPATH_HISTORY4
+C:\\PBWin70\\WinAPI\\
+/G_STR=FILESPEC_HISTORY1
+*.*
+/G_STR=HEADER_HISTORY1
+<LM><FILE>.<EXT><RM><CDATE> <CTIME>
+/G_STR=HEADER_HISTORY
+/#=1/HL=
+/G_STR=FOOTER_HISTORY1
+<CM>Page: <PAGE>
+/G_STR=FOOTER_HISTORY
+/#=1/HL=
+/G_STR=FPATH_HISTORY0
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Development Notes
+/G_STR=FPATH_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Images\\
+/G_STR=FPATH_HISTORY4
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\mapbinaries\\
+/G_STR=FPATH_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource
+/G_STR=FPATH_HISTORY8
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Tile Studio\\
+/G_STR=FPATH_HISTORY10
+C:\\Emulate\\oric\\sourcesafe
+/G_STR=FPATH_HISTORY14
+C:\\Emulate\\oric\\
+/G_STR=FPATH_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Old TolGameCode\\
+/G_STR=FPATH_HISTORY5
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\ExampleTables\\Text\\
+/G_STR=FPATH_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Development Notes\\
+/G_STR=FPATH_HISTORY9
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\ExampleCode\\audio\\source\\
+/G_STR=FPATH_HISTORY11
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\TOLUtilities\\
+/G_STR=FPATH_HISTORY13
+C:\\PBWin70\\WinAPI
+/G_STR=FPATH_HISTORY17
+C:\\Emulate\\oric\\system2\\
+/G_STR=FPROMPT_LAST_PATH
+C:\\Emulate\\oric\\sourcesafe
+/G_STR=REPLACE_HISTORY5
+92
+/G_STR=REPLACE_HISTORY9
+00
+/G_INT=SRETURN_INT
+555
+/G_INT=FOUND_COUNT
+1
+/G_STR=SEARCH_HISTORY15
+hero_disguise
+/G_STR=FILE_HISTORY1
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Audio\\SIDtests\\sidnoise.s
+/G_STR=FILE_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Graphics\\HIRES\\Source\\temp.s
+/G_STR=FILE_HISTORY8
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\impossible_irq.s
+/G_STR=FILE_HISTORY13
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\oric_music\\Source\\INKEY.s
+/G_STR=FILE_HISTORY16
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\WMS\\Source\\WME_SYNTHESIS.s
+/G_STR=FILE_HISTORY0
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Audio\\DiscSample\\via_init.s
+/G_STR=FILE_HISTORY4
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\stole\\sid_driver.s
+/G_STR=FILE_HISTORY5
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\Wave Flow\\waveflow.s
+/G_STR=FILE_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Graphics\\Text\\40x56\\Source\\animation.s
+/G_STR=FILE_HISTORY10
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Old TolGameCode\\tol_irq.s
+/G_STR=FILE_HISTORY11
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\ExampleCode\\General\\Detection.s
+/G_STR=FILE_HISTORY12
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Resource\\ExampleCode\\Keyboard\\Source\\INKEY.s
+/G_STR=FILE_HISTORY15
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\Sonix\\Midi\\midi_long_unpack.s
+/G_STR=FILE_HISTORY19
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\tol_text.s
+/G_STR=FILE_HISTORY20
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\tol_text_french.s
+/G_STR=SEARCH_STR
+dsb 3
+/G_STR=FSEARCH_PATH
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\
+/G_STR=SEARCH_HISTORY3
+030
+/G_STR=SEARCH_HISTORY7
+foot_
+/G_STR=SEARCH_HISTORY9
+icg_glow_inde
+/G_STR=SEARCH_HISTORY12
+life_forc
+/G_STR=SEARCH_HISTORY14
+wt_cursor_x
+/G_STR=SEARCH_HISTORY16
+hero_xl
+/G_STR=SEARCH_HISTORY18
+hero_gold
+/G_STR=FSPATH_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\
+/G_STR=FILESPEC_HISTORY2
+*.s
+/G_STR=SEARCH_HISTORY1
+via
+/G_STR=SEARCH_HISTORY2
+via1
+/G_STR=SEARCH_HISTORY4
+page0
+/G_STR=SEARCH_HISTORY5
+pattern_number
+/G_STR=SEARCH_HISTORY6
+effect_ornament_index
+/G_STR=SEARCH_HISTORY8
+creature_repeatrotate_bitmap
+/G_STR=SEARCH_HISTORY13
+sunmoon_source_origin
+/G_STR=SEARCH_HISTORY19
+game_direction
+/G_INT=MENU_RESULT
+1
+/G_STR=SEARCH_HISTORY20
+dsb 3
+/G_INT=REPSEARCH
+1
+/G_STR=TAGPATH
+<User_Path>\\Tags\\
+/G_INT=BLOCKOFFAFTERPASTE
+1
+/G_INT=NO_CONFIRM_OVERWRITE
+1
+/G_INT=TOOLHELPDELAY
+5
+/G_INT=BINARY_MODE
+1
+/G_STR=FC_CONFIG_STR
+/SH=1/IGC=1/IGI=1/IGB=1/IGT=1/NWL=1/WS=1
+/G_STR=DEF_FSR_SWITCHES
+XI
+/G_STR=FRSWITCHES
+XI
+/G_STR=DEF_FS_SWITCHES
+XI
+/G_STR=DEF_REPL_SWITCHES
+PKIR
+/G_STR=REPL_SWITCHES
+XPKI
+/G_STR=DEF_SWITCHES
+KIR
+/G_STR=SWITCHES
+XKI
+/G_INT=REG_EXP_STYLE
+1
+/G_INT=DEFAULT_INSERT_MODE
+1
+/G_INT=CALC_WORD_LENGTH
+32

@@ -1,0 +1,372 @@
+@MULTI-EDIT FOR WINDOWS VERSION 8.0    SESS_BY_NAME=TOLSESS_HOME_DIR=C:\Emulate\oric\sourcesafe\Software Projects\Games\tol\source
+/MISC=1/I=1/SC=12/CC=0/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-1/WP_MXY=-1/WP_LT=651/WP_TP=0/WP_RT=1280/WP_BT=964
+/W=5/WNM=A/A=0/WA=512/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\IsoNew\map_memory.txt/OA=0/C=1/L=106/R=32/IL=1/WS=1/IS=2/D=0/LS=0/BI=15/RM=79/FLL=0/SN=0/FTO=255/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=198/WP_TP=261/WP_RT=617/WP_BT=837
+/MARKS=0/L1=14/P1=21/R1=14/O1=0/B1=
+/W=6/WNM=B/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\IsoNew\DisplayRoom.s/OA=1/C=1/L=220/R=25/IL=1/WS=0/IS=1/D=1/LS=0/BI=18/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=0/WP_TP=0/WP_RT=510/WP_BT=624
+/MARKS=1/L1=117/P1=9/R1=51/O1=0/B1=/L2=252/P2=20/R2=25/O2=0/B2=/L3=54/P3=19/R3=25/O3=0/B3=
+/W=8/WNM=C/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\IsoNew\Tables.s/OA=1/C=28/L=26/R=26/IL=2/WS=0/IS=1/D=1/LS=0/BI=22/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=22/WP_TP=29/WP_RT=532/WP_BT=653
+/MARKS=0/L1=87/P1=25/R1=49/O1=0/B1=
+/W=9/WNM=D/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\IsoNew\ZeroPage.s/OA=1/C=1/L=16/R=16/IL=1/WS=0/IS=1/D=1/LS=0/BI=24/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=44/WP_TP=58/WP_RT=554/WP_BT=682
+/MARKS=0/L1=37/P1=30/R1=38/O1=0/B1=
+/W=10/WNM=E/A=0/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\IsoNew\Driver.s/OA=1/C=1/L=17/R=17/IL=1/WS=0/IS=1/D=1/LS=0/BI=26/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=0/WP_SC=1/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=66/WP_TP=87/WP_RT=576/WP_BT=711
+/MARKS=0/L1=16/P1=9/R1=16/O1=0/B1=
+/W=11/WNM=F/A=1/WA=1024/FN=C:\Emulate\oric\sourcesafe\Software Projects\Games\isometric\source\graphics.s/OA=1/C=1/L=1/R=1/IL=1/WS=0/IS=1/D=1/LS=0/BI=28/RM=128/FLL=0/SN=0/FTO=0/LT=\C\L/WP_F=3/WP_SC=3/WP_MNX=-1/WP_MNY=-1/WP_MXX=-4/WP_MXY=-30/WP_LT=176/WP_TP=232/WP_RT=617/WP_BT=837
+/MARKS=0/L1=2/P1=23/R1=2/O1=0/B1=
+/G_STR=RWSTATUSSTR
+/I1=1/R1=FS //N=1//NS=1
+/G_INT=RWSTATUSCOUNT
+1
+/G_STR=FPATH_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities
+/G_STR=REPLACE_HISTORY16
+,3
+/G_STR=FSPATH_HISTORY9
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\
+/G_STR=PASDEFFILE
+<FILE>
+/G_STR=EXTENSIONS
+..S.MEW.TXT.LIB.AYL.TAP.BMP.RTF.ASM.PRG.OUT.BAT.PRJ.TAG.TMP.INC.BAS
+/G_INT=1IINT_30
+1
+/G_STR=DB#MECONFIG^S SH
+/S=1/OR=1
+/G_INT=LANGIINT_41
+1
+/G_STR=TMPEDITDLGPOS
+/XPOS=499/YPOS=270
+/G_STR=FSPATH_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\Gauntlet\\
+/G_STR=DB#WCMDMAP^WCMDMAP
+/S=93/OR=1
+/G_INT=2IINT_36
+1
+/G_STR=FPATH_HISTORY
+/#=20/HL=
+/G_STR=CALC_TAPE21
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE20
+TAPE=/TX=                                  65536/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE19
+TAPE=/TX=                                      0/FT=-1156970077/FC=0/BC=16777215OP=/TX=C/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE18
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE17
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE16
+@þ= B=10
+/G_STR=CALC_TAPE15
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX=*/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE14
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE13
+TAPE=/TX=                                  65536/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE12
+TAPE=/TX=                                      0/FT=-1156970077/FC=0/BC=16777215OP=/TX=C/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE11
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX=*/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE10
+TAPE=/TX=                                      8/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE9
+TAPE=/TX=                                   2048/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE8
+@þ= B=10
+/G_STR=CALC_TAPE7
+TAPE=/TX=                                   2048/FT=-1156970077/FC=0/BC=16777215OP=/TX=//FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE6
+TAPE=/TX=                                     40/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE5
+TAPE=/TX=                                   51.2/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE4
+@þ= B=10
+/G_STR=CALC_TAPE3
+TAPE=/TX=                                    256/FT=-1156970077/FC=0/BC=16777215OP=/TX=*/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE2
+TAPE=/TX=                                     14/FT=-1156970077/FC=0/BC=16777215OP=/TX==/FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_TAPE1
+TAPE=/TX=                                   3584/FT=-1156970077/FC=0/BC=16777215OP=/TX= /FT=-1156970077/FC=0/BC=16777215B=10
+/G_STR=CALC_PARAMS
+/WO=1/LK=3/BASE=10/DPL=0/DPO=0/FS1= * /FS2= = /FP=0/MEM=0.0000000000/ACC=3584.0000000000/ENT=3584.0000000000
+/G_STR=CALC_BASE_DISPLAY16
+Hex
+/G_STR=CALC_BASE_DISPLAY10
+Dec
+/G_STR=CALC_BASE_DISPLAY8
+Oct
+/G_STR=CALC_BASE_DISPLAY2
+Bin
+/G_STR=ASC_CHRT_FONTS
+/ANAME=Fixedsys/ONAME=Terminal
+/G_STR=REPLACE_HISTORY
+/#=20/HL=
+/G_STR=FOOTER_HISTORY
+/#=1/HL=
+/G_STR=FOOTER_HISTORY1
+<CM>Page: <PAGE>
+/G_STR=HEADER_HISTORY
+/#=1/HL=
+/G_STR=HEADER_HISTORY1
+<LM><FILE>.<EXT><RM><CDATE> <CTIME>
+/G_STR=SEARCH_HISTORY
+/#=20/HL=
+/G_STR=FSPATH_HISTORY1
+C:\\Emulate\\oric\\sourcesafe\\
+/G_STR=FILESPEC_HISTORY
+/#=2/HL=
+/G_STR=FFILESPEC
+*.*
+/G_INT=FPLASTFOCUS
+526130
+/G_STR=FILE_HISTORY
+/#=20/HL=
+/G_STR=FPROMPT_WORK_DIR
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source
+/G_INT=G_RWHEIGHT
+213
+/G_INT=RWCURRENTTAB
+1
+/G_STR=SEARCHTABDLGPOS
+/XPOS=462/YPOS=532
+/G_STR=BFLDLGPOS
+/XPOS=571/YPOS=199
+/G_STR=FSWITCHES
+XIS
+/G_STR=DB#MECONFIG^LANGUAGE
+/S=1/OR=1
+/G_INT=EXTIINT_40
+1
+/G_STR=FSPATH_HISTORY4
+C:\\Emulate\\dl4\\projects\\
+/G_STR=FSPATH_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games
+/G_STR=FILESPEC_HISTORY1
+*.s
+/G_STR=FISETTINGS
+/WARN1=0/WARN2=0/REMLT=1/ADDLT=1/HEX=1/BRL1=16/BRL2=0
+/G_STR=FSPATH_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\
+/G_STR=FSPATH_HISTORY5
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\ntf\\
+/G_STR=FSPATH_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\OTracker\\
+/G_STR=FSPATH_HISTORY
+/#=11/HL=
+/G_STR=FSEARCH_PATH
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\
+/G_INT=TESTGLOB
+1
+/G_STR=EXT
+EXT=S SHDOC=1IND=2UF=0TS=8RM=128FORMAT=Edit format lineTX=-1LS=6502TEMPLATE=6502FONT=/NAME=Fixedsys/SIZE=-12/WT=400/SET=0OEM=1FT=2HLP=CMACWIN.HLPDIR=<ME_PATH>SRC
+/G_STR=DB#MECONFIG^EXT
+/S=20/OR=1
+/G_STR=REPLACE_HISTORY7
+Height
+/G_STR=REPLACE_HISTORY10
+ .byt %
+/G_STR=REPLACE_HISTORY15
+>
+/G_STR=FPATH_HISTORY10
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\
+/G_STR=FSPATH_HISTORY8
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\
+/G_STR=FSPATH_HISTORY10
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\imnew\\
+/G_STR=FSPATH_HISTORY11
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\
+/G_STR=FILESPEC_HISTORY2
+*.*
+/G_STR=FPATH_HISTORY1
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\ntf\\
+/G_STR=FPATH_HISTORY5
+C:\\Firefly\\Projects\\MusicEditor\\
+/G_STR=FPATH_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\source\\
+/G_STR=FPATH_HISTORY9
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\
+/G_STR=FPATH_HISTORY13
+C:\\Emulate\\oric\\
+/G_STR=FPATH_HISTORY15
+C:\\Emulate\\oric\\Development\\Demos\\SVENANIM\\
+/G_STR=FPATH_HISTORY17
+C:\\Emulate\\oric\\sourcesafe\\Software Projects
+/G_STR=FPATH_HISTORY19
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\
+/G_STR=FILE_HISTORY16
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\wallnfloor.s
+/G_STR=FPROMPT_LAST_PATH
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\*.s
+/G_STR=FPATH_HISTORY0
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\WMS\\Source\\
+/G_STR=FPATH_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\OTracker
+/G_STR=FPATH_HISTORY4
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\OTracker\\
+/G_STR=FPATH_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Utilities\\Music\\DOSMusic\\
+/G_STR=FPATH_HISTORY8
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\tol\\Development Notes\\
+/G_STR=FPATH_HISTORY11
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\imnew
+/G_STR=FPATH_HISTORY12
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\imnew\\Sprites\\
+/G_STR=FPATH_HISTORY14
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\imnew\\
+/G_STR=FPATH_HISTORY16
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Audio\\SIDtests\\
+/G_STR=FPATH_HISTORY18
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\Out of this world\\
+/G_STR=FILE_HISTORY15
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\DisplayRoom.s
+/G_STR=FILE_HISTORY4
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\IM\\impossible_irq.s
+/G_STR=FILE_HISTORY14
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\Driver.s
+/G_STR=FILE_HISTORY19
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\scratch.s
+/G_STR=FILE_HISTORY3
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\stole\\stole.s
+/G_STR=FILE_HISTORY13
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\ZeroPage.s
+/G_STR=FILE_HISTORY18
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\driver.s
+/G_STR=FILE_HISTORY2
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\stole\\sid_driver.s
+/G_STR=FILE_HISTORY12
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\map_memory.txt
+/G_STR=FILE_HISTORY17
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\isometric.s
+/G_STR=FILE_HISTORY1
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\Audio\\1KMusic\\source.s
+/G_STR=FILE_HISTORY11
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\Tables.s
+/G_STR=FILE_HISTORY0
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\Out of this world\\ootw_defs.s
+/G_STR=FILE_HISTORY10
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\IsoNew\\DisplayWalls.s
+/G_STR=SEARCH_STR
+mirror
+/G_STR=REPLACE_STR
+,64+
+/G_STR=SEARCH_HISTORY19
+,
+/G_STR=REPLACE_HISTORY6
+bmp
+/G_STR=REPLACE_HISTORY9
+dt_temp02
+/G_STR=REPLACE_HISTORY14
+Map_lo
+/G_STR=SEARCH_HISTORY5
+psypos
+/G_STR=SEARCH_HISTORY18
+,1
+/G_STR=FILE_HISTORY9
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\map_memory.txt
+/G_STR=FILE_HISTORY8
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\graphic_memory.txt
+/G_STR=FILE_HISTORY7
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\isometric.txt
+/G_INT=LOAD_COUNT
+1
+/G_STR=SEARCH_HISTORY17
+<
+/G_STR=REPLACE_HISTORY19
+,6
+/G_INT=FOUND_COUNT
+1
+/G_STR=SEARCH_HISTORY1
+dt_temp02
+/G_STR=SEARCH_HISTORY4
+dt_temp03
+/G_STR=SEARCH_HISTORY16
+map_01
+/G_STR=REPLACE_HISTORY5
+ps
+/G_STR=REPLACE_HISTORY8
+psXPos
+/G_STR=REPLACE_HISTORY13
+$0
+/G_STR=REPLACE_HISTORY18
+,5
+/G_STR=REPLACE_HISTORY4
+RobotPattern
+/G_STR=REPLACE_HISTORY12
+ .byt
+/G_STR=REPLACE_HISTORY17
+,4
+/G_STR=REPLACE_HISTORY3
+Add2
+/G_STR=REPLACE_HISTORY11
+%01
+/G_STR=REPLACE_HISTORY2
+Add2Source
+/G_STR=SEARCH_HISTORY3
+psXpos
+/G_STR=SEARCH_HISTORY12
+$2
+/G_STR=SEARCH_HISTORY15
+map_00
+/G_STR=REPLACE_HISTORY1
+BackgroundBuffer
+/G_STR=REPLACE_HISTORY20
+,64+
+/G_INT=SRETURN_INT
+555
+/G_STR=SEARCH_HISTORY2
+RealHiresScreen_ylocl
+/G_STR=SEARCH_HISTORY7
+%
+/G_STR=SEARCH_HISTORY8
+sei
+/G_STR=SEARCH_HISTORY9
+ecmfrCode
+/G_STR=SEARCH_HISTORY11
+dsb
+/G_STR=SEARCH_HISTORY13
+$0305
+/G_STR=SEARCH_HISTORY14
+MaskB67_Flag
+/G_INT=MENU_RESULT
+1
+/G_STR=SEARCH_HISTORY20
+mirror
+/G_INT=REPSEARCH
+1
+/G_STR=FPATH_HISTORY20
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\
+/G_STR=FILE_HISTORY5
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\Out of this world\\ootw_zeropage.s
+/G_STR=FILE_HISTORY6
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Demos\\general\\Out of this world\\buildit4ootw.bat
+/G_STR=FILE_HISTORY20
+C:\\Emulate\\oric\\sourcesafe\\Software Projects\\Games\\isometric\\source\\graphics.s
+/G_STR=TAGPATH
+<User_Path>\\Tags\\
+/G_INT=BLOCKOFFAFTERPASTE
+1
+/G_INT=NO_CONFIRM_OVERWRITE
+1
+/G_INT=TOOLHELPDELAY
+5
+/G_INT=BINARY_MODE
+1
+/G_STR=FC_CONFIG_STR
+/SH=1/IGC=1/IGI=1/IGB=1/IGT=1/NWL=1/WS=1
+/G_STR=DEF_FSR_SWITCHES
+XI
+/G_STR=FRSWITCHES
+XI
+/G_STR=DEF_FS_SWITCHES
+XI
+/G_STR=DEF_REPL_SWITCHES
+PKIR
+/G_STR=REPL_SWITCHES
+XPKI
+/G_STR=DEF_SWITCHES
+KIR
+/G_STR=SWITCHES
+XKI
+/G_INT=REG_EXP_STYLE
+1
+/G_INT=DEFAULT_INSERT_MODE
+1
+/G_INT=CALC_WORD_LENGTH
+32

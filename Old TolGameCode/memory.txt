@@ -1,0 +1,58 @@
+memory analysis
+
+0000 ?  256
+0100 X  256
+0200    256     IRQ Code (SFX/Controllers/Animation)
+0300 X  256     Reserved for Oric I/O
+0400    256     Reserved for Disc O/S
+0500            Game Code (Not Addressed)
+A000 X  2880    HIRES Fixed Inlay (Icons, Text Window, Map and Candle) (40*72)
+AB40    741     Background Buffer
+AE25    108     Spare
+AE91    989     Screen Buffer (AEE8 is actual start of screen data)
+B26E    658     Spare
+B500    768     STD Chars
+B800    896     Spare
+BB80 X  1       [31]
+BB81    359     Spare
+BCE8 X  760     TEXT Game Arena
+BFE0    32      Spare
+C000 X  16384   ROM
+
+
+
+
+TSMap (128*64)        (8192)
+Screens (88*8*8)      (5632)
+Blocks (179*4*4)      (2864)
+Charsets (2*64*8)     (1024)
+Messages (Vocabulary) (8192 maybe)
+Sprites (76*6*8)      (3648)
+
+The code may be split into these categories...
+1) Arcade Control
+2) Icon Control (Control Icon Selection)
+3) Vocabulary Control
+4) Candle Control
+5) Map Control
+6) Disc Handler
+7) IRQ Handler
+
+Current scenario is TSMap 128*64 (8192)
+
+Each character is 8 bytes long
+Each sprite is 6 characters long.
+Each sprite has 2 frames of animation
+Each sprite has 4 directions.
+Each sprite-set is 8 sprites long (384 per set).
+
+Their are Guards.                       384
+Their are Serfs                         384
+Their are Orcs                          384
+Their are Asps                          384
+Their are Ghosts                        384
+Their are Archers                       384
+Their are Skeletons                     384
+Their are Death (4).                    192
+Their are 16 frames for the hero.       768 Bytes
+                                Total = 3648 (#0E40)

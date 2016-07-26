@@ -1,0 +1,429 @@
+KNight  KN-N0
+BArbarian
+VAlkyrie
+GHost
+GUard
+ORc
+ASp
+ROgue
+SErf
+SKeleton
+DEath
+Search Patterns
+
+      N   E   S   W
+504  504
+474  504
+
+PAT-504 (NESW - )
+111
+111
+
+KN-S0 KN-S1 KN-S2 BA-N1 BA-N2 BA-S0 BA-S1 BA-SH GU-S0 GU-S1 GU-SS OR-S0
+OR-N0 OR-N1 RO-N0 RO-N1 RO-E0 RO-E1 RO-S0 RO-S1 RO-W0 RO-W1 DE-00 DE-01
+DE-02 DE-03
+PAT-474 (NW)
+111
+ 11
+ 1
+KN-N0 KN-N1 KN-N2 KN-NH VA-W1
+PAT-438 (NESW)
+11
+11
+11
+KN-W0 KN-W1 KN-W2 KN-E0 KN-E1 KN-E2 KN-WH KN-EH BA-W0 BA-W1 BA-W2 BA-E0
+BA-E1 VA-N1 VA-E0 VA-E1 VA-SH GH-W0 GH-W1 GH-E0 GH-E1 OR-W0 AS-N0
+AS-N1 AS-W0 AS-S0 AS-S1 AS-E0 AS-E1 SE-W0 SE-W1 SE-E0 SE-E1 SK-N0 SK-N1
+SK-W0 SK-W1 SK-S1 SK-E0 SK-E1
+PAT-498 (NS)
+111
+110
+010
+KN-SH VA-N2 GU-N0
+PAT-250 (NS)
+011
+111
+010
+BA-N0 BA-NH SE-S0 SE-N0
+PAT-442 (NWS)
+110
+111
+010
+BA-S2 GU-N1 AS-W1 SE-N1
+PAT-444 (NESW)
+110
+111
+100
+BA-E2 BA-EH VA-N0 VA-E2 OR-W1 SE-S1 SK-S0
+PAT-473 (W)
+111
+011
+001
+BA-WH VA-WH
+PAT-435 (W)
+110
+110
+011
+VA-W0
+PAT-467 (W)
+111
+010
+011
+VA-W2
+PAT-189 (S)
+010
+111
+101
+VA-S0 VA-S1 VA-S2
+PAT-500 (N)
+111
+110
+100
+VA-NH
+PAT-374 (E)
+101
+110
+110
+VA-EH
+PAT-378 (NS)
+GH-N0 GH-N1 GH-S0 GH-S1
+PAT-411 (W)
+GU-W0
+PAT-221 (W)
+GU-W1
+PAT-437 (E)
+GU-E0
+PAT-246 (E)
+GU-E1
+PAT-249 (ES)
+OR-S1 OR-E0
+PAT-219 (E)'SPECIAL CASE
+OR-E1
+
+109
+
+
+
+
+The patterns look like this...
+// The pattern number derives from the 9 digit binary pattern
+// where the first one is 110 111 100 or 444 decimal
+; 01
+; 234
+; 5
+pattern444_xofs
+ .byt 1,2,1,2,3,1
+pattern444_yofs
+ .byt 1,1,2,2,2,3
+pattern444_sofs	;y step == 43
+ .byt 44,45,87,88,89,130
+; 01
+; 23
+; 45
+pattern438_xofs
+ .byt 1,2,1,2,1,2
+pattern438_yofs
+ .byt 1,1,2,2,3,3
+pattern438_sofs	;y step == 43
+ .byt 44,45,87,88,130,131
+; 012
+; 34
+;  5
+pattern498_xofs
+ .byt 1,2,3,1,2,2
+pattern498_yofs
+ .byt 1,1,1,2,2,3
+pattern498_sofs	;y step == 43
+ .byt 44,45,46,87,88,131
+; 01
+; 23
+;  45
+pattern435_xofs
+ .byt 1,2,1,2,2,3
+pattern435_yofs
+ .byt 1,1,2,2,3,3
+pattern435_sofs	;y step == 43
+ .byt 44,45,87,88,131,132
+; 012
+;  34
+;  5
+pattern474_xofs
+ .byt 1,2,3,2,3,2
+pattern474_yofs
+ .byt 1,1,1,2,2,3
+pattern474_sofs	;y step == 43
+ .byt 44,45,46,88,89,131
+; 012
+;  3
+;  45
+pattern467_xofs
+ .byt 1,2,3,2,2,3
+pattern467_yofs
+ .byt 1,1,1,2,3,3
+pattern467_sofs	;y step == 43
+ .byt 44,45,46,88,131,132
+;  0
+; 123
+; 4 5
+pattern189_xofs
+ .byt 2,1,2,3,1,3
+pattern189_yofs
+ .byt 1,2,2,2,3,3
+pattern189_sofs	;y step == 43
+ .byt 45,87,88,89,130,132
+; 012
+; 34
+; 5
+pattern500_xofs
+ .byt 1,2,3,1,2,1
+pattern500_yofs
+ .byt 1,1,1,2,2,3
+pattern500_sofs	;y step == 43
+ .byt 44,45,46,87,88,130
+; 012
+;  34
+;   5
+pattern473_xofs
+ .byt 1,2,3,2,3,3
+pattern473_yofs
+ .byt 1,1,1,2,2,3
+pattern473_sofs
+ .byt 44,45,46,88,89,132
+; 0 1
+; 23
+; 45
+pattern374_xofs
+ .byt 1,3,1,2,1,2
+pattern374_yofs
+ .byt 1,1,2,2,3,3
+pattern374_sofs
+ .byt 44,46,87,88,130,131
+; 012
+; 345
+;
+pattern504_xofs
+ .byt 1,2,3,1,2,3
+pattern504_yofs
+ .byt 1,1,1,2,2,2
+pattern504_sofs
+ .byt 44,45,46,87,88,89
+; 01
+; 234
+;  5
+pattern442_xofs
+ .byt 1,2,1,2,3,2
+pattern442_yofs
+ .byt 1,1,2,2,2,3
+pattern442_sofs
+ .byt 44,45,87,88,89,131
+;  01
+; 234
+;  5
+pattern250_xofs
+ .byt 2,3,1,2,3,2
+pattern250_yofs
+ .byt 1,1,2,2,2,3
+pattern250_sofs
+ .byt 45,46,87,88,89,131
+; 0 1
+; 234
+;  5
+pattern378_xofs
+ .byt 1,3,1,2,3,2
+pattern378_yofs
+ .byt 1,1,2,2,2,3
+pattern378_sofs
+ .byt 44,46,87,88,89,131
+; 01
+;  23
+;  45
+pattern411_xofs
+ .byt 1,2,2,3,2,3
+pattern411_yofs
+ .byt 1,1,2,2,3,3
+pattern411_sofs
+ .byt 44,45,88,89,131,132
+;  01
+;  23
+; 4 5
+pattern221_xofs
+ .byt 2,3,2,3,1,3
+pattern221_yofs
+ .byt 1,1,2,2,3,3
+pattern221_sofs
+ .byt 45,46,88,89,131,132
+; 01
+; 23
+; 4 5
+pattern437_xofs
+ .byt 1,2,1,2,1,3
+pattern437_yofs
+ .byt 1,1,2,2,3,3
+pattern437_sofs
+ .byt 44,45,87,88,130,132
+;   01
+;  23
+;  45
+pattern246_xofs
+ .byt 2,3,1,2,1,2
+pattern246_yofs
+ .byt 1,1,2,2,3,3
+pattern246_sofs
+ .byt 45,46,87,88,130,131
+
+The patterns look like this...
+pxo_444
+ .byt 1,2,1,2,3,1
+pxo_438
+ .byt 1,2,1,2,1,2
+pxo_498
+ .byt 1,2,3,1,2,2
+pxo_500
+ .byt 1,2,3,1,2,1
+pxo_473
+ .byt 1,2,3,2,3,3
+pxo_374
+ .byt 1,3,1,2,1,2
+pxo_504
+ .byt 1,2,3,1,2,3
+pxo_442
+ .byt 1,2,1,2,3,2
+pxo_250
+ .byt 2,3,1,2,3,2
+pxo_378
+ .byt 1,3,1,2,3,2
+pxo_411
+ .byt 1,2,2,3,2,3
+pxo_221
+ .byt 2,3,2,3,1,3
+pxo_437
+ .byt 1,2,1,2,1,3
+pxo_246
+ .byt 2,3,1,2,1,2
+pxo_435
+ .byt 1,2,1,2,2,3
+pxo_474
+ .byt 1,2,3,2,3,2
+pxo_467
+ .byt 1,2,3,2,2,3
+pxo_189
+ .byt 2,1,2,3,1,3
+
+
+pyo_498_474_500,473
+ .byt 1,1,1,2,2,3
+pyo_467
+ .byt 1,1,1,2,3,3
+pyo_189
+ .byt 1,2,2,2,3,3
+pyo_504
+ .byt 1,1,1,2,2,2
+pyo_378_250_442_444
+ .byt 1,1,2,2,2,3
+pyo_246_437_221_411_374_435_438
+ .byt 1,1,2,2,3,3
+
+pso_444
+ .byt 44,45,87,88,89,130
+pso_438
+ .byt 44,45,87,88,130,131
+pso_498
+ .byt 44,45,46,87,88,131
+pso_435
+ .byt 44,45,87,88,131,132
+pso_474
+ .byt 44,45,46,88,89,131
+pso_467
+ .byt 44,45,46,88,131,132
+pso_189
+ .byt 45,87,88,89,130,132
+pso_500
+ .byt 44,45,46,87,88,130
+pso_473
+ .byt 44,45,46,88,89,132
+pso_374
+ .byt 44,46,87,88,130,131
+pso_504
+ .byt 44,45,46,87,88,89
+pso_442
+ .byt 44,45,87,88,89,131
+pso_250
+ .byt 45,46,87,88,89,131
+pso_378
+ .byt 44,46,87,88,89,131
+pso_411
+ .byt 44,45,88,89,131,132
+pso_221
+ .byt 45,46,88,89,131,132
+pso_437
+ .byt 44,45,87,88,130,132
+pso_246
+ .byt 45,46,87,88,130,131
+
+
+
+north_exit_search_patterns      '9
+type_00
+ 012
+
+  12
+ 0
+
+ 01
+   2
+
+ 01
+
+   2
+
+  1
+ 0 2
+
+ 0 2
+  1
+
+  12
+
+ 0
+
+ 03
+
+  03
+
+
+west_exit_search_patterns
+0
+ 1
+ 2
+
+0
+1
+ 2
+
+ 0
+1
+ 2
+
+ 0
+1
+  2
+
+0
+1
+2
+
+0
+ 1
+  2
+
+ 0
+1
+2
+
+ 0
+ 1
+2
+
+ 0
+ 1
+ 2

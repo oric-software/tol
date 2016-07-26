@@ -1,0 +1,12 @@
+Cross-Assembler 65xx V2.1.4f 20apr1998 (c) 1989-98 by A.Fachat
+65816 opcodes and modes coded by Jolse Maginnis
+Oric C adaptation and debugging by Mickael Pointier
+#include "tol33csh.s" ;32
+sfx_tables.s(7):  1221:file not found error
+sfx_editor.s(50):  0504:Label 'start_sfxed' not defined
+sfx_editor_tables.s(54):  11cf:Syntax error
+sfx_editor_tables.s(55):  11cf:Syntax error
+sfx_editor_tables.s(56):  11cf:Syntax error
+sfx_editor_tables.s(58):  11cf:Syntax error
+sfx_editor_tables.s(59):  11cf:Syntax error
+sfx_editor_tables.s(60):  11cf:Syntax error

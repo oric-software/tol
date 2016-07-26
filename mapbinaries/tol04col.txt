@@ -1,0 +1,361 @@
+#define blk     0
+#define red     1
+#define grn     2
+#define yel     3
+#define blu     4
+#define mag     5
+#define cyn     6
+#define wht     7
+
+#define grav    0
+#define gras    1*32
+#define ston    2*32
+#define undr    3*32
+#define wall    4*32
+#define gate    5*32
+#define hurt    6*32
+#define kill    7*32
+
+#define s2a     8
+
+//character_attribute_table
+//B0-2 Character Colour
+//   0 Black                                    Blk
+//   1 Red                                      Red
+//   2 Green                                    Grn
+//   3 Yellow                                   Yel
+//   4 Blue                                     Blu
+//   5 Magenta                                  Mag
+//   6 Cyan                                     Cyn
+//   7 White                                    Wht
+//B3 Guard stand to attention flagged wall
+//   0 Background
+//   1 Wall
+//B4 Animation Set
+//   0 Animation Set #0
+//   1 Animation Set #1
+//B5-7 Character surface definition
+//   0 Pass      Gravel/Sand                    grav
+//   1 Pass      Grass                          gras
+//   2 Pass      Outdoor Stone                  ston
+//   3 Pass      Indoor Stone (Underwurlde)     undr
+//   4 Resistant Wall/Attribute crossover       wall
+//   5 Entrance  Door, Gate (Conditional)       gate
+//   6 Damage    Rock Incline/Magical Field     hurt
+//   7 Kill      Fire Pit/Paved Void            kill
+
+// Attributes
+ .byt blk+wall  ;0
+ .byt red+wall  ;1
+ .byt grn+wall  ;2
+ .byt yel+wall  ;3
+ .byt blu+wall  ;4
+ .byt mag+wall  ;5
+ .byt cyn+wall  ;6
+ .byt wht+wall  ;7
+ .byt wall      ;8
+ .byt wall      ;9
+ .byt wall      ;10
+ .byt wall      ;11
+ .byt wall      ;12
+ .byt wall      ;13
+ .byt wall      ;14
+ .byt wall      ;15
+ .byt wall      ;16
+ .byt wall      ;17
+ .byt wall      ;18
+ .byt wall      ;19
+ .byt wall      ;20
+ .byt wall      ;21
+ .byt wall      ;22
+ .byt wall      ;23
+ .byt wall      ;24
+ .byt wall      ;25
+ .byt wall      ;26
+ .byt wall      ;27
+ .byt wall      ;28
+ .byt wall      ;29
+ .byt wall      ;30
+ .byt wall      ;31
+// Set #0
+ .byt yel+ston  ;32
+ .byt cyn+wall+s2a  ;33
+ .byt cyn+wall+s2a  ;34
+ .byt cyn+wall  ;35
+ .byt red+wall  ;36
+ .byt red+wall  ;37
+ .byt red+wall  ;38
+ .byt red+wall  ;39
+ .byt grn+kill  ;40
+ .byt grn+kill  ;41
+ .byt red+undr  ;42
+ .byt blu+wall  ;43
+ .byt yel+grav  ;44
+ .byt grn+wall  ;45
+ .byt cyn+gate  ;46
+ .byt cyn+gate  ;47
+ .byt red+wall  ;48
+ .byt cyn+wall  ;49
+ .byt cyn+wall  ;50
+ .byt cyn+wall+s2a  ;51
+ .byt cyn+wall+s2a  ;52
+ .byt cyn+wall  ;53
+ .byt cyn+wall  ;54
+ .byt yel+grav  ;55
+ .byt cyn+gate  ;56
+ .byt cyn+wall  ;57
+ .byt cyn+wall  ;58
+ .byt red+wall  ;59
+ .byt red+wall  ;60
+ .byt red+gate  ;61     This is the underworld exit and left roof!
+ .byt cyn+wall  ;62
+ .byt red+wall  ;63
+ .byt red+wall  ;64
+ .byt grn+gras  ;65
+ .byt grn+gras  ;66
+ .byt grn+gras  ;67
+ .byt grn+wall  ;68
+ .byt grn+gras  ;69
+ .byt grn+gras  ;70
+ .byt grn+wall  ;71
+ .byt grn+wall  ;72
+ .byt grn+gras  ;73
+ .byt grn+gras  ;74
+ .byt grn+gras  ;75
+ .byt grn+gras  ;76
+ .byt grn+wall  ;77
+ .byt grn+wall  ;78
+ .byt grn+wall  ;79
+ .byt grn+wall  ;80
+ .byt grn+gras  ;81
+ .byt grn+wall  ;82
+ .byt grn+wall  ;83
+ .byt cyn+wall  ;84
+ .byt cyn+wall  ;85
+ .byt cyn+wall  ;86
+ .byt grn+gras  ;87
+ .byt yel+ston  ;88
+ .byt cyn+wall  ;89
+ .byt grn+gras  ;90
+ .byt red+wall  ;91
+ .byt red+undr  ;92
+ .byt grn+gras  ;93
+ .byt grn+gras  ;94
+ .byt grn+ston  ;95     ;Reserved for Enemy Fire
+// Set #1
+ .byt wht+wall  ;96
+ .byt wht+wall  ;97
+ .byt wht+wall  ;98
+ .byt grn+gras  ;99
+ .byt wall      ;100
+ .byt wht+wall  ;101
+ .byt wht+wall  ;102
+ .byt wht+wall  ;103
+ .byt yel+hurt      ;104
+ .byt yel+hurt      ;105
+ .byt blu+hurt      ;106
+ .byt blu+hurt      ;107
+ .byt red+undr  ;108
+ .byt yel+grav  ;109
+ .byt wht+hurt  ;110
+ .byt red+undr  ;111
+ .byt wht+hurt  ;112
+ .byt wall      ;113
+ .byt wall      ;114
+ .byt wall      ;115
+ .byt wall      ;116
+ .byt wall      ;117
+ .byt wall      ;118
+ .byt mag+hurt  ;119
+ .byt mag+hurt  ;120
+ .byt cyn+gate  ;121
+ .byt wall      ;122
+ .byt wall      ;123
+ .byt wall      ;124
+ .byt wall      ;125
+ .byt wall      ;126
+ .byt grn+ston  ;127
+ .byt wall      ;128
+ .byt wall      ;129
+ .byt wall      ;130
+ .byt wall      ;131
+ .byt yel+ston  ;132
+ .byt blu+wall  ;133
+ .byt blu+wall  ;134
+ .byt yel+ston  ;135
+ .byt yel+grav  ;136
+ .byt yel+grav  ;137
+ .byt yel+grav  ;138
+ .byt blu+wall  ;139
+ .byt blu+wall  ;140
+ .byt wall      ;141
+ .byt yel+grav  ;142
+ .byt wall      ;143
+ .byt wall      ;144
+ .byt wall      ;145
+ .byt wall      ;146
+ .byt yel+grav  ;147
+ .byt wall      ;148
+ .byt wall      ;149
+ .byt wall      ;150
+ .byt blu+wall  ;151
+ .byt wall+cyn  ;152
+ .byt grn+wall  ;153
+ .byt blu+wall  ;154
+ .byt yel+ston  ;155
+ .byt yel+grav  ;156
+ .byt yel+grav  ;157
+ .byt wall      ;158
+ .byt wall      ;159
+
+ .byt grn+ston  ;160
+ .byt grn+ston  ;161
+ .byt grn+ston  ;162
+ .byt grn+ston  ;163
+
+
+//      Colour  Collision
+// 32      Yel     Ston    Battlement Floor
+// 33      Cyn     Wall    Wall
+// 34      Cyn     Wall    Wall
+// 35      Cyn     Wall    Wall
+// 36      Red     Wall    Tiles
+// 37      Red     Wall    Tiles
+// 38      Red     Wall    Tiles
+// 39      Red     Wall    Tiles
+// 40      Grn     Kill    FirePit (Ani)
+// 41      Grn     Kill    Firepit (Ani)
+// 42      Red     Undr    Underwurlde Magical Stone
+// 43      Blu     Wall    Waterfall
+// 44      Yel     Grav    Sand
+// 45      Grn     Wall    BL Bush
+// 46      Cyn     Gate    Gate/Door (Left Side)
+// 47      Cyn     Gate    Gate/Door (Right Side)
+// 48      Red     Wall    Tile Chimney Stack
+// 49      Cyn     Wall    TL Battlement Tooth
+// 50      Cyn     Wall    TR Battlement Tooth
+// 51      Cyn     Wall    B Wall Window Left
+// 52      Cyn     Wall    B Wall Window Right
+// 53      Cyn     Wall    R Wall Window Top
+// 54      Cyn     Wall    R Wall Window Bottom
+// 55      Yel     Grav    Sand
+// 56      Cyn     Gate    Gate/Door (Centre)
+// 57      Cyn     Wall    Wall
+// 58      Cyn     Wall    Wall
+// 59      Red     Wall    Tiles
+// 60      Red     Wall    Tiles
+// 61      Red     Wall    Tiles
+// 62      Cyn     Wall    Wall
+// 63      Red     Wall    Tiles
+// 64      Red     Wall    Tile Corner
+// 65      Grn     Gras    Grass
+// 66      Grn     Gras    Grass
+// 67      Grn     Gras    Grass
+// 68      Grn     Wall    Bush
+// 69      Grn     Gras    Grass
+// 70      Grn     Gras    Grass
+// 71      Grn     Wall    Bush
+// 72      Grn     Wall    Bush
+// 73      Grn     Gras    Grass
+// 74      Grn     Gras    Grass
+// 75      Grn     Gras    Grass
+// 76      Grn     Gras    Grass
+// 77      Grn     Wall    Bush
+// 78      Grn     Wall    Bush
+// 79      Grn     Wall    Bush
+// 80      Grn     Wall    Bush
+// 81      Grn     Gras    Grass
+// 82      Grn     Wall    Bush
+// 83      Grn     Wall    Bush
+// 84      Cyn     Wall    Wall
+// 85      Cyn     Wall    Wall
+// 86      Cyn     Wall    Wall
+// 87      Grn     Gras    Grass
+// 88      Yel     Ston    Battlement Stone
+// 89      Cyn     Wall    Wall
+// 90      Grn     Gras    Grass
+// 91      Red     Wall    Tiles
+// 92      Red     Undr    Underwurlde Floor Switch
+// 93      Grn     Gras    Grass
+// 94      Grn     Gras    Grass
+// // Set #1
+// 96      Wht     Hurt    Mountains
+// 97      Wht     Hurt    Mountains
+// 98      Wht     Hurt    Mountains
+// 99      Grn     Gras    Grass
+// 100     -
+// 101     Wht     Hurt    Mountains
+// 102     Wht     Hurt    Mountains
+// 103     Wht     Hurt    Mountains
+// 104     Ani
+// 105     ani
+// 106     ani
+// 107     ani
+// 108     Red     Undr    Underwurlde Ground
+// 109     Yel     Grav    Ruins in Sand
+// 110     Wht     Hurt    Mountains
+// 111     Red     Undr    Underwurlde Floor
+// 112     Wht     Hurt    Mountains
+// 113     -
+// 114     -
+// 115     -
+// 116     -
+// 117     -
+// 118     -
+// 119     Mag     Hurt    Magical Field Corner
+// 120     Mag     Hurt    Magical Field Corner
+// 121     ?
+// 122     -
+// 123     -
+// 124     -
+// 125     -
+// 126     -
+// 127     Grn     Ston    Firepit Border
+// 128     -
+// 129     -
+// 130     -
+// 131     -
+// 132     -
+// 133     Blu     Wall    Water
+// 134     Blu     Wall    Water
+// 135     Yel     Ston    Sand
+// 136     Yel     Grav    Sand
+// 137     Yel     Grav    Sand
+// 138     Yel     Grav    Sand
+// 139     Blu     Wall    Water
+// 140     Blu     Wall    Water
+// 141     -
+// 142     Yel     Grav    Sand
+// 143     -
+// 144     -
+// 145     -
+// 146     -
+// 147     Yel     Grav    Sand
+// 148     -
+// 149     -
+// 150     -
+// 151     Blu     Wall    Water
+// 152     -
+// 153     Grn     Wall    Firepit Border
+// 154     Blu     Wall    Water
+// 155     -
+// 156     Yel     Grav    Sand
+// 157     Yel     Grav    Sand
+
+;   .byt  $07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07
+;   .byt  $07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07
+;   .byt  $09,$0e,$0e,$0e,$09,$09,$09,$09,$22,$02,$31,$34,$03,$3a,$16,$16
+;   .byt  $09,$0e,$0e,$0e,$0e,$0e,$0e,$0b,$16,$3e,$0e,$09,$09,$09,$0e,$09
+;   .byt  $09,$02,$02,$02,$3a,$02,$02,$3a,$3a,$02,$02,$02,$02,$3a,$3a,$3a
+;   .byt  $3a,$02,$3a,$3a,$0e,$0e,$0e,$02,$03,$0e,$02,$09,$09,$02,$02,$03
+;   .byt  $4f,$4f,$4f,$42,$42,$4f,$4f,$4f,$4b,$43,$44,$44,$43,$7b,$4f,$41
+;   .byt  $47,$46,$46,$46,$46,$46,$46,$45,$45,$7e,$07,$47,$47,$47,$07,$47
+
+//    .byt  $02,$07,$07,$47,$03,$0c,$0c,$03,$03,$03,$03,$0c,$0c,$07,$03,$07
+//    .byt  $07,$01,$07,$03,$07,$07,$07,$0c,$0c,$0a,$0c,$4b,$43,$03,$07,$01
+//    .byt  $07,$07,$07,$06,$41,$89,$07,$03,$07,$07,$07,$07,$07,$03,$03,$03
+//    .byt  $07,$07,$07,$03,$03,$07,$07,$06,$03,$03,$03,$89,$49,$49,$03,$03
+//    .byt  $03,$49,$41,$86,$86,$86,$86,$86,$86,$03,$03,$03,$03,$86,$99,$83
+//    .byt  $49,$49,$49,$49,$07,$07,$07,$03,$03,$06,$03,$83,$03,$03,$49,$07
+//    .byt  $03,$b3,$07,$07,$07,$07,$07,$07,$66,$2f,$37,$33,$07,$07,$9b,$9b
+//    .byt  $07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$07,$47,$47

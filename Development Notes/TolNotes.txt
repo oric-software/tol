@@ -1,0 +1,421 @@
+TOL Notes
+
+1)
+The reason the character set flickers between definition and blank is because
+of the way we have coded the character sets.
+if >95 the character is always redefined using the second set irrespective
+of what it contains.
+
+The reason for >95 characters is for "same character, different colour"
+scenarios.
+
+We don't want this, because redefining the character is both wasteful of
+memory (duplicate data) and of time (greatly reduces game speed).
+However, we need to choose a method that is both fast and efficient.
+
+we could use an additional 64 byte table to determine which characters
+posess a second definition and which do not.
+
+2)
+Code landmarks...
+
+2.1) Creature Foe
+2.2) Fight code
+2.3) dropped item code
+2.4) examine and use item code
+2.5) sfx
+2.6) Candle and life control
+2.7) hero speed depending on health
+2.8)
+
+
+3)
+;114 Food    	lp	160
+;115 Gold           lp	161
+;116 Key            HP
+;117 Potion         lp	162
+;118 Weapon         lp	163
+
+Objects
+Num     Object          Category        Char    BGValue
+176     SILVER KEY      Key             116
+177     WOODEN KEY      Key             116
+178     GLASS KEY       Key             116
+179     STONE KEY       Key             116
+180     QUARTZ KEY      Key             116
+181     NOTE            Artifact        119
+182     GOLD COINS      Gold            115     161
+183     DAGGER          Weapon          118     163
+184     RED POTION      Potion          117     162
+185     BLUE FLASK      Potion          117     162
+186     GREEN JUG       Potion          117     162
+187     WHITE CAKE      Potion          117     162
+188     BOOTS           Artifact        119
+189     OLD SCROLL      Artifact        119     163
+190     INDIUM          Artifact        119
+191     HAT             Artifact        119
+192     BOW&ARROW       Weapon          118     163
+193     HOLY WATER      Artifact        119
+194     CROSS           Artifact        119
+195     TABLET          Artifact        119
+196     FOOD            Food            114     160
+199     AXE             Weapon          118     163
+200     CLOAK           Artifact        119
+201     MEDALLION       Artifact        119
+202     CHIME           Artifact        119
+203     RING            Artifact        119
+204     BOOK            Artifact        119
+205     ?               Artifact        119
+206     ?               Artifact        119
+207     ?               Artifact        119
+
+GOLD COINS
+Used to buy food, Boarding and other items
+
+DAGGER
+Counts as 2 on the life detrement scale
+Dagger may be thrown then picked up again
+Dagger has limited distance of screen width (or until collision)
+
+RED POTION
+Makes enemy run away
+
+BLUE FLASK
+Makes the hero temporarily invincible
+Candle flame is frozen (And flashes, if possible)
+
+GREEN Potion
+Restores health to full
+
+WHITE Potion
+Makes the hero temporarily invisible (Not to ghost though)
+Hero mask not used, bitmap&bg only (Appears like Ghost)
+
+White SCROLL
+Flashes screen white and kills all enemy
+
+RED SCROLL
+?
+
+BLU SCROLL
+Freezes All creatures on screen
+
+GRN SCROLL
+Restores Life of all creatures including Hero!
+
+BOW&ARROW
+Infinite Arrows
+Counts as 1 on the life detrement scale
+
+HOLY WATER
+Turns all enemies to friends for short time
+After that time, Friends (Who may have been enemies) will be Friends
+
+CROSS
+Freezes Creatures for limited period
+
+FOOD
+Replenishes Health
+
+AXE
+Acts like dagger but 4 on the life detrement scale
+
+Cloak
+Hero is disguised as enemy but cannot attack or will lose cloak.
+Hero bitmap not used, mask&bg only (Appears as black)
+
+
+Item associated bitmaps and colours
+
+Code    Item            Char-Bitmap     Colour  Def-Origin
+176     "SILVER KEY"    Key             Yellow  Character 116
+177     "WOODEN KEY"    Key             Red     Character 116
+178     "GLASS KEY"     Key             White   Character 116
+179     "STONE KEY"     Key             Magenta Character 116
+180     "QUARTZ KEY"    Key             Blue    Character 116
+181     "NOTE"          Note            White   New #0
+182     "GOLD"          Gold            Yellow  Character 115
+183     "DAGGER"        Dagger          Cyan    Character 118
+184     "RED POTION"    Potion          Red     Character 117
+185     "BLUE FLASK"    Potion          Blue    Character 117
+186     "GREEN JUG"     Potion          Green   Character 117
+187     "WHITE CAKE"    Potion          White   Character 117
+188     "BOOTS"         Boots           Magenta New #1
+189     "BOOK"          Book            Red     New #1
+190     "INDIUM"        Stone           White   New #1
+191     "HAT"           Hat             Magenta New #1
+192     "BOW&ARROW"     Bow&Arrow       Red     New #1
+193     "HOLY WATER"    Flask           White   New #1
+194     "CROSS"         Cross           White   New #1
+195     "TABLET"        Tablet          White   Character 119
+196     "FOOD"          Food            Red     Character 114
+197     "RATIONS"(Same as Food!!)               -
+198     "BOARDING"                      -       -
+199     "AXE"           Axe             Red     New #8
+200     "CLOAK"         Cloak           Green   New #9
+201     "MEDALLION"     Medallion       Red     New #10
+202     "CHIME"         Chime           Yellow  New #11
+203     "RING"          Ring            Cyan    New #12
+204     "RED SCROLL"    Scroll          Red     New #13
+205     "BLU SCROLL"    Scroll          Blue    New #13
+206     "GRN SCROLL"    Scroll          Green   New #13
+207     "WHT SCROLL"    Scroll          White   New #13
+
+Creature_action
+For friends...
+Friend Walk friendly
+?Friend Pause friendly (+Retreat Step Count used as delay Count)
+Friend Stand to Attention Friendly (Guard next to Wall)
+Friend Attack Foe
+Friend Retreat Foe (+Retreat Step Count)
+ExFriend Attack Hero
+ExFriend Retreat Hero (+Retreat Step Count)
+
+For Foes...
+Foe Attack Hero
+Foe Pause to Fire Hero
+Foe Retreat Hero (+Retreat Step Count)
+Foe Attack Friend
+Foe Pause to Fire Friend
+Foe Retreat Friend (+Retreat Step Count)
+
+Retreat
+Randomly choose and stick with left or right handed rule.
+
+Quests
+The main quest has you collecting the following items...
+Foretelling Stones
+Tablet of Truth
+Note
+Ring
+Medallion
+Glass Key
+And visiting the following locations...
+Eralan Inn
+Orc Camp
+Asassins Lodge
+Mouth of Equinox
+Crannoth
+Tempus
+Crator
+Ruins of Agrechant
+
+It may also be split down into 10 steps
+Step1: Find Alboreth Inn and Chitchat with Prior who'll set hero on quest
+Step2: Raise enough gold to buy both Mogrods artifacts
+Step3: Locate Midrath's Lodge and Collect Note
+Step4: Locate Mouth of Equinox and travel to Crannoth Isle
+Step5: Locate Calibor on Crannoth, raise enough cash to buy passage
+Step6: Travel to Tempus and the Inn
+Step7: Gain access to Silderons Mouth and the underworld complex
+Step8: Fetch artifacts and surface at Crator
+Step9: Travel to Agrechant and descend into the second underworld complex
+Step10: Locate Medallion of Power and Get out alive!
+
+
+Sub-Quests
+Sub-Quests may assist you to gain more gold, Weapons or Artifacts such as...
+
+Sub-Quest 1 - Fetching STONE KEY and Magical BOW AND ARROW
+The Bow and Arrow reside within the Temple of Angor grounds which are not
+accessable on foot since the Temple is completely surrounded by a castle
+wall.
+It is accessable through a Breech, a short underground tunnel that is only
+accessable with the Stone Key.
+The Stone key may be bought from Calibor.
+
+Sub-Quest 2 - Fetching the MEAD CHIME and GOLD of TempleMead
+TempleMead does not contain anything useful usually on-foot.
+However, with the Mead Chime in posession and using it in the sacred place
+will summon the gold to surface.
+The Mead Chime may be bought from Bombadil in Sleepy River(Rumous).
+The generation and position of Gold is random.
+
+Sub-Quest 3 - Fetching the CLOAK of Disguise
+The Cloak is found in Phnang Province which is only accessable with the Map
+Book. The Cloak will only show itself if the hero has the "Tin Clasp" in
+his/her posession
+The Tin Clasp may be bought from Calibor
+
+Sub-Quest 4 - Fetching the BOOTS
+Rumours should reveal it can be bought from Barton in Treela
+
+Sub-Quest 5 - Fetching the DAGGER
+Located next to Woodmans Lodge
+
+Sub-Quest 6 - Fetching the HOLY WATER (Dispells Skeletons)
+The Holy Water may be bought in Rhyder off the Dark Prior
+
+Sub-Quest 7 - Fetching the CROSS (Kills Ghosts)
+The Cross is located on the inner isle north of the enchanted Forest.
+However the inner isle is usually isolated, and never appears in the
+Book.
+The Hero must travel to Sleepy River and buy the Wand of Nesteroth.
+When used on the River bank just north of Sleepy River, a Bridge will appear.
+The Hero may then cross the bridge.
+The Nesteroth isle creatures (like the black asps on Samson) are dark evil
+creatures who cannot be killed.
+At best they must be avoided, but once the Cross is picked up, they will
+not disturb the hero.
+
+Sub-Quest 8 - Fetching the AXE (Infinite axes)
+The Axe is located on Samson, but their is no tunnel to it. The only way to
+get to Samson is by using the Book. However the Book only
+contains a list of known places, and Samson is unlikely to be known.
+However, chitchat in Lankwell (Only) to the Wickerman (Only) will
+reveal SAMSON.
+In addition to this, the Wickerman resides at the WillowBranch in Lankwell
+which may only be opened when in posession of the Twine.
+
+The Isle is plagued with black Asps (Invincible) who also carry and throw
+axes.
+The Axe may be found north of the Pond
+
+The Map Book is found in Underworld #2 (Agrechant)
+The Twine may be bought from the head orc in the Dark Forest
+
+Sub-Quest 9 - Ring
+The Ring is found to the south of the Dessert.
+Rumours will reveal this.
+
+
+General items can be collected from Foes or dead Friends
+Food
+Gold
+Red Potion
+Blue Flask
+Green Jar
+White Cake
+Red Scroll
+Blu Scroll
+Grn Scroll
+Wht Scroll
+
+CREDITS
+
+DIRECTOR
+Jonathan Bristow
+
+ORIGINAL GAME
+Origin Systems
+Chris Roberts
+Martin Galway
+
+GAME CODE
+Jonathan Bristow
+
+GAME DESIGN AND GRAPHICS
+Jonathan Bristow
+
+AUDIO
+Original Title Tune - Martin Galway
+Oric Version - Jonathan Bristow
+
+GAME IDEAS
+Jerome Debrune
+Mickael Pointier
+Jim Groom
+
+CODE HELP
+Otto Jarvenen
+Mickael Pointier
+
+DISC CODE
+Jonathan Bristow
+Simon Guyart
+
+GAME TESTERS
+Jerome Debrune
+Mickael Pointier
+Simon Guyart
+Jim Groom
+Romauld Line
+
+
+INSPIRATION
+GTA
+
+EDITORS
+Tile Studio - Mike Weiring
+CBMTextc - Jonathan Bristow
+Paint Shop Pro - Jasc Software
+Euphoric - Fabrice Frances
+SDK - Mickael Pointier
+PCHires - Simon Guyart
+CCS64 - ?
+Multi-Edit - American Cybernetics
+
+TITLE AND STORYBOOK
+Jonathan Bristow
+Jerome Debrune
+
+COVER AND ARTWORK
+
+MANY THANKS TO
+Chris Roberts
+Martin Galway
+Jerome Debrune
+Mickael Pointier
+Fabrice Frances
+Simon Ullyatt
+
+04/04/2005
+Problems With Underground Switches
+When the hero walks over the switch, the switch does it's job but twice
+because their is not enough time for the hero to move away.
+The best way to fix this afaik is to delete the switch from the background
+buffer when the hero uses it.
+It will then dissapear and only reappear when the hero returns.
+But how to know exactly where switch is in bg map?
+
+05/04/2005
+050219.1456.1) 'drop item' and 'next page' keys redundant
+               Should be changed to Use Scroll, Use Potion
+These will be changed to select last (,)and next (.) held object
+
+Magical Items
+; 176    TIN CLASP      Used with cloak to 'activate' disguise
+; 200    CLOAK          See Tin Clasp
+; 188    BOOTS          SpeedUp
+; 201    MEDALLION      Required for main quest
+; 202    MEAD CHIME     Use at 103,10 to raise gold from ground Bombadil
+; 203    RING           Temporary Invisibility, Saps life!
+; 189    MAP BOOK       Teleport
+; 190    STONES         Guides the hero through the first quest
+; 195    TABLET         Required for main quest
+; 177    WAND           Creates bridge to inner isle
+Magical Weapons
+; 191    MAGIC HAT      Invincibility for 5 minutes
+; 192    BOW&ARROW      Infinite Arrows (Fires at rate 1)
+; 193    HOLY WATER     Dispells Skeletons once posessed
+; 194    CROSS          Dispells Ghosts once posessed
+; 199    AXE            Infinite Axes (Fires at rate 20)
+; 204    PARCHMENT      Kills all enemy on screen
+; 184    OLD SCROLL     Hurts creatures repeatedly for 1 min
+; 187    WHITE VIAL     Vanishes other Creatures!
+; 185    SKULL          Creatures attack each other
+Magical Replenishments
+; 186    GREEN VIAL     Restores Life
+Artifacts
+; 178    GLASS KEY      Opens Agrechant Gate
+; 179    STONE KEY      Opens Angor Gate
+; 180    QUARTZ KEY     Opens Crannoth Gate
+; 181    NOTE           Information only
+Weapons
+; 183    DAGGER         Fires once, item is dropped
+
+*Spare 359 in text screen (Beneath HIRES Inlay)
+This area of memory should not be used during loading or saving to Tape
+but their is no reason why it cannot still be used for some of the larger
+buffers used in TOL, that are only used during gameplay, such as...
+1) Message Buffer (108)
+
+
+OPTIONS
+1) Controller (Keyboard/Pase/IJK/Telestrat)
+2) Key assignment (Keys/E/U)
+3) Game Volume (0-15)
+4) Alboreth History (And Hints)
+
+
+

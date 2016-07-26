@@ -1,0 +1,799 @@
+Map analysis
+This analysis is split into three sections
+1) Optimise Blocks (Done, their were 225, now just 177)
+2) Optimise Character sets
+3) Optimise Map
+
+*Optimise Blocks*
+I want to only use up to 128 blocks, so that the top bit can set whether the block
+is the ground or not.
+Since we decided early on to omit the building interiors, we can cut out alot of the
+current 227 blocks.
+But to get a clearer idea of what we need to do, we need a list of block definitions...
+
+Note: The final file saved out as "TOL04.CBT" on CBMTEXT.DSK in system2 dir on Mininote.
+
+After the first part of filtering out all interior maps, the following is a list of used
+blocks.
+
+0-45
+48
+50
+55
+58-62
+64-108
+110-113
+116-117
+121-122
+124
+128-129
+131-158
+160-167
+179-180
+182
+184
+188
+192-194
+198-202
+205-212
+214
+216
+220-227
+
+Now counting
+range   count
+0-45    46
+48      1
+50      1
+55      1
+58-62   5
+64-108  45
+110-113 4
+116-117 2
+121-122 2
+124     1
+128-129 2
+131-158 28
+160-167 8
+179-180 2
+182     1
+184     1
+188     1
+192-194 3
+198-202 5
+205-212 8
+214     1
+216     1
+220-227 8
+        177
+
+So not possible without extensive optimisation.
+However, we can create a table containing only ground blocks, then when we need this info
+we just search for this block in a table, and return the result.
+
+Known ground blocks, these are all based on looking at 3*3 top left of each block.
+
+16 - Stone Castle floor
+17 - Grass Border
+24 - Grass
+58 - Edge of Path
+59 - Edge of Path
+60 - Path
+61 - Edge of path
+62 - Path
+124- Grass
+132- Edge of Rocks
+133- Edge of Rocks
+138- Edge of Rocks
+151- Sand
+152- ?
+153- Edge of Rocks
+154- Edge of Rocks
+155- Edge of Rocks
+156- Edge of Pit
+161- Ruins in Sand
+162- Shrub in Sand
+163- Ruins in Sand
+164- Ruins in Sand
+188- Magical Surface
+192- Underwurlde Ground
+193- Steps
+227- Underwurlde Stone
+26 different types of ground surfaces.
+
+However, we first need to optimise the blocks (Fill in the unused blocks in the sequence with
+ones from the end) to reduce the memory, then revise this list.
+
+So...
+227 >> 46
+179 >> 47
+180 >> 49
+182 >> 51
+184 >> 52
+188 >> 54
+192 >> 56
+192 >> 57
+193 >> 53
+194 >> 57
+198 >> 63
+199 >> 109
+200 >> 114
+201 >> 115
+202 >> 118
+205 >> 119
+206 >> 120
+207 >> 123
+208 >> 125
+209 >> 126
+210 >> 127
+211 >> 130
+212 >> 159
+214 >> 168
+216 >> 169
+220 >> 170
+221 >> 171
+222 >> 172
+223 >> 173
+224 >> 174
+225 >> 175
+226 >> 176
+
+Now (After an exhaustive Manual edit process) we have 177 Blocks (0-176).
+So revising the ground list...
+
+16 - Stone Castle floor
+17 - Grass Border
+24 - Grass
+46 - Underwurlde Stone
+53 - Steps
+54 - Magical Surface
+57 - Underwurlde Ground
+58 - Edge of Path
+59 - Edge of Path
+60 - Path
+61 - Edge of path
+62 - Path
+124- Grass
+132- Edge of Rocks
+133- Edge of Rocks
+138- Edge of Rocks
+151- Sand
+152- ?
+153- Edge of Rocks
+154- Edge of Rocks
+155- Edge of Rocks
+156- Edge of Pit
+161- Ruins in Sand
+162- Shrub in Sand
+163- Ruins in Sand
+164- Ruins in Sand
+26 different types of ground surfaces.
+
+However, to be safe, we will make the table 32 bytes long.
+
+1) Locate a possible slot
+        jsr locate_random_slot
+2) Calculate Block at that position
+        jsr locate_block_at_xy
+3) Ensure Block is background
+        ldx #31
+loop    cmp background_block_list,x
+        beq skip
+        dex
+        bpl loop
+        rts
+skip
+4) convert blockxy to realxy
+        jsr blockxy2mapxy
+5) Initialise Sprite
+        jmp initialise_sprite
+
+A note about 4):-
+When we locate x/y in (1), we'll then calculate the block at that position.
+However the block can spread accross 4 positions of X, so after we've
+established it as background, we'll need to get the exact position of the
+block in map x/y again (Rounding).
+For example
+x=6
+1)0123456 (6)
+2)BBBBbbbbBBBB
+4)01234 (4)
+
+
+*Optimise Character Sets*
+Currently TOL contains 3 character sets, numbered 0 to 2 (although the
+facility exists to have 4).
+I want to optimise this to just 2 character sets (to reduce memory) without
+loss in graphic detail.
+
+To do so, i need to analyse all 224 characters...
+Bank 2 is now flagged with a * at the beginning of the line.
+
+B
+2ASCII Character Bank    Colour  Usage   Area    Notes
+ 032     032     0       4       0       -       -
+ 033     033     0       6       12      Stone   Wall br-Corner
+ 034     034     0       6       27      Stone   Wall horizontal
+ 035     035     0       6       30      Stone   Wall Vertical
+ 036     036     0       1       1       Roof    br-Corner
+ 037     037     0       1       4       Roof    Horizontal-southside
+ 038     038     0       1       5       Roof    Vertical-eastside
+ 039     039     0       1       9       Roof    Top
+ 040     040     0       4       22      Water   River   |
+ 041     041                                             | Animations
+ 042     042                                             |
+ 043     043                                             |
+ 044     044     0       3       23      Dessert Sand
+ 045     045     0       2       4       Flora   bl-Bush
+ 046     046     0       6       2       Door    Gate l
+ 047     047     0       6       1       Door    Gate r
+ 048     048     0       6       0       -       -
+ 049     049     0       6       8       Stone   Battlements - Ins-edge horiz
+ 050     050     0       6       8       Stone   Battlements - Ins-edge horiz
+ 051     051     0       6       10      Stone   Horiz - Window Frame l
+ 052     052     0       6       9       Stone   Horiz - Window Frame r
+ 053     053     0       6       13      Stone   Vert - Window Frame t
+ 054     054     0       6       13      Stone   Vert - Window Frame b
+ 055     055     0       6       8       Stone   ur - inside Wall Corner
+ 056     056     0       6       2       Door    Gate Middle
+ 057     057     0       -       0       -       -
+ 058     058     0       6       11      Stone   bl - outside Wall Corner
+ 059     059     0       1       1       Roof    bl - corner edge (outer)
+ 060     060     0       1       1       Roof    bl - corner edge (inner)
+ 061     061     0       1       3       Roof    vertical-westside
+ 062     062     0       6       12      Stone   ul - outside wall corner
+ 063     063     0       1       2       Roof    tr - corner edge
+*064     064     2       1       2       Roof    Chimney
+ 065     065     0       2       30      Flora   Grass #1
+ 066     066     0       2       30      Flora   Grass #2 (Gravel light)
+ 067     067     0       2       17      Flora   Grass #3 (Gravel Heavy)
+ 068     068     0       2       6       Flora   tr - Bush
+ 069     069     0       2       6       Flora   Shadow
+ 070     070     0       2       4       Flora   Shadow
+ 071     071     0       2       5       Flora   tr - Bush
+ 072     072     0       2       10      Flora   t - Bush
+ 073     073     0       2       4       Flora   Shadow
+ 074     074     0       2       10      Flora   Shadow
+ 075     075     0       2       18      Flora   Shadow
+ 076     076     0       2       19      Flora   Shadow
+ 077     077     0       2       5       Flora   bl - Bush
+ 078     078     0       2       12      Flora   tl - Bush
+ 079     079     0       2       14      Flora   Top Bush
+ 080     080     0       2       7       Flora   bl - Bush
+ 081     081     0       2       5       Flora   Shadow
+ 082     082     0       2       8       Flora   br - Bush
+ 083     083     0       2       6       Flora   tr - Bush
+ 084     084     0       6       10      Stone   Battlements - Ins-edge vert
+ 085     085     0       6       10      Stone   Battlements - Ins-edge vert
+ 086     086     0       6       8       Stone   Wall Vertical
+ 087     087     0       2       12      Flora   Shadow
+ 088     088     0       3       3       Stone   Pave Shadow
+ 089     089     0       6       38      Stone   Top pammant
+ 090     090     0       2       16      Flora   Shadow
+ 091     091     0       1       3       Roof    Horizontal top edge
+ 092     092     0       1       1       Roof    tl - Corner edge
+ 093     093     0       2       8       Flora   Shadow
+ 094     094     0       2       36      Flora   Grass #4
+ 095     095     0       3       3       Stone   Pave (Top of battlements)
+
+ 032     096     1       7       4       Rock    Cliff
+ 033     097     1       7       2       Rock    Cliff
+ 034     098     1       7       4       Rock    Cliff
+ 035     099     1       2       13      Flora   Shadow to rock
+ 036     100     1       2       18      Flora   Shadow to rock
+ 037     101     1       7       1       Rock    Cliff
+ 038     102     1       7       2       Rock    Cliff
+ 039     103     1       7       3       Rock    Cliff
+ 040     104                                             |
+ 041     105                                             | Animations
+ 042     106                                             |
+ 043     107                                             |
+ 044     108     -       -       -       -       -
+ 045     109     -       -       -       -       -
+ 046     110     1       7       1       Rock    Cliff
+ 047     111     -       -       -       -       -
+ 048     112     1       7       3       Rock    Cliff
+ 049     113     -       -       -       -       -
+ 050     114     -       -       -       -       -
+ 051     115     -       -       -       -       -
+ 052     116     -       -       -       -       -
+ 053     117     -       -       -       -       -
+ 054     118     1       5       1       Under   br Corner of Magical Gate
+ 055     119     -       -       -       -       -
+ 056     120     1       5       1       Under   bl Corner of Magical Gate
+ 057     121     1       6       1       Door    Gate (Reverse to give 3d)
+ 058     122     -       -       -       -       -
+ 059     123     -       -       -       -       -
+ 060     124     -       -       -       -       -
+ 061     125     -       -       -       -       -
+ 062     126     -       -       -       -       -
+ 063     127     -       -       -       -       -
+ 064     128     -       -       -       -       -
+ 065     129     -       -       -       -       -
+ 066     130     -       -       -       -       -
+ 067     131     -       -       -       -       -
+ 068     132     -       -       -       -       -
+ 069     133     0       4       1       Water   River Shadow
+ 070     134     0       4       1       Water   River Shadow
+ 071     135     -       -       -       -       -
+ 072     136     -       -       -       -       -
+ 073     137     -       -       -       -       -
+ 074     138     -       -       -       -       -
+ 075     139     0       4       4       Water   River Shadow
+ 076     140     0       4       6       Water   River Shadow
+ 077     141     -       -       -       -       -
+ 078     142     -       -       -       -       -
+ 079     143     -       -       -       -       -
+ 080     144     -       -       -       -       -
+ 081     145     -       -       -       -       -
+ 082     146     -       -       -       -       -
+ 083     147     -       -       -       -       -
+ 084     148     -       -       -       -       -
+ 085     149     -       -       -       -       -
+ 086     150     -       -       -       -       -
+ 087     151     0       4       6       Water   River Shadow
+ 088     152     0       4       2       Water   Waterfall (River 2 Sea)
+ 089     153     0       2       1       Stone   FirePitCrnr(Must be Green)
+ 090     154     0       4       7       Water   River Shadow
+*091     155     2       2       2       Stone   FirePitSides(Must be Green)
+ 092     156     -       -       -       -       -
+ 093     157     -       -       -       -       -
+ 094     158     -       -       -       -       -
+ 095     159     0       1       1       Stone   Pave (Red)
+
+ 032     160     -       -       -       -       -
+ 033     161     -       -       -       -       -
+ 034     162     -       -       -       -       -
+ 035     163     -       -       -       -       -
+ 036     164     1       1       1       Under   Ground
+*037     165     2       1       5       Under   Ground
+ 038     166     -       -       -       -       -
+ 039     167     0       3       2       Dessert Ruins
+ 040     168                                             |
+ 041     169                                             | Animations
+ 042     170                                             |
+ 043     171                                             |
+ 044     172     -       -       -       -       -
+ 045     173     0       3       3       Dessert Ruins
+ 046     174     -       -       -       -       -
+ 047     175     -       -       -       -       -
+ 048     176     -       -       -       -       -
+ 049     177     -       -       -       -       -
+ 050     178     -       -       -       -       -
+ 051     179     -       -       -       -       -
+ 052     180     -       -       -       -       -
+ 053     181     -       -       -       -       -
+ 054     182     -       -       -       -       -
+ 055     183     -       -       -       -       -
+ 056     184     -       -       -       -       -
+ 057     185     -       -       -       -       -
+ 058     186     -       -       -       -       -
+ 059     187     -       -       -       -       -
+ 060     188     -       -       -       -       -
+ 061     189     -       -       -       -       -
+ 062     190     -       -       -       -       -
+ 063     191     -       -       -       -       -
+ 064     192     -       -       -       -       -
+ 065     193     -       -       -       -       -
+ 066     194     -       -       -       -       -
+*067     195     2       6       1       Stone   Steps
+*068     196     2       6       3       Stone   Steps
+*069     197     2       6       2       Stone   Steps
+*070     198     2       6       1       Stone   Steps
+*071     199     2       6       2       Stone   Steps
+*072     200     2       6       2       Stone   Steps
+ 073     201     0       3       1       Dessert Shadow
+ 074     202     0       3       1       Dessert Shadow
+ 075     203     0       3       6       Dessert Shadow
+ 076     204     0       3       6       Dessert Shadow
+*077     205     2       6       1       Stone   Steps
+ 078     206     -       -       -       -       -
+ 079     207     -       -       -       -       -
+ 080     208     -       -       -       -       -
+ 081     209     -       -       -       -       -
+ 082     210     -       -       -       -       -
+ 083     211     -       -       -       -       -
+ 084     212     -       -       -       -       -
+ 085     213     -       -       -       -       -
+ 086     214     -       -       -       -       -
+ 087     215     0       3       5       Dessert Shadow
+ 088     216     -       -       -       -       -
+ 089     217     -       -       -       -       -
+ 090     218     0       3       7       Dessert Shadow
+*091     219     2       3       2       Dessert Switch (This is dubious)
+ 092     220     -       -       -       -       -
+ 093     221     0       3       1       Dessert Shadow
+ 094     222     -       -       -       -       -
+ 095     223     -       -       -       -       -
+
+      (Inversed)
+ 032     224     -       -       -       -       -
+*033     225     2       3       12      Dessert ?
+ 034     226     -       -       -       -       -
+ 035     227     -       -       -       -       -
+ 036     228     -       -       -       -       -
+ 037     229     -       -       -       -       -
+ 038     230     -       -       -       -       -
+ 039     231     -       -       -       -       -
+ 040     232                                             |
+ 041     233                                             | Animations
+ 042     234                                             |
+ 043     235                                             |
+ 044     236     -       -       -       -       -
+ 045     237     -       -       -       -       -
+ 046     238     -       -       -       -       -
+ 047     239     -       -       -       -       -
+ 048     240     -       -       -       -       -
+ 049     241     -       -       -       -       -
+ 050     242     -       -       -       -       -
+ 051     243     -       -       -       -       -
+ 052     244     -       -       -       -       -
+ 053     245     -       -       -       -       -
+ 054     246     -       -       -       -       -
+ 055     247     -       -       -       -       -
+ 056     248     -       -       -       -       -
+ 057     249     -       -       -       -       -
+ 058     250     -       -       -       -       -
+ 059     251     -       -       -       -       -
+ 060     252     -       -       -       -       -
+ 061     253     -       -       -       -       -
+ 062     254     -       -       -       -       -
+ 063     255     -       -       -       -       -
+
+
+
+Now we need to isolate which areas will not be displayed simultaneously
+on the same screen.
+
+Area List
+
+Dessert
+Stone
+Under
+Water
+Door
+Rock (Cliff)
+Flora
+Roof
+
+Roof with door with Stone
+Under with Stone
+Flora with Rock
+Water with Stone
+
+
+Dessert never meets Rock
+Rock never meets Under
+Water never meets Under
+Flora never meets Under
+
+
+I will now overlap each set of 64 characters, to get a better idea of the
+current state.
+165 >> 32
+ Char  BC Area     Char  BC Area     Char  BC Area     Char  BC Area
+  032 (04)-         096 (17)Rock      160 (--)-         224 (--)-
+  033 (06)Stone     097 (17)Rock      161 (--)-         225 (23)Dessert
+  034 (06)Stone     098 (17)Rock      162 (--)-         226 (--)-
+  035 (06)Stone     099 (12)Flora     163 (--)-         227 (--)-
+  036 (01)Roof      100 (12)Flora     164 (11)Under     228 (--)-
+  037 (01)Roof      101 (17)Rock      165 (21)Under     229 (--)-
+  038 (01)Roof      102 (17)Rock      166 (--)-         230 (--)-
+  039 (01)Roof      103 (17)Rock      167 (03)Dessert   231 (--)-
+  040 (04)Water     104 (  )          168 (  )          232 (  )
+  041 (  )          105 (  )          169 (  )          233 (  )
+  042 (  )          106 (  )          170 (  )          234 (  )
+  043 (  )          107 (  )          171 (  )          235 (  )
+  044 (03)Dessert   108 (--)-         172 (--)-         236 (--)-
+  045 (02)Flora     109 (--)-         173 (03)Dessert   237 (--)-
+  046 (06)Door      110 (17)Rock      174 (--)-         238 (--)-
+  047 (06)Door      111 (--)-         175 (--)-         239 (--)-
+  048 (06)-         112 (17)Rock      176 (--)-         240 (--)-
+  049 (06)Stone     113 (--)-         177 (--)-         241 (--)-
+  050 (06)Stone     114 (--)-         178 (--)-         242 (--)-
+  051 (06)Stone     115 (--)-         179 (--)-         243 (--)-
+  052 (06)Stone     116 (--)-         180 (--)-         244 (--)-
+  053 (06)Stone     117 (--)-         181 (--)-         245 (--)-
+  054 (06)Stone     118 (15)Under     182 (--)-         246 (--)-
+  055 (06)Stone     119 (--)-         183 (--)-         247 (--)-
+  056 (06)Door      120 (15)Under     184 (--)-         248 (--)-
+  057 (0-)-         121 (16)Door      185 (--)-         249 (--)-
+  058 (06)Stone     122 (--)-         186 (--)-         250 (--)-
+  059 (01)Roof      123 (--)-         187 (--)-         251 (--)-
+  060 (01)Roof      124 (--)-         188 (--)-         252 (--)-
+  061 (01)Roof      125 (--)-         189 (--)-         253 (--)-
+  062 (06)Stone     126 (--)-         190 (--)-         254 (--)-
+  063 (01)Roof      127 (--)-         191 (--)-         255 (--)-
+  064 (21)Roof      128 (--)-         192 (--)-
+  065 (02)Flora     129 (--)-         193 (--)-
+  066 (02)Flora     130 (--)-         194 (--)-
+  067 (02)Flora     131 (--)-         195 (26)Stone
+  068 (02)Flora     132 (--)-         196 (26)Stone
+  069 (02)Flora     133 (04)Water     197 (26)Stone
+  070 (02)Flora     134 (04)Water     198 (26)Stone
+  071 (02)Flora     135 (--)-         199 (26)Stone
+  072 (02)Flora     136 (--)-         200 (26)Stone
+  073 (02)Flora     137 (--)-         201 (03)Dessert
+  074 (02)Flora     138 (--)-         202 (03)Dessert
+  075 (02)Flora     139 (04)Water     203 (03)Dessert
+  076 (02)Flora     140 (04)Water     204 (03)Dessert
+  077 (02)Flora     141 (--)-         205 (26)Stone
+  078 (02)Flora     142 (--)-         206 (--)-
+  079 (02)Flora     143 (--)-         207 (--)-
+  080 (02)Flora     144 (--)-         208 (--)-
+  081 (02)Flora     145 (--)-         209 (--)-
+  082 (02)Flora     146 (--)-         210 (--)-
+  083 (02)Flora     147 (--)-         211 (--)-
+  084 (06)Stone     148 (--)-         212 (--)-
+  085 (06)Stone     149 (--)-         213 (--)-
+  086 (06)Stone     150 (--)-         214 (--)-
+  087 (02)Flora     151 (04)Water     215 (03)Dessert
+  088 (03)Stone     152 (04)Water     216 (--)-
+  089 (06)Stone     153 (02)Stone     217 (--)-
+  090 (02)Flora     154 (04)Water     218 (03)Dessert
+  091 (01)Roof      155 (22)Stone     219 (23)Dessert
+  092 (01)Roof      156 (--)-         220 (--)-
+  093 (02)Flora     157 (--)-         221 (03)Dessert
+  094 (02)Flora     158 (--)-         222 (--)-
+  095 (03)Stone     159 (01)Stone     223 (--)-
+
+Re-arranged...
+165 >> 32
+64  >> 48
+155 >> 64
+118 >> 119
+195 >> 122
+196 >> 123
+197 >> 124
+198 >> 125
+199 >> 126
+200 >> 127
+55  >> 57
+164 >> 111
+167 >> 109
+173 >> 132
+205 >> 127
+219 >> 155
+218 >> 156
+215 >> 142
+201 >> 137
+202 >> 138
+203 >> 55
+204 >> 147
+95  >> 108
+
+
+ Char  BC Area     Char  BC Area     Char  BC Area     Char  BC Area
+  032 (01)Under     096 (17)Rock      160 (--)-         224 (--)-
+  033 (06)Stone     097 (17)Rock      161 (--)-         225 (23)Sea
+  034 (06)Stone     098 (17)Rock      162 (--)-         226 (--)-
+  035 (06)Stone     099 (12)Flora     163 (--)-         227 (--)-
+  036 (01)Roof      100 (12)Flora     164 (--)-         228 (--)-
+  037 (01)Roof      101 (17)Rock      165 (--)-         229 (--)-
+  038 (01)Roof      102 (17)Rock      166 (--)-         230 (--)-
+  039 (01)Roof      103 (17)Rock      167 (--)-         231 (--)-
+  040 (04)Water     104 (  )          168 (  )          232 (  )
+  041 (  )          105 (  )          169 (  )          233 (  )
+  042 (  )          106 (  )          170 (  )          234 (  )
+  043 (  )          107 (  )          171 (  )          235 (  )
+  044 (03)Dessert   108 (13)Pave      172 (--)-         236 (--)-
+  045 (02)Flora     109 (13)Dessert   173 (--)-         237 (--)-
+  046 (06)Door      110 (17)Rock      174 (--)-         238 (--)-
+  047 (06)Door      111 (11)Under     175 (--)-         239 (--)-
+  048 (01)Roof      112 (17)Rock      176 (--)-         240 (--)-
+  049 (06)Stone     113 (16)Stone     177 (--)-         241 (--)-
+  050 (06)Stone     114 (16)Stone     178 (--)-         242 (--)-
+  051 (06)Stone     115 (16)Stone     179 (--)-         243 (--)-
+  052 (06)Stone     116 (16)Stone     180 (--)-         244 (--)-
+  053 (06)Stone     117 (16)Stone     181 (--)-         245 (--)-
+  054 (06)Stone     118 (16)Stone     182 (--)-         246 (--)-
+  055 (03)Dessert   119 (15)Under     183 (--)-         247 (--)-
+  056 (06)Door      120 (15)Under     184 (--)-         248 (--)-
+  057 (06)Stone     121 (16)Door      185 (--)-         249 (--)-
+  058 (06)Stone     122 (--)-         186 (--)-         250 (--)-
+  059 (01)Roof      123 (--)-         187 (--)-         251 (--)-
+  060 (01)Roof      124 (--)-         188 (--)-         252 (--)-
+  061 (01)Roof      125 (--)-         189 (--)-         253 (--)-
+  062 (06)Stone     126 (--)-         190 (--)-         254 (--)-
+  063 (01)Roof      127 (16)Stone     191 (--)-         255 (--)-
+  064 (01)Roof      128 (02)Stone     192 (--)-
+  065 (02)Flora     129 (--)-         193 (--)-
+  066 (02)Flora     130 (--)-         194 (--)-
+  067 (02)Flora     131 (--)-         195 (--)-
+  068 (02)Flora     132 (03)Dessert   196 (--)-
+  069 (02)Flora     133 (04)Water     197 (--)-
+  070 (02)Flora     134 (04)Water     198 (--)-
+  071 (02)Flora     135 (--)-         199 (--)-
+  072 (02)Flora     136 (--)-         200 (--)-
+  073 (02)Flora     137 (03)Dessert   201 (--)-
+  074 (02)Flora     138 (03)Dessert   202 (--)-
+  075 (02)Flora     139 (04)Water     203 (--)-
+  076 (02)Flora     140 (04)Water     204 (--)-
+  077 (02)Flora     141 (--)-         205 (--)-
+  078 (02)Flora     142 (03)Dessert   206 (--)-
+  079 (02)Flora     143 (--)-         207 (--)-
+  080 (02)Flora     144 (--)-         208 (--)-
+  081 (02)Flora     145 (--)-         209 (--)-
+  082 (02)Flora     146 (--)-         210 (--)-
+  083 (02)Flora     147 (03)Dessert   211 (--)-
+  084 (06)Stone     148 (--)-         212 (--)-
+  085 (06)Stone     149 (--)-         213 (--)-
+  086 (06)Stone     150 (--)-         214 (--)-
+  087 (02)Flora     151 (04)Water     215 (--)-
+  088 (03)Stone     152 (--)-         216 (--)-
+  089 (06)Stone     153 (02)Stone     217 (--)-
+  090 (02)Flora     154 (04)Water     218 (--)-
+  091 (01)Roof      155 (13)Dessert   219 (--)-
+  092 (01)Roof      156 (13)Dessert   220 (--)-
+  093 (02)Flora     157 (03)Dessert   221 (--)-
+  094 (02)Flora     158 (--)-         222 (--)-
+  095 (--)-         159 (--)-         223 (--)-
+
+The Sea character (225) will be replaced with an animated character.
+However, before we can do this, we need to decide on animations.
+4 Characters out of each set may be Animated.
+In the above scenario, this makes two distinct animation sets.
+
+TOL requires animations for...
+1)Fire Pit
+2)Sea Flow
+3)Sea Waves
+4)Waterfall (Where Sea meets River)
+5)River Flow
+6)Magical Floor
+
+1) Fire Pit
+The Fire pit is a 2 or 4 character animation.
+2) Sea Flow
+The Sea is 1 character and must oscillate diagonally (In the direction
+of graphic)
+3) Sea Waves
+Sea Waves comprise of 2 Characters. Shoreline Waves and Sea Waves.
+4) Waterfall
+Vertically scrolling 1 character animation.
+5) River Flow
+Preferably 2 character animation. One for general River flow west (Always)
+and one for twig ripple effect.
+6) Magical Floor
+The magical floor is just 1 character and is synchronous, so that if the
+hero stands on the animation when it is void, he will fall into an abyss!!
+
+9 Characters in total, which is too many.
+
+So by revising the list, we'll remove the second animation for the sea waves.
+Also, we need to assign inverse to two character (Two sets)
+
+        Set1    Set2
+40      Pit     Sea      'Inversed
+41      Pit     Waves    'Inversed
+42      Floor   River
+43      Falls   Twig
+
+This will be sufficient.
+Obviously, any animation routine cannot write to both sets, since it would
+not be updated in realtime. However, the 64 displayed characters always
+have a table that specifies which character set is currently active.
+So we can fetch each characters animation from this reference.
+
+To make the animations smooth, each set may have a different number of frames.
+This is neccesary because of the difference between character width and
+height.
+
+Fire Pit is a diagonal 2 character animation in the form...
+AB
+BA
+
+Animation       Frames  Bytes_Total
+Fire Pit        8       (2*8)*8 = 128
+Sea             4       (1*8)*4 = 32
+Waves           12      (1*8)*12= 96
+Floor           12      (1*8)*12= 96
+Falls           8       (1*8)*8 = 64
+River           6       (1*8)*6 = 48
+Twig            6       (1*8)*6 = 48
+
+Total Memory for all frames == 512 Bytes
+
+Final revision of Character set is here...
+ Char  BC Area     Char  BC Area
+  032 (01)Under     096 (17)Rock
+  033 (06)Stone     097 (17)Rock
+  034 (06)Stone     098 (17)Rock
+  035 (06)Stone     099 (12)Flora
+  036 (01)Roof      100 (12)Flora
+  037 (01)Roof      101 (17)Rock
+  038 (01)Roof      102 (17)Rock
+  039 (01)Roof      103 (17)Rock
+  040 (02)Pit #1    104 (13)Sea         (Animated) (Inversed)
+  041 (02)Pit #2    105 (13)Waves       (Animated) (Inversed)
+  042 (01)Mag-Flr   106 (14)River       (Animated)
+  043 (04)W-Falls   107 (14)Twig        (Animated)
+  044 (03)Dessert   108 (13)Pave
+  045 (02)Flora     109 (13)Dessert
+  046 (06)Door      110 (17)Rock
+  047 (06)Door      111 (11)Under
+  048 (01)Roof      112 (17)Rock
+  049 (06)Stone     113 (16)Stone
+  050 (06)Stone     114 (16)Stone
+  051 (06)Stone     115 (16)Stone
+  052 (06)Stone     116 (16)Stone
+  053 (06)Stone     117 (16)Stone
+  054 (06)Stone     118 (16)Stone
+  055 (03)Dessert   119 (15)Under
+  056 (06)Door      120 (15)Under
+  057 (06)Stone     121 (16)Door
+  058 (06)Stone     122 (--)-
+  059 (01)Roof      123 (--)-
+  060 (01)Roof      124 (--)-
+  061 (01)Roof      125 (--)-
+  062 (06)Stone     126 (--)-
+  063 (01)Roof      127 (16)Stone
+  064 (01)Roof      128 (02)Stone
+  065 (02)Flora     129 (--)-
+  066 (02)Flora     130 (--)-
+  067 (02)Flora     131 (--)-
+  068 (02)Flora     132 (03)Dessert
+  069 (02)Flora     133 (04)Water
+  070 (02)Flora     134 (04)Water
+  071 (02)Flora     135 (--)-
+  072 (02)Flora     136 (--)-
+  073 (02)Flora     137 (03)Dessert
+  074 (02)Flora     138 (03)Dessert
+  075 (02)Flora     139 (04)Water
+  076 (02)Flora     140 (04)Water
+  077 (02)Flora     141 (--)-
+  078 (02)Flora     142 (03)Dessert
+  079 (02)Flora     143 (--)-
+  080 (02)Flora     144 (--)-
+  081 (02)Flora     145 (--)-
+  082 (02)Flora     146 (--)-
+  083 (02)Flora     147 (03)Dessert
+  084 (06)Stone     148 (--)-
+  085 (06)Stone     149 (--)-
+  086 (06)Stone     150 (--)-
+  087 (02)Flora     151 (04)Water
+  088 (03)Stone     152 (--)-
+  089 (06)Stone     153 (02)Stone
+  090 (02)Flora     154 (04)Water
+  091 (01)Roof      155 (13)Dessert
+  092 (01)Roof      156 (13)Dessert
+  093 (02)Flora     157 (03)Dessert
+  094 (02)Flora     158 (--)-
+  095 Reserved      159 Reserved   (Reserved for Enemy Thrown Weapon)
+
+After these modifications, the map data now looks like this...
+
+Character sets          (128 Characters *8) 1024
+Blocks                  (178 Blocks * 16)   2848
+Screens                 (114 Screens * 64)  7296 (Still needs work)
+Map                     (128 (x) * 96 (y))  12288
+                                            23456
+
+The aforementioned optimisation techniques really do not effect the
+larger tiers of the map. Therefore it has been decided to cut down
+the physical size of
+96*64 = 6144 == 16512 (#4080)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

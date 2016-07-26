@@ -1,0 +1,308 @@
+Something was dropped.
+and the
+The * ignores you.!
+Orc
+Rogue
+Innkeeper
+Serf
+Prior
+Old Man
+Regent
+Guard
+Prisoner
+Woodsman
+Advisor
+Warden Hunter
+Duke
+Prince
+Lyche
+Skeleton
+Wraith
+Slime
+Grey Abbot
+Acolyte
+Friar
+Thug
+Noble
+Black Asp
+Archmage
+Giant
+Who do you want to speak to?
+There is no one close enough.
+What do you want to say to the *?
+What do you want to ask about?
+Which object do you want to examine?
+There are no objects to examine!
+There are no objects close enough!
+Which object do you want to pick up?
+You have too much already!
+Which object do you want to drop?
+You have no objects
+Which object do you want to give to the *?
+There is nobody close enough!
+Who do you want to give an object to?
+Which object would you like to use?
+You already have all the food you can carry!
+Where do you want to go?
+Game Paused.
+I've no time for idle chatter, so begone.
+It pains me, but ... years ago I was hired by Lord Dariel to kill a cruel lord. From 100 paces, I nocked an arrow ... his death was quick. When I inspected the body, I saw the face of King Valwyn! He had with him an infant, his only child. I left the child at the stoop of a woodman's cabin. The medallion, I took merely to betray Dariel. Long since have I abandoned my foul art. The medallion was of no use to me so I sold it to a cleric. Take this confession to Heidric, he may be able to protect the kingdom from Dariel.
+Followed me, have you?
+I'll have to kill you now ...
+Thank you, but time is short. In my travels I have learned that dark clerics are brewing an evil storm to scour the land. go to the Archmage Irial for guidance, north of the Forest of Enchantment.
+Eralan%
+Ganestor%
+Lankwell%
+Rhyder%
+Treela%
+Hampton%
+score%
+load game%
+pause game%
+You traverse a narrow tunnel and up a stairwell.
+You descend into the bowels of the earth.
+Traversing the stairs you feel strangely disoriented.
+It is morning.
+It is midday.
+Night has fallen.
+You also have * gold coins and * portions of food.
+
+I hear there's a dragon near the northern mountains.
+A dark fog is forming in the northeast.
+A wild dust storm ran through the desert the other day.
+A sorcery tower lies over a bridge north of the desert.
+I've heard tell of magical boots in Treela.
+A great giant is reputed to live east of Rhyder.
+A man from Lankwell boasted he knew about a magical axe.
+People say that there is a scroll with the power to transport you around the kingdom.
+The * offers no response!
+What's the news from around the kingdom?
+What do you know about *?
+Do you know anything about the *?
+Welcome to Times of Lore
+Yes.
+No.
+You say to the *
+Looking at the * you say
+You gesture to the * and say
+You turn to the * saying
+Looking you in the eyes, the * says
+_AskAbout
+ .byt "What do you know about *"+"?"+128
+_Keywords
+ .byt "Orcs"
+ .byt "Camp"
+ .byt "
+_AllOptions
+ .byt "Reply Ye","s"+128
+ .byt "Reply N","o"+128
+ .byt "Buy Provision","s"+128
+ .byt "Buy Lodging","s"+128
+ .byt "Start ChitCha","t"+128
+ .byt "Ask Questio","n"+128
+ .byt "Search for Item","s"+128
+_EnterBuilding
+ .byt "You enter a home in *, please select an optio","n"+128
+_BuildingOptions
+
+_EnterInn
+ .byt "You Enter the * in *, please select an optio","n"+128
+
+_StartChitChat
+ .byt "Nice weather we're having","!"+128
+ .byt "I hope all is well with you","."+128
+_ChitChatNegative
+ .byt "Yes, it has been quite nice","."+128
+ .byt "I'm fine, thanks","."+128
+_QuestionNegative
+ .byt "Sorry, but I can't help you there","."+128
+ .byt "I'm afraid I don't know anything about it","."+128
+_BuyProvisionsResponse
+ .byt "Completing the deal, you give the * * gold coins as payment","."
+_BuyLodgingsResponse
+ .byt "You climb into bed..","."+128
+
+You collapse, dead.
+Oh, and by the way ...
+The flask contains a murky liquid.
+It seems to be a royal document.
+You recognize the confession of the assassin.
+You notice some runes inscribed on the ring.
+The urn contains some glowing stones.
+The key looks well used.
+The boots are strangely light and supple.
+The metal chime is cold to the touch.
+The cool slab of stone radiates power.
+The bag is laden with coins.
+Smooth to the touch, a wispy vapor stirs within.
+The holy water is in a fine crystal vial.
+The medallion has an aura of power.
+The scroll is covered with arcane runes.
+The food looks edible.
+The dagger gleams with a deadly sparkle.
+The axe is of fine dwarven craft.
+The Tablet reads, $ the High King was killed by the treachery of a nobleman. Seek his assassin in Lankwell.
+Grasping the Tablet, it begins to vibrate. A deep voice intones, $ ask of a matter of importance and it will be answered.
+A bright flash blinds you! Slowly you regain your vision, and a smoldering inscription is revealed. The Tablet fades to a dull shade of grey.
+The * accepts your gift.
+The * would be of little use here.
+The * looks through you, and nods in confusion.
+zzz ... the * is sleeping.
+You drop the *.
+You pick up the *.
+Your score is *.
+Ikky Error!
+You are overpowered by the guard.
+You find yourself outside, dazed.
+You are thrown into the dungeon to rot.
+You're hungry.
+You're starving.
+Taking some rations from your pack, you quell your hunger.
+The door is locked.
+Using the *, you unlock the door.
+You slip the ring onto your finger ...
+You splash the Lyche with holy water, and he violently dissolves!
+You hurl the sphere at the Grey Abbot. It shatters, releasing a frenzy of wisps which engulf the screaming cleric. The mist slowly dissipates, revealing a medallion upon a pile of ash.
+You strike the chime and as the echoes subside you hear the door unbar.
+Pulling the boots on, you feel unusually agile.
+Quaffing the potion, you feel restored.
+The spidery runes release a magical spell ...
+The * gazes at you, uttering mystical phrases ...
+Go and Seek The Assassin In Lankwell.
+There is yet hope for this kingdom through a forgotten child. I shall guide you to a great future, but first you must perform a task to prove your worthiness. An evil Lyche infests the desert ruins. Search out his destruction and return here.
+The Lyche still lives.
+You have done well. It is now time to reveal your true destiny. Dark clerics in the mountain temple of Angor,lead by the Grey Abbot, have gained use of the royal Medallion of Power. The Grey Abbot imprisoned me in this tower, and I cannot leave this ethereal plane whilst he lives. They must be stopped and the Medallion regained. To enter the temple one needs an instrument that may be found within the Blasted Spot. Take this key so you may descend into its depths.
+Go now and stop the dark cleric.
+You've done well.
+Accept this gold as gratitude.
+Go and visit the Regent now, for he has need of your skills.
+The Regent welcomes you to his castle.
+It's nice to have you visit us this day.
+Well done! accept this money as gratitude.
+I hope you bring news of the spy.
+So, as I suspected, Dariel had King Valwyn murdered. I must take action, but I fear a spy lurks within these walls. Dariel seems to predict my every move. It may be Lord Dunbar, but I must be certain. Perhaps you could search out the traitor with a watchful eye. I shall await your conclusion.
+Well done, but terror has come. My son, the Prince of Ganestor, was kidnapped in Hampton while there on business. I beg you to find and save him. please!
+Please, rescue my son.
+Start chitchat
+Ask question
+A burden rests heavily upon my heart, and so I humbly request your aid. Two weeks past, a caravan was sent from Rhyder bearing the Foretelling Stones. It was raided by brigands in the north wood and the Stones were lost. Please seek out these brigands and regain the Stones for the kingdom. Will you accept this task?
+Thank you. I foresee a true greatness in thee.
+Hmm . I thought I had seen a greater light in thee.
+Welcome friend. Don't get many visitors out here, with all the orcs about.
+I love the solitude of the forest.
+A vicious lot they are.
+The road is barely safe to travel with their camp being so close.
+Beware, the camp lies north along a winding trail through the woods, north of the pool further along this forest road.
+Greetings and welcome to the Frothing Slosh Tavern where the meade is strong and the food is nourishing.
+Have you heard about the raiders of the forest?
+Oh. Well, a group of orcs infests the northern wood.
+My job is my duty and honour.
+The Regent has no business with you, good day!
+Welcome, I am Dariel, steward of the kingdom and I have heard about your valiant deed from the Prior. I ask of you a favor for which I will offer a fine reward. I am in need of a worthy soul to recover the Tablet of Truth which has fallen into the hands of the southern Warden, Heidric. he will use it against us in hopes of seizing the kingdom to rule as he sees fit. Can I trust you to journey to Ganestor and recover the Tablet?
+Please be secretive, and speed be with you.
+Traitor!
+I remember the days when we had a united kingdom.
+Did ya ever hear of the Great Medallion?
+Oh.
+It was a magical artifact brought from our home lands when we settled here. It's said that only a rightful ruler of our people can use it.
+The continent used to be under the firm rule of Valwyn.
+High King Valwyn, was a wise and fair man, but he has left us now.
+I hope you have returned with the Stones.
+I've heard tell of a secret way into the castle.
+Barton knows more about it.
+Welcome to the Trollsbane Tavern. I'm Smitty.
+Barton claimed he saw someone sneaking about the castle.
+Shh, not so loud. it's in the basement. just bump the lever.
+Halt! no visitors past this point.
+I am Barton.
+Well, I've seen a castle guard sneaking around outside late at night.
+Smitty the barkeeper has a tunnel that runs under the castle.
+You have no business here stranger!
+I hope you've come bearing the Tablet.
+The time has not yet come for us to speak.
+Greetings.
+I am the Black Asp.
+I heard you were coming. I suppose you're here for a reason. so what is it.
+Times were much better when the High King ruled the Kingdom.
+It's been good hunting this season.
+I've seen lights coming from the shack north, thru the woods and across a bridge.
+My friends call me Baebon.
+If it's trouble you're after, you've come to the right town.
+Well, there's the legendary Black Asp, the greatest who ever lived. Some say his gaze could kill. I'm not sure where he's staying these days.
+If you're looking for someone, I'm the man to ask.
+Hmm . Last I remember, he lived south of here across the old stone bridge.
+Greetings.
+Have you ever seen the crater?
+I see.
+It's south of here. a foul place indeed!
+I've been to the ruined temple.
+It was once a grand edifice of a power-crazed wizard.He hoped to gain power by transforming himself into the form of a Lyche.
+A Lyche can only be killed with holy water.
+Ask Friar Kaine of Rhyder.
+Peace be with you.
+I ask a minimal fee of thirty gold pieces for a vial.
+Would you be needing a pair of boots?
+I have boots that enable you to run like the wind.
+Ok.
+They'll cost you Seventy gold coins.
+I witnessed a grievous crime.
+While the Prince of Ganestor was visiting here in Hampton, a group of bandits forcibly took him away. I had my servant follow them, but he lost their trail near Shadowpeak. I hope you can save him.
+Do you seek to destroy the Grey Abbot?
+I can help you. once I was of this Order, but I saw the error in their teachings and rebelled. This is my reward. To destroy the Grey Abbot you must use the crystal sphere which he keeps hidden beneath his bed on the top floor. It holds the essence of his enemies who now thirst only for revenge.
+Begone then.
+Welcome to the Naughty Widow Tavern.
+My name is Lord Dunbar. greetings.
+Welcome to the Sleepy Friar Inn.
+Welcome to the Green Oak Tavern.
+Welcome to my little Tavern, the best and only one in Hampton.
+Welcome to the Last Hope Inn.
+A brave warrior needs a magical axe.
+This fine weapon will cost you 95 gold coins.
+Ask for lodging
+Ask question
+Buy provisions
+Reply yes
+Reply no
+Buy
+Rumors
+You don't have enough gold.
+Orcs
+Camp
+Spying
+Kingdom
+High King
+Valwyn Sneaking
+Secret
+Way
+Tunnel
+Black Asp
+White Key
+Temple
+Lyche
+Holy
+Water
+Assassin
+Crime
+Note
+Tablet of Truth Ring
+Urn
+Confession
+Boots
+Chime
+Medallion
+Sphere
+Arrow
+Green Key
+Green Potion
+White Potion
+White Scroll
+Brown Scroll
+Bag of Gold
+Photo
+Food
+Dagger
+Axe
+Green Scroll
+Brown Potion
+Key
+

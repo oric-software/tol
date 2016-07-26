@@ -1,0 +1,614 @@
+SFXED (For TOL) Manual - Twilighte 02:21 25/09/2005 Version 1.0
+
+>>>OVERVIEW
+SFXED gives complete control over to user of all aspects of the AY-3-8912.
+As such it can appear quite daunting when you first run it.
+
+>>>INSTALLATION
+Extract dsk file into your euphoric disks folder (or convert to real oric disk)
+
+Boot floppy or your master disk and switch to view disks directory.
+run DSFXED. The other SFXED.COM attempts to CLOAD from X: drive because that
+is the dev version.
+
+>>>EDITOR
+On running DSFXED, you are presented with the main editing screen.
+If all has booted correctly, you should see three panes...
+
+Editing Pane on the Left
+Help and Info Pane top right
+AY Monitor Pane bottom right.
+
+>Editing Pane
+This holds a list of events.
+Events are Action lines that perform a very specific task (aking to mnemonics
+in Assembler).
+
+>MNEMONIC's
+Each Action is represented by a 3 character mnemonic.
+When you start, you will see an inversed "END" in the top left corner (under
+the heading MNE). The inverse is the cursor, the END means End here.
+To the right of this is a field with the Heading REG (Register).
+
+>REGISTER's
+The Register determines the physical AY Register that the action is to be
+performed on.
+Some Actions will not require a register and these will therefore not display
+the register for you to modify.
+Of these latter Actions, some use the register to store other information (in
+order to keep the byte count down).
+For example, the PER action sets a PERiod of time for the effect and uses the
+Register field to hold the Period.
+In another example, the LPR action sets a long period by using the subsequent
+byte for the low-byte period count and the register for the high.
+For a full list of Registers and what they are, refer to Appendix III
+
+>D1/D2/D3
+To the right of the Register field are three data bytes with headings D1,D2,D3.
+These hold parameters for the action.
+Some Actions reuire no additional Data bytes, some require three, just like
+Assembler.
+
+>PROCESS
+When the cpu runs through the list, it will execute every line (Top down) until
+it reaches a PER, LPR or END Action.
+When it reaches the LPR or PER Action, it will pause for the period specified.
+Note that this pause does not affect CPU activity, only the SFX behaviour.
+
+>ROWS
+Their are up to 24 rows of Actions to use for each effect.
+Whilst each effect may physically hold up to 96 bytes, only 64 may be
+stored in the individual effect. It is unlikely that this will pose a problem
+since most action rows will consume around 2 bytes each.
+However, editing acts on a buffer which is 96 bytes long.
+This allows full manipulation of the effect space.
+
+>ACTIONS
+Each Action acts on a specific aspect of the AY-3-8912 or the effects
+behaviour.
+Actions may simply set register values (SET or SWM) or may initiate an
+effect pause (PER or LPR).
+For a full list of the available actions and their associated shortcut
+keys, go to Appendix II
+Their are also Actions that will initiate a software driven Envelope.
+
+>ENVELOPES
+Envelopes are software driven counters. Each effect may have up to 4
+concurrently running.
+The Envelopes may count up or down (EVR or EVF), or may do so
+conditionally (CER or CEF).
+Conditional Envelopes will raise a register by a specified step and at a
+specified Speed until it reaches a specified Value (CER) or Zero (CEF).
+Conditional Envelopes are especially useful for controlling the volume since
+they can be programmed to prevent over-run.
+
+>CARE and ERRORS
+Protection has been included to prevent Register 7 (stt Status) becoming
+irrevocably corrupted and also to prevent unused bits in other registers
+being sent to the physical AY register, so any register may be modified
+without much care for their content, in order to achieve the desired
+sound.
+
+>SFX NAMES
+Every SFX may have an associated 8 character Name Text.
+When entering the Name editor, the Editor cursor will vanish, and the Name
+cursor will appear (Top right).
+Just type in the name of the SFX (DEL as appropriate) and Return at the End,
+pressing return at the beginning of the line will cancel the input and restore
+any previous name that was present.
+
+The SFX name will be saved in your SFX file but not Compiled in the
+Compiler.
+
+>KEYs COMMANDs
+Commands exist in 5 catagories...
+
+Navigation
+Manipulation
+Sound Control
+SFX Control
+
+>NAVIGATION KEYS
+The Cursor keys control the cursor position, and the code will prevent the
+cursor moving over null data fields or beyond the end action.
+To Display each Help Page in turn, press H
+To quit to the Disc Menu, press ESC. Refer Appendix V for details.
+For full key list, see Apendix I
+
+>MANIPULATION KEYS
+When you beginthe cursor sits over a single END which marks the end to the
+current Effect.
+Press 'I' to Insert a line, or 'D' to delte the line (Close gap)
+Data entries may be modified using -/= to decrement or increment their
+contents or DEL to Zero it.
+Each Action also has an associated shortcut key.
+For a full list of Action Shortcut keys, turn to Appendix II
+For full key list, see Apendix I
+
+>SOUND CONTROL KEYS
+To play the current Effect being edited, press Return.
+For full key list, see Apendix I
+
+>SFX CONTROL KEYS
+To select the effect number(0-63), use the ,/. keys.
+To Select the Area, use the keys Z/X.
+To name an Effect (It will be saved with your SFX data) press N
+For full key list, see Apendix I
+
+>>Help and Info Pane top right
+The top right displays the Current Effect Number (0 to 63), the effect
+name, the Area (Environment, Creatures or Hero) and the number of bytes for
+the current effect (64 Maximum)
+
+>AREA
+The original intention of this SFX Editor is for use in generating
+effects for Times of Lore.
+In Times of Lore, effects are split into three categories but are not
+physically linked in any way to channels, although this is completely
+down tot the user to decide.
+The three areas will each call it's own entry point for an effect, thereby
+providing the facility to concurrently play 3 separate effects.
+This is the reason for the Area allocation of Environment, Creatures and
+Hero. The Allocation is stored in a saved or loaded uncompiled file but
+is not stored and has no bearing on the compiled output file.
+
+>HELP
+Help pages run from 1 to 4 and comprise all help usually required for editing
+the sound effect.
+Use 'H' key to progress through the pages.
+
+>>AY Monitor Pane bottom right.
+To facilitate the editing and required sound effects output, the complete
+AY-3-8912 Sound chip is constantly monitored in this pane.
+Any Click, Shhhh, Bump or Creak that the Sound Chip makes will be shown.
+Note that the T N E flags correspond to the Tone(On/Off), Noise(On/Off) and
+EG (On/Off) Flags.
+The EG is the only internal Hardware Envelope Generator, but it may serve
+as an excellent source for other weird effects.
+When the EG flag is set, the Volume Register associated to that channel will
+show >> indicating that the Hardware Envelope Generator is taking care of
+the volume now.
+
+
+
+
+Appendix I - All Keys
+ KEY            FUNCTION
+ Cursor Down    Navigate Down
+ Cursor Up      Navigate Up
+ Cursor Left    Navigate Left
+ Cursor Right   Navigate Right
+ -              Decrement Action, Register or Data
+ =              Increment Action, Register or Data
+ I              Insert Line
+ D              Delete Line
+ ,              Previous Effect
+ .              Next Effect
+ Z              Previous Area
+ X              Next Area
+ DEL            Delete Action(END), Register(pal) or Data
+ Return Key     Play Effect
+ ESC Key        Quit to Disc Menu (Refer Appendix V)
+ N              Name SFX (8 Characters)
+ E              END
+ M              SWM
+ R              EVR
+ F              EVF
+ S              STE
+ L              LEV
+ P              PER
+ T              SET
+ Z              ZRG
+ C              CER
+ V              CEF
+ W              LPR
+ G              EOE
+ H              Help Pages
+
+Appendix II - Shortcut Mnemonic Keys and Definitions
+
+KEY             MNEMONIC        Definition
+ E              END             End Effect or Return from EOE
+ M              SWM             Set Register with Mask
+ R              EVR             Initiate Envelope Rise
+ F              EVF             Initiate Envelope Fall
+ S              STE             Stop Envelope by speciying register it is on
+ L              LEV             Loop Back Effect
+ P              PER             Short Period and trigger to wait.
+ T              SET             Set Register without Mask
+ Z              ZRG             Zero Register
+ C              CER             Initiate Conditional Envelope Rise to limit
+ V              CEF             Initiate Conditional Envelope Fall to Zero
+ W              LPR             Long Period and trigger to wait.
+ G              EOE             Execute Other Envelope (Like GOSUB or JSR)
+
+Turn to Appendix IV for further details on individual actions
+
+Appendix III - Register Mnemonics and what they are
+Register        Definition
+ pal            Pitch A Low (00-FF)  Higher value, lower pitch
+ pah            Pitch A High (00-0F) Higher value, lower pitch
+ pbl            Pitch B Low (00-FF)  Higher value, lower pitch
+ pbh            Pitch B High (00-0F) Higher value, lower pitch
+ pcl            Pitch C Low (00-FF)  Higher value, lower pitch
+ pch            Pitch C High (00-0F) Higher value, lower pitch
+ noi            Noise Pulse Width (00-1F) Higher Value, Sharper Tone
+ stt            Status Register with Noise/Tone Flags for all channels
+                        Useful Masks & Values (SWM)
+                        FE,01   Turn off Tone, Turn on Noise for Channel A
+                        FD,02   Turn off Tone, Turn on Noise for Channel B
+                        FB,04   Turn off Tone, Turn on Noise for Channel C
+                        F6,08   Turn on Tone, Turn off Noise for Channel A
+
+ v-a            Volume A (0-15) Higher Value, Higher Volume, and EG Flag
+ v-b            Volume B (0-15) Higher Value, Higher Volume, and EG Flag
+ v-c            Volume C (0-15) Higher Value, Higher Volume, and EG Flag
+ evl            Hardware Envelope Period Low (00-FF) Higher Value,Longer
+ evh            Hardware Envelope Period High (00-FF) Higher Value,Longer
+ evc            Envelope Cycle Register
+                        Useful Values
+
+
+Appendix IV - Individual Action Details
+
+** END Action  0 ($00+Register)
+End will end the Effect. It will not neccesarily end the Envelopes
+currently running.
+If the register is valid (00-0D) then Zero will be written to the
+register. This is useful to silence the sound when the effect has
+finished.
+
+For Example, to End Effect and silence the sound, we would use $08,
+and to End the effect but do not silence the sound, we would use $0F.
+
+If this effect was called from an EOE, then END will return to
+continue the effect that EOE'd it though the Zeroing of the Effect
+(If Register is used) will not occur.
+
+** SWM Action  1 ($10+Register), Mask, Value
+SWM (Set With Mask) will store the subsequent value in the specified
+register using the mask to filter bits that should not be changed.
+
+For example, to Set the Tone bit for Channel B, we would use
+$17,$FD,$02
+
+** EVU Action  2 ($20+Register), Step, Delay
+EVU (EnVelope Up) will setup an Envelope to raise the value of the
+specified Register by a specified step at a specified speed.
+The Speed is held in Delay and is a fractional Delay so 0 will be
+very slow, and 255 will be at the speed of the interrupt (50Hz)
+
+For example, to setup a Volume rise on Channel C at steps of 1 and
+at half the speed of the Interrupt we would use $2A,$01,$80
+
+** EVD Action  3 ($30+Register), Step, Delay
+EVD (EnVelope Down) will setup a envelope to drop the value of the
+specified Register by a specified step at a specified speed.
+The Speed is held in Delay and is a fractional Delay so 0 will be
+very slow, and 255 will be at the speed of the interrupt (50Hz)
+
+For example, to setup a Volume Drop on Channel C at steps of 1 and
+at half the speed of the Interrupt we would use $3A,$01,$80
+
+** STE Action  4 ($40+Register)
+STE (STop Envelope) will Stop an Envelope by specifying the Register
+it is attached to. If the register cannot be linked to the Envelope
+then it is assumed that all Envelopes (on channel) should be stopped.
+
+For Example, to stop all envelopes on channel, we would use $4F or
+$4E and to stop an envelope currently attenuating on Noise, we would
+use $46
+
+** LEV Action  5 ($50+Rows from start)
+LEV (Loop EVent) will jump back to the number of rows from the start
+and continue executing from that point until the next Period.
+
+Care must be taken to prevent an infinite loop, whereby no period
+exists in the loop. No protection is currently given to prevent this
+occurring.
+
+Note that LEV is limited to looping back to the first 15 rows of the
+Sound Effect.
+
+For example, to loop back to the 3rd row from the start, use $53
+
+** PER Action  6 ($60+Period)
+PER (PERiod) will set the Period for the next wait state, and trigger
+the wait state to take place.
+If Longer periods than 15 interrupt cycles are required, use LPR
+instead.
+Based on an interrupt of 50Hz, A Period of Zero will wait 5.12 Seconds
+before moving onto the next event step.
+A Period of 1 will wait 0.02 Seconds, and a period of 2 will wait 0.04
+seconds.
+
+For example to wait 0.2 second, we would use $6A
+The following Table details all periods
+Secs Value
+0.02 1
+0.04 2
+0.06 3
+0.08 4
+0.10 5
+0.12 6
+0.14 7
+0.16 8
+0.18 9
+0.2  10
+0.22 11
+0.24 12
+0.26 13
+0.28 14
+0.3  15
+0.32 0
+
+** SET Action  7 ($70+Register), Value
+SET (Set Register Value) is similar to SWM but does not have a mask
+byte. This reduces the number of bytes to write to registers that
+are not shared by other channels or that a direct write is all that
+is needed.
+
+For example, to set the Pitch of channel A with 2558 ($9FE in hex)
+we would use $70,$FE,$71,$09
+
+** ZRG Action  8 ($80+Register)
+ZRG (Zero ReGister) will store 0 to the specified Register.
+
+For Example, if we wanted to silence Channel A, we would use $88 or
+if we wanted to set the high Period in the EG to 0, we would use $8B
+
+** CEU Action  9 ($90+Register), Step, Delay, Threshold
+CEU (Conditional Envelope Up) is similar to EVU except that it will
+terminate the envelope when the threshold is reached. No Overflow
+will occur
+
+For example, to setup a Volume rise on Channel C at steps of 1 to
+the maximum volume of 15 and at half the speed of the Interrupt we
+would use $9A,$01,$80,$0F
+
+** CED Action  10($A0+Register), Step, Delay
+CED (Conditional Envelope Down) is similar to EVD except that it will
+terminate the envelope when zero is reached. No Overflow will occur.
+
+For example, to setup a Volume fall on Channel C at steps of 1 to zero
+and at half the speed of the interrupt we would use $AA,$01,$80
+
+** LPR Action  11($B0+Period), Period
+LPR (Long PeRiod) will set the Period for the next wait state, and
+trigger the wait state to take place.
+The Register Period forms the high byte of the wait period whilst the
+data byte supplies the low byte period.
+If periods shorter than 16 interrupt cycles are required, use PER
+instead.
+Based on an interrupt of 50Hz, A Period of Zero will wait 5.12 Seconds
+before moving onto the next event step.
+A Period of 1 will wait 0.02 Seconds, and a period of 2 will wait 0.04
+seconds.
+The value provided evaluates as a 12 bit Period counter which should suit
+most peoples needs (Up to 1 minute, 21 seconds max!).
+
+For example to wait 1 second, we would use $40,$32
+
+** EOE Action  12($C0+Effect)
+EOE (Execute Other Effect) will execute the effect specified then
+return to continue on the next action, just like JSR or GOSUB.
+This is a very powerful command, since it allows effects to be
+combined into much larger effects without the size penalty.
+Like nested Gosubs or JSRs, EOE's can also be nested (up to 4
+levels deep).
+
+Foe Example (2 nested Levels)
+ SFX0           SFX1            SFX2
+ PER F
+ EOE 1
+                SET v-a 00
+                EOE 2
+                                SWM stt FE 01
+                                END
+                END
+ END
+
+** RRP Action  13($D0+Register),Bits,Period
+RRP (Randomise Register for Period) generates a random number, which is
+then logically ANDed with Bits and those bits affected are written to
+the register specified. This action repeats for the period specified.
+
+The first 256 bytes of the memory area used for the SFX Player are
+sequentially read, added to an 8 bit counter and subtracted from the
+two zero page locations used by SFX player. The 8 bit result
+is the 8 bit random element.
+
+If the period selected is 00, then RRP will continue to randomise the
+selected register until interrupted by the next effect using the same
+area.
+Their is one pseudo random source that must be shared across all 3
+areas.
+
+Appendix V - The Disc Menu
+The disc menu is accessable by pressing ESC from the editor.
+Disc operations are limited to the current disc. No tape support is given.
+It displays 4 options
+
+1 - Save Uncompiled SFX
+2 - Load Uncompiled SFX
+3 - Save Compiled SFX
+9 - Quit to BASIC
+ESC Return to Editor
+
+>1 - Save Uncompiled SFX
+Will present a directory. Press E to abort back to the Disc menu
+Enter the filename (FN) less any extension. The file saved
+will include the .SFX extension.
+
+>2 - Load Uncompiled SFX
+Will present a directory. Press E to abort back to the Disc menu
+Enter the filename (FN) less any extension. The file loaded
+will include the .SFX extension.
+
+>3 - Save Compiled SFX
+Will compile the currently loaded sound effects (All 64) and
+will present a directory. Press E to abort back to the Disc menu
+Enter the filename (FN) less any extension.
+Refer to Appendix VI for more information on saved files.
+
+>9 - Quit to BASIC
+Will disable the effects currently running and quit to BASIC.
+
+>ESC Return to Editor
+Will return to the Editor and restore the current SFX and cursor
+position.
+
+Appendix VI - The Compiler
+The compiler will take all effects and compile them to three files and will
+display the effect count and total effect memory used.
+It is down to the programmer to ensure that unused effects are at the end
+of the effect 'list' (otherwise maximum memory efficiency cannot be
+guarenteed).
+The generated files are shown in the disk directory with the extensions...
+.CSM Compiled SFX Memory
+.CSL Compiled SFX Address Table Lo
+.CSH Compiled SFX Address Table Hi
+
+In future versions, the compiler will also compile a list of used commands
+that were used and exclude the actions that were not used from the machine
+code (Redundant effects).
+To optimise, you may consider using the EVR action instead of the EVF by
+using FE or less as the step. This will reduce the mc when compiled.
+
+Appendix VII - Implemntation into your own games
+No implemntation is currently available.
+
+Appendix VIII - Examples
+On the supplied disc, you will find the example "DEMO1.SFX".
+This contains a number of different Effects, from the sublime to the
+complex.
+The examples start from SFX:16 (Sound Effects below 16 may have special
+purposes).
+Each Example has been given a name which is both shown below and in the editor
+in the name field.
+
+-=Example 1 (SFX 16, "EXMPLE01")=- (A Simple Example)
+Example 1 plays the note middle C starting with volume 15 and fading to zero.
+Row 1 (SWM stt) enables Tone and Disables Noise for Channel A (*1).
+Row 2 sets the Low byte pitch of channel A (pal) to EE (238 Decimal) (*4).
+Row 3 sets the high byte pitch of channel A (pah) to zero (*4).
+Row 4 sets the volume of channel A(v-a) to maximum 0F (15 decimal)
+Row 5 sets up a 'Conditional Envelope Falling' of the Volume (*2).
+Row 6 Ends the current effect but not the CEF Envelope (*3)
+
+Notes (Referenced above with *)
+1) For register stt, the actual settings for enabling or disabling Tone or
+   noise through the SWM action of any channel may be found on the Last Help
+   window in the Editor.
+2) The CEF Action decreases the value of the specified register over time
+   using Step (D1) and Delay (D2) parameters until the register reaches 0.
+   It will then stop.
+3) Whilst END may end the effect sequence, any envelopes will continue to
+   run their course.
+4) For a full list of Pitch register settings for Notes, refer to the next
+   Appendix (Appendix IX)
+
+
+-=Example 2 (SFX 16, "EXMPLE02")=- (Open Door)
+Example 2 tries to simulate a creaking door opening.
+It does this by running from the lowest pitch upwards
+
+Appendix IX - Pitch Table for Notes
+
+Note    Pitch Low       Pitch Hi
+C-0     77              07
+C#0     0B              07
+D-0
+D#0
+E-0
+F-0
+F#0
+G-0
+G#0
+A-0
+A#0
+B-0
+C-1
+C#1
+D-1
+D#1
+E-1
+F-1
+F#1
+G-1
+G#1
+A-1
+A#1
+B-1
+C-2
+C#2
+D-2
+D#2
+E-2
+F-2
+F#2
+G-2
+G#2
+A-2
+A#2
+B-2
+C-3
+C#3
+D-3
+D#3
+E-3
+F-3
+F#3
+G-3
+G#3
+A-3
+A#3
+B-3
+C-4
+C#4
+D-4
+D#4
+E-4
+F-4
+F#4
+G-4
+G#4
+A-4
+A#4
+B-4
+C-5
+C#5
+D-5
+D#5
+E-5
+F-5
+F#5
+G-5
+G#5
+A-5
+A#5
+B-5
+C-6
+C#6
+D-6
+D#6
+E-6
+F-6
+F#6
+G-6
+G#6
+A-6
+A#6
+B-6
+C-7
+C#7
+D-7
+D#7
+E-7
+F-7
+F#7
+G-7
+G#7
+A-7
+A#7
+B-7

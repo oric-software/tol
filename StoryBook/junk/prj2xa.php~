@@ -1,0 +1,260 @@
+<?
+/*
+ mn$=mn$+":ADC26D43ADC36532ADC46922ADC57D43ADC67943ADC7??62ADC87152ADC97542"
+<twilighte> mn$=mn$+":AND22D43AND32532AND42922AND53D43AND63943AND7??62AND83152AND93542"
+<twilighte> mn$=mn$+":ASL10A21ASL20E63ASL30652ASL51E73ASL91662:BCCB9022:BCSBB022:BEQBF"
+<twilighte> mn$=mn$+"022:BIT22C43BIT32432:BMIB3022:BNEBD022:BPLB1022:BRK10071:BVCB5022"
+<twilighte> mn$=mn$+":BVSB7022:CLC11821:CLD1D821:CLI15821:CLV1B821:CMP2CD43CMP3C532CMP"
+<twilighte> mn$=mn$+"4C922CMP5DD43CMP6D943CMP7C162CMP8D152CMP9D542:CPX2EC43CPX3E432CPX"
+<twilighte> mn$=mn$+"4E022:CPY2CC43CPY3C432CPY4C022:DEC2CE63DEC3C652DEC5DE73DEC9D662:D"
+<twilighte> mn$=mn$+"EX1CA21:DEY18821:EOR24D43EOR34532EOR44922EOR55D43EOR
+*/
+function replace_ASCII($string)
+	{
+	if (eregi("#\\$\"", $string))
+		{
+		$string=ereg_replace ("\\$\"", "'", $string);
+		$string=ereg_replace ("\"", "'", $string);
+		}
+
+	return $string;
+	}
+
+	function complete_xa($string)
+	{
+
+
+		$string=ereg_replace ("\[SHARP\]", "#", $string);
+
+
+
+	return $string;
+	}
+
+
+function add_dollar($string)
+	{
+	$temp=explode(" ",$string);
+	//echo $temp[0]."jjjjjjjjjj";
+	if (eregi("^[0-9A-F][0-9A-F]", $temp[1])) // CRAP Should be [0-9A-F][0-9A-F][0-9A-F][0-9A-F]
+		{
+		$string=$temp[0]." \$".$temp[1]."\n";
+		}
+	if (eregi("^\([0-9A-F]", $temp[1]))
+		{
+		$str2=ereg_replace ("\(", "($", $temp[1]);
+		$string=$temp[0]." $str2";
+		}
+
+	return $string;
+	}
+
+
+function replace_comment($string)
+	{
+
+
+	return ereg_replace ("'", ";", $string);
+	}
+
+function replace_label($string)
+	{
+	$temp=ereg_replace (":", "", $string);
+
+	return $temp;
+	}
+
+function replace_dot_coma($string)
+	{
+	$temp=ereg_replace (";", "", $string);
+
+	return $temp;
+	}
+
+function replace_sharp($string)
+	{
+	$temp=ereg_replace ("#", "#$", $string);
+
+	return $temp;
+	}
+function replace_sharp2($string)
+	{
+	$temp=ereg_replace ("#\\$\\$", "#", $string);
+
+	return $temp;
+	}
+
+function replace_binary($string)
+	{
+	$temp=ereg_replace ("#\\$\\%", "#%", $string);
+
+	return $temp;
+	}
+
+
+function replace_deuxpoint_label_table($string)
+	{
+	GLOBAL $precedent_deux_points;
+	if (eregi("^:", $string))
+		{
+		$precedent_deux_points=ereg_replace ("^:", "", $string);
+		$precedent_deux_points[strlen($precedent_deux_points)-1]=' ';
+		//echo "Prec ".$precedent_deux_points;
+		return "";
+		}
+	return $string;
+	}
+
+
+function replace_eperluette($string)
+	{
+
+	if (eregi("^\&", $string))
+		{
+
+		$temp=explode("\t",$string);
+		//echo "!".$temp[0]."!";
+		$string=$temp[0]."\n";
+		if (count($temp)>1) $string.="\t";
+		for($x=1;$x<count($temp);$x++)
+			{
+			$string.=$temp[$x];
+			}
+/*		$x=0;
+		while	((intval($string[$x])!=9 && $x<strlen($string) )
+			{
+			$temp.=$string[$x];
+			$x++;
+			}
+		$temp.="-La-";
+		//$x++;
+		while	($x<strlen($string))
+			{
+			$temp.=$string[$x];
+			$x++;
+			}
+		$string=$temp;
+*/
+		}
+
+	$temp=ereg_replace ("\&", "", $string);
+
+	return $temp;
+	}
+function replace_immediate($string)
+	{
+	$temp=ereg_replace ("#", "#$", $string);
+
+	return $temp;
+	}
+
+function replace_adress($string)
+	{
+	$temp=explode(" ",$string);
+
+
+	return $temp;
+	}
+
+
+function convert_tables($string)
+
+{
+	GLOBAL $precedent_deux_points;
+	if (eregi("^;", $string)  )
+		{
+		$temp=ereg_replace ("^;", "", $string);
+		return $temp."\t.byt 0\n";
+		}
+
+	if (eregi("^\[", $string)  )
+		{
+    		//echo "contain table $string";
+		//$temp=explode("\]",$string);
+		if (eregi("^\[L&", $string))
+			{
+			//echo $string;
+			$temp=ereg_replace ("\[", "", $string);
+			$temp=ereg_replace ("\]", "", $temp);
+			$temp=explode("&",$temp);
+			//echo "la$temp[1]\n";
+			$string="[SHARP]define $precedent_deux_points  < $temp[1]";
+			return  $string;
+			}
+		else
+			if (eregi("^\[H&", $string))
+			{
+			//echo $string;
+			$temp=ereg_replace ("\[", "", $string);
+			$temp=ereg_replace ("\]", "", $temp);
+			$temp=explode("&",$temp);
+			//echo "la$temp[1]\n";
+			$string="[SHARP]define $precedent_deux_points  > $temp[1]";
+			return  $string;
+			}
+		else
+			{
+			$temp=ereg_replace ("\[", "", $string);
+			$temp=ereg_replace ("\]", "", $temp);
+			if (eregi("\*", $temp))
+				{
+				$temp=explode("*",$temp);
+				//echo $temp[0]."\n";
+				$temp2=ereg_replace ("#", "", $temp[0]);
+				$temp3=ereg_replace ('\$', "", $temp[1]);
+				$temp3[strlen($temp3)-1]=" "; // Bug add a space to .dsb
+				$temp="\t.dsb ".$temp3.",".$temp2[0]."\n";
+				}
+			else
+				{
+				for ($x=0;$x<strlen($temp)-1;$x+=2)
+					{
+
+					$data.="\$".$temp[$x].$temp[$x+1];
+					if ($x+3<strlen($temp)) $data.=",";
+					}
+				$temp=".byt $data\n";
+				}
+			$string=$precedent_deux_points."\n".$temp;
+			return $string;
+			}
+		}
+	return $string;
+}
+
+
+
+$file=fopen("sonix.prj","r");
+
+
+while ($ligne=fgets($file,4096))
+        {
+	//$word=replace_comment($ligne);
+	$ligne=replace_deuxpoint_label_table($ligne);
+	//$word=replace_label($word);
+	//$word=replace_immediate($word);
+	//$routine.=replace_eperluette($word);
+	$ligne=convert_tables($ligne);
+	$ligne=replace_eperluette($ligne);
+	$ligne=replace_dot_coma($ligne);
+	$ligne=replace_sharp($ligne);
+	$ligne=replace_sharp2($ligne);
+	$ligne=replace_comment($ligne);
+	$ligne=replace_binary($ligne);
+	$ligne=replace_ASCII($ligne); // LDA #$"Z" By
+	$ligne=add_dollar($ligne);
+	$ligne=complete_xa($ligne);
+	$routine.=replace_label($ligne);
+	}
+fclose($file);
+
+//$routine=replace_comment($routine);
+/*
+	$word=replace_label($word);
+	$word=replace_immediate($word);
+	$mystr.=replace_eperluette($word);
+*/
+echo $routine;
+
+
+?>

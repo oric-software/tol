@@ -1,0 +1,10 @@
+;Glove Code V2
+;Original used alt set to remove flicker but there is a method
+;that consumes less memory resource and even smoother.
+
+;HHHHHHHHHHHHHHH
+;H098 102 106 110 114  B710 B730 B750 B770 B790
+;H099 103 107 111 115   ||   ||   ||   ||   ||
+;H100 104 108 112 116   ||   ||   ||   ||   ||
+; 101 105 109 113 117  B72F B74F B76F B78F B7AF
+

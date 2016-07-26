@@ -1,0 +1,321 @@
+
+
+
+
+	jsr refresh
+
+
+
+Refresh_request
+
+
+
+
+CPU sharing System (CSS)
+Using an IRQ to switch CPU usage between applications.
+Using IRQ for registered Services
+
+Each application is 4K
+
+
+Shell is 8K
+
+
+0500-3FFF Shell
+4000-4FFF Application 1
+5000-5FFF Application 1
+6000-6FFF Application 1
+7000-7FFF Application 1
+8000-8FFF Application 1
+9000-9FFF Application 1
+A000-BFFF HIRES
+C000-FFFF System
+
+
+
+switch_application
+	stx x_temp
+	ldx application_index
+	sta applications_a,x
+	lda x_temp
+	sta applications_x,x
+	tya
+	sta applications_y,x
+	pla
+	sta applications_s,x
+	pla
+	sta applications_l,x
+	pla
+	sta applications_h,x
+	dex
+	bpl
+	ldx last_application
+	stx application_index
+	jsr process_services
+	jsr process_shell
+	ldx last_application
+	ldy applications_y,x
+	lda applications_x,x
+	sta x_temp
+	lda applications_h,x
+	pha
+	lda applications_l,x
+	pha
+	lda applications_s,x
+	pha
+	lda applications_a,x
+	ldx x_temp
+	rti
+
+process_services
+	ldx last_service
+	lda service_vector_lo,x
+	sta pserv_01+1
+	lda service_vector_hi,x
+	sta pserv_01+2
+pserv_01
+	jsr $bf00
+	dex
+	bpl pserv_01
+	rts
+
+service_vector_lo
+service_vector_hi
+
+process_shell
+	lda $0304
+	jsr proc_senday
+	jsr proc_keyboard
+	jsr proc_mouse	;lightpen
+	rts
+
+character_set ;6*6 1.5K (256)
+;0-31 Special Chars to represent codes 0-31
+;32-127 ASCII
+;128-191 Graphics
+;192-255 Language/User Defined
+
+
+;x Xpos (0-239)
+;y Ypos (0-199)
+;A Char number
+;C inverse property
+plot_graphic_char	;plot to pixel coordinates + clipping
+
+;x Xpos (0-39)
+;y Ypos (0-32)
+;A Char number
+;C inverse property
+plot_text_char		;plot to text coordinates (No clipping)
+
+
+ .byt %010101	;L window border
+ .byt %010101
+ .byt %010101
+ .byt %010101
+ .byt %010101
+ .byt %010101
+
+ .byt %101010	;R window border
+ .byt %101010
+ .byt %101010
+ .byt %101010
+ .byt %101010
+ .byt %101010
+
+ .byt %000000	;Top window border
+ .byt %111111
+ .byt %000000
+ .byt %111111
+ .byt %000000
+ .byt %111111
+
+ .byt %111111	;Bottom window border
+ .byt %000000
+ .byt %111111
+ .byt %000000
+ .byt %111111
+ .byt %000000
+
+ .byt %000000	;TL window (Minimize)
+ .byt %011111
+ .byt %011111
+ .byt %010001
+ .byt %011111
+ .byt %011111
+
+ .byt %000000	;TR window (Close)
+ .byt %111110
+ .byt %101010
+ .byt %110110
+ .byt %101010
+ .byt %111110
+
+ .byt %011111	;BL window (Maximise)
+ .byt %010001
+ .byt %010101
+ .byt %010001
+ .byt %011111
+ .byt %000000
+
+ .byt %111110	;BR window (Resize)
+ .byt %101010
+ .byt %111010
+ .byt %100010
+ .byt %111110
+ .byt %000000
+
+ .byt
+
+
+
+
+;Set up animation of 4
+setup_animation
+
+
+Creature intellect
+
+Random direction on impact
+left hand path
+left and right hand path
+left and right hand path, retrace 5 steps
+left and right hand path, retrace 10 steps
+left and right hand path, retrace 10 steps, path memory
+
+
+maybe 4 types of objects
+
+?*7 shifted
+Using long-code so can be up to 16 bytes wide
+Useful for small sprites, fast plotting
+
+?*? Vertical
+Vertical scrolling only
+Useful for tall sprites,medium speed
+
+?*? offsetted (up to 7 rows)
+Each byte plotted has a specific offset relative to origin
+Useful for skeletal sprites, fast but deletion neccesary
+
+?*? eol redundancy
+End of line is 0
+Useful for Left justified or oddly shaped big sprites
+Deletion neccasary
+
+?*? block
+pure block, specific width/height
+Useful for large sprites, slow
+
+limitation of multiples of 7 for height
+loop	jsr long_code
+	;Although this is quite long winded, it need only be done once for
+	;every 6 or 7 rows
+	lda $c0
+	clc
+	adc #<280
+	sta $c0
+	lda $c1
+	adc #>280
+	sta $c1
+	lda $c2
+	adc #<280
+	sta $c2
+	lda $c3
+	adc #>280
+	sta $c3
+	dex
+	bpl loop
+
+
+
+
+100 hz
+Synthesis or Sample
+
+SynthOrSample
+	bit $030d
+	bvc sos_03	;T2 timeout (Sample/Music)
+	;T1 Timeout (Synth)
+	sta sos_08+1
+	stx sos_07+1
+	;Set register to A
+	lda #$ff
+	sta $030c
+	lda #08
+	sta $030f
+	lda #$dd
+	sta $030c
+sos_01	lda #00	;Synth cyclic flag
+	eor #01
+	sta sos_01+1
+	tax
+	beq sos_02
+	lda #00	;Synth Volume
+sos_02	sta $030f
+	lda #$fd
+	sta $030c
+	;Set new timer1 period
+	lda time_cycle_lo,x
+	sta $0304	;Also resets irq
+	lda time_cycle_hi,x
+	sta $0305
+
+sos_08	lda #00
+sos_07	ldx #00
+	rti
+
+;Sample (Fixed Rate)/Music
+sos_03	dec music_timeout
+	beq sosm_01
+	sta sos_06+1
+	;Set Register to B
+	lda #$ff
+	sta $030c
+	lda #09
+	sta $030f
+	lda #$dd
+	sta $030c
+sos_05	lda $bfff	;Sample Address
+	bmi sos_04
+	sta $030f
+	lda #$fd
+	sta $030c
+	inc sos_05+1
+	bne sos_09
+	inc sos_05+2
+	;Set timer2 hi
+sos_09	lda #	;T2 timer hi
+	sta $0309	;Also resets irq
+
+sos_06	lda #00
+	rti
+
+sos_04	lda #00	;Loop Flag and hi-loop
+	beq sos_06
+	sta sos_05+2
+	lda #00	;lo-loop
+	sta sos_05+1
+	jmp sos_06
+
+sosm_01	;Music timeout
+
+
+
+
+00 Void
+01 Solid
+02 Switch
+03 Door
+04 Bridge
+05 1 Bar
+06 2 Bar
+07 3 Bar
+08 Diamond
+09 PowerUp
+10 Teleport
+11 Sentinel
+12
+13
+14
+15
