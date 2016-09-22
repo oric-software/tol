@@ -1,5 +1,14 @@
 ;Storybook -
 
+;#define TARGET_TELEMON 
+ 
+#ifdef TARGET_TELEMON 
+#include "macro_telemon_compat.h"
+#else
+#include "macro_basic1_1_compat.h"
+#endif
+;###########macro_basic1_1_compat.h
+
 ;Consisting of
 ; Inlay screens 1-7(Packed)
 ;  Story1 23x103 @1,24
@@ -27,6 +36,7 @@
 #define	CR3	128+3
 #define	VIA_PORTB			$0300
 #define	VIA_T1CL			$0304
+
 #define	VIA_T2LL			$0308
 #define	VIA_T2CH			$0309
 #define	VIA_SR			$030A
@@ -40,12 +50,16 @@
 #define	SYS_IRQHI			$246
 
 
- .zero
+.zero
+#ifdef TARGET_TELEMON  
+*=$c0
+#else
 *=$00
-
+#endif
 StoryID		.dsb 1
 source		.dsb 2
 screen		.dsb 2
+; 5
 TempGraphicID	.dsb 1
 
 TempInlayWidth	.dsb 1
@@ -80,9 +94,36 @@ SelectedCharacter	.dsb 1
 ControllerRegister	.dsb 1
 
  .text
-*=$500
+#ifdef TARGET_TELEMON
+*=$1000-20
+	.byt $01,$00		; non-C64 marker
+;2
+    .byt "o", "r", "i"      ; "o65" MAGIC number :$6f, $36, $35
+	.byt 1			; version
+	;5
+	.byt $00, $00	; mode word mode0, mode1
+	.byt $00, $00		; CPU type
+	.byt $00, $00		; operating system id
+;11
+	.byt $00 ; reserved
+;12	
+	.byt %01001001 ; Auto, direct, data
+;13	
+	.byt <start_adress,>start_adress ; loading adress
+	.byt <EndOfMemory,>EndOfMemory ; end of loading adress
+	.byt <start_adress,>start_adress ; starting adress
 
-Driver	jsr HIRES
+start_adress
+#endif
+ 
+#ifdef TARGET_TELEMON  
+*=$1000
+#else 
+*=$500
+#endif
+
+Driver
+	CALL_HIRES
 	;Clear text rows
 	ldx #119
 	lda #8
@@ -205,10 +246,18 @@ loop1	sta (screen),y
 
 SetupMusicIRQ
 	sei
+#ifdef TARGET_TELEMON 
+	lda #<IRQRoutine
+	sta $2fb
+	lda #>IRQRoutine
+	sta $2fc
+#else
 	lda #<IRQRoutine
 	sta SYS_IRQLO
 	lda #>IRQRoutine
 	sta SYS_IRQHI
+#endif	
+
 	cli
 	rts
 
@@ -226,11 +275,14 @@ IRQRoutine
 	sta IRQA
 	stx IRQX
 	sty IRQY
-	
+#ifdef TARGET_TELEMON 	
+	lda VIA_T2LL
+#endif 		
 	lda VIA_T1CL
 .(	
 	lda IRQDelay
 	beq skip1
+
 	dec IRQDelay
 skip1	jsr ReadControllers
 .)

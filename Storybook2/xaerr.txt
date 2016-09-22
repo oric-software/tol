@@ -1,4 +1,4 @@
-Cross-Assembler 65xx V2.2.0 (22:38:49 / Jan 22 2010) 
+Cross-Assembler 65xx V2.2.3 (20:32:29 / Jan 17 2016) 
 (c) 1989-98 by A.Fachat
 65816 opcodes and modes coded by Jolse Maginnis
 Oric C adaptation and debugging by Mickael Pointier
