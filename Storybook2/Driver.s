@@ -94,7 +94,7 @@ SelectedCharacter	.dsb 1
 ControllerRegister	.dsb 1
 
  .text
-#ifdef TARGET_TELEMON
+#ifdef TARGET_ORIX
 *=$1000-20
 	.byt $01,$00		; non-C64 marker
 ;2
