@@ -14,4 +14,4 @@ echo Building atmos Version (no header)
 %osdk%\bin\xa.exe %INPUTFN%.s -o release\final.out -e xaerr.txt -l %INPUTFN%.txt
 %osdk%\bin\header.exe -a%AUTOFLAG% release\final.out release\%OUTTAP% %STARTADDR% 
 rem copy %OUTTAP% c:\emulate\oric\oriculator\tapes /Y
-pause
+
