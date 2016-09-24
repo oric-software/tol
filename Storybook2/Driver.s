@@ -118,6 +118,13 @@ start_adress
  
 #ifdef TARGET_TELEMON  
 *=$1000
+	tsx
+	sta spsave
+init_via
+	lda #<10000
+	sta $306
+	lda #>10000
+	sta $307
 #else 
 *=$500
 #endif
@@ -293,8 +300,12 @@ skip1	jsr ReadControllers
 
 ;Eventually sense Joystick but for now sense any key
 ReadControllers
+
+
 	lda #00
 	sta ControllerRegister
+
+
 	lda #$0E
 	sta VIA_PORTA
 	lda #$FF
@@ -1149,4 +1160,8 @@ HiresYLOCH
 #include "pacValkyrie.s"
 #include "pacWarrior.s"
 
+#ifdef TARGET_TELEMON
+spsave
+.dsb 1
+#endif
 EndOfMemory
