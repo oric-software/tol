@@ -1,6 +1,10 @@
 ;Storybook -
 
 ;#define TARGET_TELEMON 
+
+#ifdef TARGET_ORIX
+#include "../../telemon/src/include/telemon.h"
+#endif
  
 #ifdef TARGET_TELEMON 
 #include "macro_telemon_compat.h"
@@ -153,7 +157,13 @@ loop1	;Display Black ink template
 	;Commence playing of Story tune
 	
 	;Display Inlay Picture
+  
+#ifdef TARGET_ORIX  
 	ldx StoryID
+  jsr read_picture
+#endif  
+  
+  ldx StoryID
 	jsr Depack2Screen
 	
 	;Display text
@@ -1159,6 +1169,81 @@ HiresYLOCH
 #include "pacStory7.s"
 #include "pacValkyrie.s"
 #include "pacWarrior.s"
+
+#ifdef TARGET_ORIX
+
+read_picture
+  ldy #O_RDONLY ; Open in readonly
+  lda storypathtable_low,x
+  sta save_byte
+  lda storypathtable_high,x
+  tax 
+  ;save_byte
+  lda save_byte
+  ;BRK_TELEMON(XOPEN)
+  ; A register contains FP id
+  sta save_fp_id
+  
+  ; read now
+   
+
+; [IN] AY contains the length to read
+; [IN] PTR_READ_DEST must be set because it's the ptr_dest
+; [IN] TR0 contains the fd id 
+ 
+; Send the fp pointer
+  lda save_fp_id ; 1 is the fd id of the file opened
+  ; sta TR0 FIXME
+; define target address
+  lda #<buf_picture
+  ;sta PTR_READ_DEST
+  lda #>buf_picture
+  ;sta PTR_READ_DEST+1
+; We read 8000 bytes
+  lda #<8000
+  ldy #>8000
+; reads byte 
+ ; BRK_TELEMON(XFREAD)
+  rts
+save_fp_id
+  .byt 0
+save_byte
+  .byt 0
+
+storypathtable_low
+  .byt <filestory1
+  .byt <filestory2
+  .byt <filestory3
+  .byt <filestory4
+  .byt <filestory5
+  .byt <filestory6
+  .byt <filestory7
+storypathtable_high
+  .byt >filestory1
+  .byt >filestory2
+  .byt >filestory3
+  .byt >filestory4
+  .byt >filestory5
+  .byt >filestory6
+  .byt >filestory7
+buf_picture  
+  .dsb 2000  
+filestory1
+.asc "/usr/share/tol/pcstory1.dat"
+filestory2
+.asc "/usr/share/tol/pcstory2.dat"
+filestory3
+.asc "/usr/share/tol/pcstory3.dat"
+filestory4
+.asc "/usr/share/tol/pcstory4.dat"
+filestory5
+.asc "/usr/share/tol/pcstory5.dat"
+filestory6
+.asc "/usr/share/tol/pcstory6.dat"
+filestory7
+.asc "/usr/share/tol/pcstory7.dat"
+
+#endif
 
 #ifdef TARGET_TELEMON
 spsave
